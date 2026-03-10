@@ -411,6 +411,51 @@
     .session-desc { font-size: 12px; color: var(--gray-light); line-height: 1.5; margin-top: 4px; }
     .session-speaker { font-size: 12px; color: var(--gray); margin-top: 6px; }
 
+    /* ─── PARA QUEM É ───────────────────────────────────── */
+    #for-who { background: var(--black); }
+    .for-who-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      margin-bottom: 48px;
+    }
+    .for-who-card {
+      border-radius: var(--radius);
+      padding: 40px 36px;
+    }
+    .for-who-card.yes { background: #0d1f14; border: 1px solid #1e4d2b; }
+    .for-who-card.no  { background: #1a0d0d; border: 1px solid #4d1e1e; }
+    .for-who-card h3 {
+      font-size: 1rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      margin-bottom: 28px;
+    }
+    .for-who-card.yes h3 { color: #4ade80; }
+    .for-who-card.no  h3 { color: #f87171; }
+    .for-who-item {
+      display: flex;
+      gap: 14px;
+      margin-bottom: 20px;
+      line-height: 1.55;
+    }
+    .for-who-item:last-child { margin-bottom: 0; }
+    .for-who-icon { font-size: 1.2rem; flex-shrink: 0; margin-top: 1px; }
+    .for-who-text { color: var(--gray-light); font-size: .93rem; }
+    .for-who-closing {
+      text-align: center;
+      max-width: 620px;
+      margin: 0 auto;
+      color: var(--white-dim);
+      font-size: 1.05rem;
+      line-height: 1.7;
+    }
+    .for-who-closing strong { color: var(--gold); }
+    @media (max-width: 768px) {
+      .for-who-grid { grid-template-columns: 1fr; }
+    }
+
     /* ─── LOCAL DO EVENTO ───────────────────────────────── */
     #venue { background: var(--dark); }
 
@@ -932,6 +977,71 @@
         <p class="pillar-desc">Como alavancar sua base de clientes existente antes de aumentar o tráfego pago — crescimento sustentável.</p>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- ─── PARA QUEM É ──────────────────────────────────── -->
+<section id="for-who" class="section">
+  <div class="container">
+    <div class="section-header">
+      <span class="tag">Para Quem É</span>
+      <h2>Para quem é o M10 Summit</h2>
+    </div>
+
+    <div class="for-who-grid">
+      <!-- SIM -->
+      <div class="for-who-card yes">
+        <h3>Este evento é para você se:</h3>
+
+        <div class="for-who-item">
+          <span class="for-who-icon">✅</span>
+          <span class="for-who-text">Você tem um negócio que fatura — mas não consegue explicar por que alguns meses são bons e outros são um desastre</span>
+        </div>
+        <div class="for-who-item">
+          <span class="for-who-icon">✅</span>
+          <span class="for-who-text">Você é médico, advogado, consultor ou dono de empresa e percebeu que saber fazer o seu trabalho não é suficiente para crescer</span>
+        </div>
+        <div class="for-who-item">
+          <span class="for-who-icon">✅</span>
+          <span class="for-who-text">Você já investiu em tráfego, em ferramenta, em curso — e ainda sente que falta uma peça</span>
+        </div>
+        <div class="for-who-item">
+          <span class="for-who-icon">✅</span>
+          <span class="for-who-text">Você tem clientes bons na base e não está aproveitando nem metade do potencial deles</span>
+        </div>
+        <div class="for-who-item">
+          <span class="for-who-icon">✅</span>
+          <span class="for-who-text">Você quer que o seu negócio cresça com método — não com sorte, não com sprint, não com mais esforço</span>
+        </div>
+      </div>
+
+      <!-- NÃO -->
+      <div class="for-who-card no">
+        <h3>Este evento não é para você se:</h3>
+
+        <div class="for-who-item">
+          <span class="for-who-icon">❌</span>
+          <span class="for-who-text">Você ainda está tentando validar se tem um negócio de verdade</span>
+        </div>
+        <div class="for-who-item">
+          <span class="for-who-icon">❌</span>
+          <span class="for-who-text">Você quer inspiração. Aqui você vai sair com trabalho para fazer</span>
+        </div>
+        <div class="for-who-item">
+          <span class="for-who-icon">❌</span>
+          <span class="for-who-text">Você acha que o problema é só mais tráfego ou mais vendedor</span>
+        </div>
+        <div class="for-who-item">
+          <span class="for-who-icon">❌</span>
+          <span class="for-who-text">Você não está disposto a mudar a forma como opera hoje</span>
+        </div>
+      </div>
+    </div>
+
+    <p class="for-who-closing">
+      O M10 Summit é para quem já construiu algo —<br>
+      <strong>e agora quer construir certo.</strong>
+    </p>
   </div>
 </section>
 
