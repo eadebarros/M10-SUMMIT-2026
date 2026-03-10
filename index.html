@@ -1,0 +1,1445 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>M10 Summit 2026 — Transforme seu negócio em uma máquina de faturamento previsível</title>
+  <meta name="description" content="Evento presencial de 2 dias em Alphaville, SP. 8 e 9 de Maio de 2026. 7 especialistas, uma metodologia: a Área de Receita." />
+  <!-- ─── Google Analytics ─────────────────────────────── -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-7QJL4BS20E"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-7QJL4BS20E');
+  </script>
+
+  <!-- ─── Facebook Pixel ────────────────────────────────── -->
+  <script>
+    !function(f,b,e,v,n,t,s){
+      if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window,document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1369266921552801');
+    fbq('track', 'PageView');
+  </script>
+  <noscript>
+    <img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=1369266921552801&ev=PageView&noscript=1" />
+  </noscript>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --gold: #DBE64C;
+      --gold-light: #E8F06A;
+      --gold-dark: #B8C230;
+      --black: #000D1A;
+      --dark: #001225;
+      --dark2: #001F3F;
+      --dark3: #002855;
+      --gray: #6A7F94;
+      --gray-light: #9AB0C4;
+      --white: #F6F8EE;
+      --white-dim: rgba(246,248,238,0.85);
+      --radius: 8px;
+      --max: 1100px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--black);
+      color: var(--white);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ─── UTILS ─────────────────────────────────────── */
+    .container { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+    .section { padding: 80px 0; }
+    .section-sm { padding: 48px 0; }
+    .tag {
+      display: inline-block;
+      background: rgba(219,230,76,0.12);
+      border: 1px solid rgba(219,230,76,0.4);
+      color: var(--gold);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 100px;
+      margin-bottom: 20px;
+    }
+    .gold { color: var(--gold); }
+    .divider {
+      width: 60px; height: 3px;
+      background: var(--gold);
+      margin: 0 auto 32px;
+    }
+    .divider-left { margin-left: 0; }
+
+    /* ─── BUTTONS ────────────────────────────────────── */
+    .btn {
+      display: inline-block;
+      font-family: 'Inter', sans-serif;
+      font-weight: 800;
+      font-size: 15px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 18px 40px;
+      border-radius: var(--radius);
+      cursor: pointer;
+      border: none;
+      transition: all 0.25s ease;
+    }
+    .btn-gold {
+      background: linear-gradient(135deg, var(--gold-light), var(--gold), var(--gold-dark));
+      color: #001F3F;
+      box-shadow: 0 4px 24px rgba(219,230,76,0.35);
+    }
+    .btn-gold:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(219,230,76,0.55);
+    }
+    .btn-outline {
+      background: transparent;
+      color: var(--gold);
+      border: 2px solid var(--gold);
+    }
+    .btn-outline:hover {
+      background: var(--gold);
+      color: #001F3F;
+    }
+    .btn-lg { padding: 22px 56px; font-size: 16px; }
+    .btn-full { width: 100%; display: block; text-align: center; }
+
+    /* ─── HEADER ─────────────────────────────────────── */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(0,18,37,0.97);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(219,230,76,0.15);
+      padding: 16px 0;
+    }
+    header .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    header img.logo {
+      height: 72px;
+      width: auto;
+    }
+    header .header-cta .btn { padding: 12px 24px; font-size: 13px; }
+
+    /* ─── HERO ───────────────────────────────────────── */
+    #hero {
+      position: relative;
+      min-height: 90vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      background: var(--black);
+    }
+    #hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("M10Club LP ARQUIVOS/public_html/wp-content/uploads/2026/03/capa-lp-m10club-2025.webp") center/cover no-repeat;
+      opacity: 0.25;
+    }
+    #hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right, rgba(0,13,26,0.97) 50%, rgba(0,13,26,0.5) 100%);
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 680px;
+    }
+    .hero-event-badge {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 24px;
+    }
+    .hero-event-badge span {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .hero-event-badge::before {
+      content: '';
+      display: inline-block;
+      width: 32px;
+      height: 2px;
+      background: var(--gold);
+    }
+    #hero h1 {
+      font-size: clamp(32px, 5vw, 58px);
+      font-weight: 900;
+      line-height: 1.1;
+      margin-bottom: 24px;
+    }
+    #hero h1 em {
+      font-style: normal;
+      color: var(--gold);
+    }
+    .hero-sub {
+      font-size: 18px;
+      color: var(--white-dim);
+      margin-bottom: 36px;
+      line-height: 1.7;
+    }
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      margin-bottom: 40px;
+    }
+    .hero-meta-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      color: var(--gray-light);
+    }
+    .hero-meta-item svg { color: var(--gold); flex-shrink: 0; }
+    .hero-meta-item strong { color: var(--white); }
+    .hero-cta-group {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 16px;
+    }
+    .hero-note { font-size: 12px; color: var(--gray); margin-top: 16px; }
+
+    /* ─── STRIP ──────────────────────────────────────── */
+    .strip {
+      background: linear-gradient(135deg, var(--gold-dark), var(--gold), var(--gold-light));
+      padding: 20px 0;
+    }
+    .strip-inner {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 32px;
+    }
+    .strip-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #001F3F;
+      font-weight: 700;
+      font-size: 14px;
+    }
+    .strip-item svg { opacity: 0.8; }
+
+    /* ─── PROBLEM ────────────────────────────────────── */
+    #problem { background: var(--dark); }
+    #problem .section-header { text-align: center; margin-bottom: 56px; }
+    #problem h2 {
+      font-size: clamp(26px, 4vw, 42px);
+      font-weight: 900;
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+    #problem .lead {
+      font-size: 18px;
+      color: var(--gray-light);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .pain-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      margin-bottom: 56px;
+    }
+    .pain-card {
+      background: var(--dark2);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-left: 3px solid var(--gold);
+      border-radius: var(--radius);
+      padding: 28px 24px;
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+    .pain-card .icon {
+      font-size: 22px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .pain-card p { font-size: 15px; color: var(--white-dim); line-height: 1.6; }
+    .problem-conclusion {
+      text-align: center;
+      background: var(--dark2);
+      border: 1px solid rgba(219,230,76,0.2);
+      border-radius: 12px;
+      padding: 40px 32px;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .problem-conclusion p {
+      font-size: 20px;
+      color: var(--white-dim);
+      line-height: 1.7;
+    }
+    .problem-conclusion strong { color: var(--gold); font-weight: 800; }
+
+    /* ─── SOLUTION ───────────────────────────────────── */
+    #solution { background: var(--black); }
+    #solution .section-header { text-align: center; margin-bottom: 56px; }
+    #solution h2 {
+      font-size: clamp(26px, 4vw, 42px);
+      font-weight: 900;
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 24px;
+    }
+    .pillar-card {
+      background: var(--dark2);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 12px;
+      padding: 36px 28px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.25s, border-color 0.25s;
+    }
+    .pillar-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(219,230,76,0.4);
+    }
+    .pillar-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--gold-dark), var(--gold-light));
+    }
+    .pillar-num {
+      font-size: 48px;
+      font-weight: 900;
+      color: rgba(219,230,76,0.12);
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+    .pillar-name {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--gold);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .pillar-desc { font-size: 14px; color: var(--gray-light); line-height: 1.6; }
+
+    /* ─── SCHEDULE ───────────────────────────────────── */
+    #schedule { background: var(--dark); }
+    #schedule .section-header { text-align: center; margin-bottom: 56px; }
+    #schedule h2 {
+      font-size: clamp(26px, 4vw, 40px);
+      font-weight: 900;
+      line-height: 1.2;
+    }
+    .schedule-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+    }
+    @media(max-width: 700px) { .schedule-grid { grid-template-columns: 1fr; } }
+    .day-card {
+      background: var(--dark2);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .day-header {
+      background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+      padding: 20px 28px;
+    }
+    .day-header h3 {
+      font-size: 16px;
+      font-weight: 800;
+      color: #001F3F;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .day-header p { font-size: 13px; color: rgba(0,0,0,0.7); font-weight: 600; margin-top: 4px; }
+    .session-list { padding: 8px 0; }
+    .session-item {
+      display: flex;
+      gap: 16px;
+      padding: 18px 28px;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    .session-item:last-child { border-bottom: none; }
+    .session-time {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--gold);
+      white-space: nowrap;
+      padding-top: 2px;
+      min-width: 90px;
+    }
+    .session-title { font-size: 14px; font-weight: 700; color: var(--white-dim); line-height: 1.4; }
+    .session-desc { font-size: 12px; color: var(--gray-light); line-height: 1.5; margin-top: 4px; }
+    .session-speaker { font-size: 12px; color: var(--gray); margin-top: 6px; }
+
+    /* ─── LOCAL DO EVENTO ───────────────────────────────── */
+    #venue { background: var(--dark); }
+
+    .venue-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 12px;
+      margin-bottom: 48px;
+    }
+    .venue-gallery img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-radius: var(--radius);
+      transition: transform .3s;
+    }
+    .venue-gallery img:hover { transform: scale(1.03); }
+
+    .venue-bottom {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      align-items: start;
+    }
+    .venue-map iframe {
+      width: 100%;
+      height: 360px;
+      border: none;
+      border-radius: var(--radius);
+    }
+    .venue-hotels h3 {
+      color: var(--gold);
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      margin-bottom: 20px;
+    }
+    .hotel-card {
+      background: var(--dark2);
+      border-radius: var(--radius);
+      padding: 18px 20px;
+      margin-bottom: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .hotel-card strong { color: var(--white); font-size: .95rem; }
+    .hotel-card span { color: var(--gray-light); font-size: .82rem; }
+    .hotel-card .hotel-dist {
+      color: var(--gold);
+      font-size: .78rem;
+      font-weight: 600;
+      margin-top: 4px;
+    }
+
+    @media (max-width: 768px) {
+      .venue-bottom { grid-template-columns: 1fr; }
+      .venue-map iframe { height: 260px; }
+    }
+
+    /* ─── SPEAKERS ───────────────────────────────────── */
+    #speakers { background: var(--black); }
+    #speakers .section-header { text-align: center; margin-bottom: 56px; }
+    #speakers h2 {
+      font-size: clamp(26px, 4vw, 42px);
+      font-weight: 900;
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+    #speakers .lead {
+      font-size: 17px;
+      color: var(--gray-light);
+      max-width: 560px;
+      margin: 0 auto;
+    }
+    .speakers-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 24px;
+    }
+    .speaker-card {
+      background: var(--dark2);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 12px;
+      overflow: hidden;
+      transition: transform 0.25s, border-color 0.25s;
+    }
+    .speaker-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(219,230,76,0.35);
+    }
+    .speaker-photo {
+      width: 100%;
+      aspect-ratio: 1;
+      object-fit: cover;
+      display: block;
+      filter: grayscale(20%);
+      transition: filter 0.3s;
+    }
+    .speaker-card:hover .speaker-photo { filter: grayscale(0%); }
+    .speaker-info { padding: 20px; }
+    .speaker-name {
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 6px;
+    }
+    .speaker-role {
+      font-size: 13px;
+      color: var(--gold);
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+    .speaker-bio { font-size: 13px; color: var(--gray-light); line-height: 1.5; }
+
+    /* ─── OFFER ──────────────────────────────────────── */
+    #offer { background: var(--dark); }
+    #offer .section-header { text-align: center; margin-bottom: 56px; }
+    #offer h2 {
+      font-size: clamp(26px, 4vw, 42px);
+      font-weight: 900;
+      line-height: 1.2;
+    }
+    .offer-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+    @media(max-width: 768px) { .offer-layout { grid-template-columns: 1fr; } }
+    .includes-list { list-style: none; }
+    .includes-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      font-size: 15px;
+      color: var(--white-dim);
+    }
+    .includes-list li:last-child { border-bottom: none; }
+    .includes-list li .check {
+      color: var(--gold);
+      font-size: 18px;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .price-card {
+      background: var(--dark2);
+      border: 2px solid rgba(219,230,76,0.4);
+      border-radius: 16px;
+      padding: 40px 36px;
+      text-align: center;
+      position: sticky;
+      top: 100px;
+    }
+    .price-card .lote {
+      display: inline-block;
+      background: var(--gold);
+      color: #001F3F;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 100px;
+      margin-bottom: 20px;
+    }
+    .price-card .price-label {
+      font-size: 13px;
+      color: var(--gray);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+    .price-card .price-value {
+      font-size: 56px;
+      font-weight: 900;
+      color: var(--white);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .price-card .price-value span { font-size: 28px; font-weight: 600; vertical-align: top; margin-top: 10px; display: inline-block; }
+    .price-card .price-note {
+      font-size: 12px;
+      color: var(--gray);
+      margin-bottom: 32px;
+    }
+    .price-card .btn { width: 100%; margin-bottom: 20px; }
+    .price-card .guarantee {
+      font-size: 12px;
+      color: var(--gray);
+      line-height: 1.5;
+    }
+    .price-card .guarantee strong { color: var(--gold); }
+    .urgency-banner {
+      background: rgba(219,230,76,0.1);
+      border: 1px solid rgba(219,230,76,0.3);
+      border-radius: 8px;
+      padding: 16px 20px;
+      text-align: center;
+      margin-top: 20px;
+      font-size: 13px;
+      color: var(--gold-light);
+    }
+
+    /* ─── CTA FINAL ──────────────────────────────────── */
+    #cta-final {
+      background: linear-gradient(135deg, #000d1a, #001225, #001f3f);
+      border-top: 1px solid rgba(219,230,76,0.2);
+      padding: 100px 0;
+      text-align: center;
+    }
+    #cta-final h2 {
+      font-size: clamp(28px, 4vw, 48px);
+      font-weight: 900;
+      line-height: 1.2;
+      margin-bottom: 20px;
+    }
+    #cta-final p {
+      font-size: 18px;
+      color: var(--gray-light);
+      max-width: 560px;
+      margin: 0 auto 40px;
+    }
+    .cta-group {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+    .cta-whatsapp {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: #25D366;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+    .cta-whatsapp:hover { opacity: 0.8; }
+
+    /* ─── FOOTER ─────────────────────────────────────── */
+    footer {
+      background: #050505;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 40px 0;
+      text-align: center;
+    }
+    footer img.logo { height: 56px; margin-bottom: 20px; }
+    footer .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 24px;
+      margin-bottom: 20px;
+    }
+    footer .footer-links a {
+      font-size: 13px;
+      color: var(--gray);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    footer .footer-links a:hover { color: var(--gold); }
+    footer .copyright {
+      font-size: 12px;
+      color: rgba(136,136,136,0.6);
+    }
+    footer .copyright a { color: var(--gray); text-decoration: none; }
+    footer .copyright a:hover { color: var(--gold); }
+
+    /* ─── MODAL ──────────────────────────────────────── */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.85);
+      z-index: 999;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      backdrop-filter: blur(4px);
+    }
+    .modal-overlay.active { display: flex; }
+    .modal {
+      background: var(--dark2);
+      border: 1px solid rgba(219,230,76,0.3);
+      border-radius: 16px;
+      padding: 48px 40px;
+      width: 100%;
+      max-width: 520px;
+      position: relative;
+      animation: modalIn 0.3s ease;
+    }
+    @keyframes modalIn {
+      from { opacity: 0; transform: translateY(20px) scale(0.97); }
+      to   { opacity: 1; transform: translateY(0) scale(1); }
+    }
+    .modal-close {
+      position: absolute;
+      top: 16px; right: 20px;
+      background: none; border: none;
+      color: var(--gray); font-size: 24px;
+      cursor: pointer; line-height: 1;
+      transition: color 0.2s;
+    }
+    .modal-close:hover { color: var(--white); }
+    .modal h3 {
+      font-size: 24px;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+    .modal p.modal-sub {
+      font-size: 14px;
+      color: var(--gray-light);
+      margin-bottom: 32px;
+    }
+    .form-group { margin-bottom: 18px; }
+    .form-group label {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--gray-light);
+      margin-bottom: 8px;
+    }
+    .form-group input {
+      width: 100%;
+      background: var(--dark3);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: var(--radius);
+      padding: 14px 16px;
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      color: var(--white);
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .form-group input:focus { border-color: var(--gold); }
+    .modal .btn { width: 100%; margin-top: 8px; }
+    .modal .form-note {
+      font-size: 12px;
+      color: var(--gray);
+      text-align: center;
+      margin-top: 14px;
+    }
+
+    /* ─── RESPONSIVE ─────────────────────────────────── */
+    @media(max-width: 768px) {
+      .section { padding: 60px 0; }
+      #hero { min-height: auto; padding: 80px 0 60px; }
+      #hero::before {
+        background-image: url("M10Club LP ARQUIVOS/public_html/wp-content/uploads/2026/03/capa-mobile-lp-m10club.webp");
+        opacity: 0.15;
+      }
+      #hero::after { background: rgba(0,13,26,0.92); }
+      .hero-cta-group { flex-direction: column; align-items: stretch; }
+      .hero-cta-group .btn { text-align: center; }
+      .pain-grid { grid-template-columns: 1fr; }
+      .pillars-grid { grid-template-columns: 1fr 1fr; }
+      .speakers-grid { grid-template-columns: 1fr 1fr; }
+      .price-card { position: static; }
+      header .header-cta { display: none; }
+      .modal { padding: 36px 24px; }
+    }
+    @media(max-width: 480px) {
+      .pillars-grid { grid-template-columns: 1fr; }
+      .speakers-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ─── HEADER ─────────────────────────────────────── -->
+<header>
+  <div class="container">
+    <img
+      src="logo_m10_summit.png"
+      alt="M10 Club"
+      class="logo"
+    />
+    <div class="header-cta">
+      <a href="#" class="btn btn-gold" onclick="openModal(event)">Garantir Minha Vaga</a>
+    </div>
+  </div>
+</header>
+
+<!-- ─── HERO ───────────────────────────────────────── -->
+<section id="hero">
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-event-badge">
+        <span>Evento Presencial · M10 Summit 2026</span>
+      </div>
+      <h1>
+        Transforme seu negócio em uma <em>máquina de faturamento previsível</em> em apenas 2 dias
+      </h1>
+      <p class="hero-sub">
+        7 especialistas. Uma metodologia. Um sistema completo para unir marketing e vendas — e parar de depender de sorte para crescer.
+      </p>
+      <div class="hero-meta">
+        <div class="hero-meta-item">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          <div><strong>8 e 9 de Maio de 2026</strong></div>
+        </div>
+        <div class="hero-meta-item">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <div><strong>Espaço Berit</strong> — Alphaville, SP</div>
+        </div>
+        <div class="hero-meta-item">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+          <div><strong>7 Especialistas</strong> em um só evento</div>
+        </div>
+      </div>
+      <div class="hero-cta-group">
+        <a href="#" class="btn btn-gold btn-lg" onclick="openModal(event)">QUERO GARANTIR MINHA VAGA</a>
+      </div>
+      <p class="hero-note">⚡ Vagas limitadas · 1º lote: R$ 967,00 · Preço sobe sem aviso</p>
+    </div>
+  </div>
+</section>
+
+<!-- ─── STRIP ──────────────────────────────────────── -->
+<div class="strip">
+  <div class="container">
+    <div class="strip-inner">
+      <div class="strip-item">
+        <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        2 dias de imersão presencial
+      </div>
+      <div class="strip-item">
+        <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+        7 especialistas de mercado
+      </div>
+      <div class="strip-item">
+        <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+        Ferramentas exclusivas
+      </div>
+      <div class="strip-item">
+        <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .18h3a2 2 0 012 1.72c.13 1 .37 1.97.72 2.9a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l.98-1.18a2 2 0 012.11-.45c.93.35 1.9.59 2.9.72A2 2 0 0122 14.92z"/></svg>
+        Happy hour de networking
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── PROBLEMA ───────────────────────────────────── -->
+<section id="problem" class="section">
+  <div class="container">
+    <div class="section-header">
+      <span class="tag">O problema</span>
+      <h2>Você trabalha muito.<br />Mas o crescimento não acompanha o esforço.</h2>
+      <p class="lead">Se alguma dessas situações soa familiar, você está no lugar certo.</p>
+    </div>
+
+    <div class="pain-grid">
+      <div class="pain-card">
+        <div class="icon">📈</div>
+        <p>O <strong>CAC sobe a cada mês</strong> e você não entende exatamente por quê</p>
+      </div>
+      <div class="pain-card">
+        <div class="icon">⚠️</div>
+        <p>A <strong>receita depende de poucos clientes</strong> — e isso te deixa vulnerável</p>
+      </div>
+      <div class="pain-card">
+        <div class="icon">📱</div>
+        <p>Você está <strong>refém dos algoritmos</strong>: quando o alcance cai, as vendas somem</p>
+      </div>
+      <div class="pain-card">
+        <div class="icon">😓</div>
+        <p>Trabalha cada vez mais, mas o <strong>resultado continua estagnado</strong></p>
+      </div>
+      <div class="pain-card">
+        <div class="icon">🧩</div>
+        <p><strong>Marketing e vendas funcionam como ilhas separadas</strong> no seu negócio</p>
+      </div>
+      <div class="pain-card">
+        <div class="icon">💸</div>
+        <p>Você não explora o <strong>potencial da sua base de clientes</strong> atual</p>
+      </div>
+    </div>
+
+    <div class="problem-conclusion">
+      <p><strong>O problema não é falta de esforço.</strong><br />É falta de estrutura.<br /><br />Sem um sistema integrado, marketing e vendas nunca vão gerar resultados previsíveis — não importa o quanto você trabalhe.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ─── SOLUÇÃO ────────────────────────────────────── -->
+<section id="solution" class="section">
+  <div class="container">
+    <div class="section-header">
+      <span class="tag">A solução</span>
+      <h2>A Área de Receita: o sistema que transforma instabilidade em previsibilidade</h2>
+      <p style="font-size:17px;color:var(--gray-light);max-width:600px;margin:0 auto 0;margin-top:16px;">Um sistema integrado que une marketing e vendas para gerar resultados consistentes e escaláveis — baseado em 4 pilares fundamentais.</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="pillars-grid">
+      <div class="pillar-card">
+        <div class="pillar-num">01</div>
+        <div class="pillar-name">Estrutura</div>
+        <p class="pillar-desc">Blueprint completo que integra operações de marketing e vendas em uma única área de receita funcional.</p>
+      </div>
+      <div class="pillar-card">
+        <div class="pillar-num">02</div>
+        <div class="pillar-name">Inteligência</div>
+        <p class="pillar-desc">Análise de dados e métricas que guiam decisões estratégicas para acelerar o crescimento com consistência.</p>
+      </div>
+      <div class="pillar-card">
+        <div class="pillar-num">03</div>
+        <div class="pillar-name">Execução</div>
+        <p class="pillar-desc">Ferramentas e processos de implementação para garantir resultados consistentes no dia a dia do negócio.</p>
+      </div>
+      <div class="pillar-card">
+        <div class="pillar-num">04</div>
+        <div class="pillar-name">Escala</div>
+        <p class="pillar-desc">Como alavancar sua base de clientes existente antes de aumentar o tráfego pago — crescimento sustentável.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── PROGRAMAÇÃO ────────────────────────────────── -->
+<section id="schedule" class="section">
+  <div class="container">
+    <div class="section-header">
+      <span class="tag">Programação</span>
+      <h2>2 dias de conteúdo prático e aplicável</h2>
+      <p style="font-size:17px;color:var(--gray-light);max-width:600px;margin:16px auto 0;">Cada sessão foi desenhada para você sair com um plano de ação concreto para o seu negócio.</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="schedule-grid">
+      <div class="day-card">
+        <div class="day-header">
+          <h3>Dia 1 — 8 de Maio</h3>
+          <p>Construindo a Estrutura</p>
+        </div>
+        <div class="session-list">
+          <div class="session-item">
+            <div class="session-time">09h – 10h30</div>
+            <div>
+              <div class="session-title">Abertura — A Jornada do Empresário Refém</div>
+              <div class="session-desc">O Problema: Conexão com a dor do empresário (CAC subindo, receita instável, refém do negócio). A Visão: Apresentação da "Jornada de Impacto" como o caminho para a previsibilidade e o controle.</div>
+              <div class="session-speaker">Eduardo de Barros</div>
+            </div>
+          </div>
+          <div class="session-item">
+            <div class="session-time">10h30 – 12h</div>
+            <div>
+              <div class="session-title">Sua Marca é Seu Maior Ativo</div>
+              <div class="session-desc">O Pilar: Antes de vender, é preciso ter o que vender. Edgar mostra como transformar a marca em um ativo valioso e defensável, o verdadeiro ponto de partida para um posicionamento forte.</div>
+              <div class="session-speaker">Edgar Oliveira</div>
+            </div>
+          </div>
+          <div class="session-item">
+            <div class="session-time">14h – 15h30</div>
+            <div>
+              <div class="session-title">O Fim do Funil: Construindo a Máquina de Vendas</div>
+              <div class="session-desc">O Mapa: Gustavo entrega o "como fazer", detalhando a implementação do Funil Borboleta e a criação de uma Área de Receita integrada.</div>
+              <div class="session-speaker">Gustavo Siuves</div>
+            </div>
+          </div>
+          <div class="session-item">
+            <div class="session-time">15h30 – 17h</div>
+            <div>
+              <div class="session-title">Venda Sem Vender: A Mentalidade Consultiva</div>
+              <div class="session-desc">A Habilidade: Com a máquina desenhada, Dani ensina a habilidade humana essencial: como abordar, entender e converter clientes através da venda consultiva, abandonando o script de "apresentador de produto".</div>
+              <div class="session-speaker">Dani Martins</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="day-card">
+        <div class="day-header">
+          <h3>Dia 2 — 9 de Maio</h3>
+          <p>Execução e Escala</p>
+        </div>
+        <div class="session-list">
+          <div class="session-item">
+            <div class="session-time">09h – 10h30</div>
+            <div>
+              <div class="session-title">Estudo de Caso: Do Caos à Previsibilidade</div>
+              <div class="session-desc">Um caso real da máquina de vendas implementada em uma das maiores clínicas médicas do Brasil.</div>
+              <div class="session-speaker">Gustavo Siuves & Domingos Mantelli</div>
+            </div>
+          </div>
+          <div class="session-item">
+            <div class="session-time">10h30 – 12h</div>
+            <div>
+              <div class="session-title">IA para Negócios: Alavancando sua Máquina de Receita</div>
+              <div class="session-desc">O Acelerador: Danilo mostra como usar a Inteligência Artificial para otimizar e escalar a máquina de vendas apresentada no dia anterior. Ele é a ponte para o futuro da execução.</div>
+              <div class="session-speaker">Danilo Gato</div>
+            </div>
+          </div>
+          <div class="session-item">
+            <div class="session-time">14h – 15h30</div>
+            <div>
+              <div class="session-title">A Jornada de Impacto na Prática</div>
+              <div class="session-desc">A Conexão Final: Você conecta todos os pontos — Marca, Máquina, Habilidade, Prova e Escala com IA.</div>
+              <div class="session-speaker">Eduardo de Barros</div>
+            </div>
+          </div>
+          <div class="session-item">
+            <div class="session-time">15h30 – 17h</div>
+            <div>
+              <div class="session-title">O Próximo Passo</div>
+              <div class="session-desc">A Chamada para Ação: Rogério faz o pitch de vendas do M10 Club, consolidando a jornada.</div>
+              <div class="session-speaker">Rogério Magalhães</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── LOCAL DO EVENTO ─────────────────────────────── -->
+<section id="venue" class="section">
+  <div class="container">
+    <div class="section-header">
+      <span class="tag">Local do Evento</span>
+      <h2>Espaço Berit · Alphaville, SP</h2>
+      <p class="lead">
+        <strong>Alameda Rio Negro, 500 — Torre B, 3º andar</strong><br>
+        Alphaville Industrial, Barueri – SP, CEP 06454-000
+      </p>
+    </div>
+
+    <!-- Galeria de fotos — coloque as imagens em venue/ -->
+    <div class="venue-gallery">
+      <img src="venue/foto1.jpg" alt="Espaço Berit — salão principal">
+      <img src="venue/foto2.jpg" alt="Espaço Berit — auditório">
+      <img src="venue/foto3.jpg" alt="Espaço Berit — área de networking">
+    </div>
+
+    <div class="venue-bottom">
+      <!-- Mapa -->
+      <div class="venue-map">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3659.6!2d-46.849!3d-23.494!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cf01a6b3c3c3c3%3A0x1!2sAlameda+Rio+Negro%2C+500%2C+Alphaville+Industrial%2C+Barueri+-+SP!5e0!3m2!1spt-BR!2sbr!4v1"
+          allowfullscreen
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Localização do Espaço Berit"
+        ></iframe>
+      </div>
+
+      <!-- Hotéis próximos -->
+      <div class="venue-hotels">
+        <h3>Hotéis próximos</h3>
+
+        <div class="hotel-card">
+          <strong>Blue Tree Premium Alphaville</strong>
+          <span>Alameda Rio Negro, 585 — Alphaville Industrial</span>
+          <span class="hotel-dist">~85 metros do evento</span>
+        </div>
+
+        <div class="hotel-card">
+          <strong>Comfort Suites Alphaville</strong>
+          <span>Alameda Rio Negro, 1030 Torre 1</span>
+          <span class="hotel-dist">~530 metros do evento</span>
+        </div>
+
+        <div class="hotel-card">
+          <strong>Radisson Hotel Alphaville</strong>
+          <span>Alameda Rio Negro — Edifício Stadium</span>
+          <span class="hotel-dist">~530 metros do evento</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── SPEAKERS ───────────────────────────────────── -->
+<section id="speakers" class="section">
+  <div class="container">
+    <div class="section-header">
+      <span class="tag">Especialistas</span>
+      <h2>7 referências de mercado.<br />Uma metodologia integrada.</h2>
+      <p class="lead">Cada especialista traz conhecimento prático e cases reais do mercado brasileiro.</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="speakers-grid">
+      <div class="speaker-card">
+        <img
+          src="M10Club LP ARQUIVOS/public_html/wp-content/uploads/2026/03/Gustavo-Siuves.webp"
+          alt="Gustavo Siuves"
+          class="speaker-photo"
+          loading="lazy"
+        />
+        <div class="speaker-info">
+          <div class="speaker-name">Gustavo Siuves</div>
+          <div class="speaker-role">Máquina de Vendas</div>
+          <p class="speaker-bio">Criador do framework Butterfly Funnel — especialista em construir sistemas de vendas escaláveis e previsíveis.</p>
+        </div>
+      </div>
+
+      <div class="speaker-card">
+        <img
+          src="M10Club LP ARQUIVOS/public_html/wp-content/uploads/2026/03/Domingos-Mantelli.webp"
+          alt="Domingos Mantelli"
+          class="speaker-photo"
+          loading="lazy"
+        />
+        <div class="speaker-info">
+          <div class="speaker-name">Domingos Mantelli</div>
+          <div class="speaker-role">Gestão Estratégica</div>
+          <p class="speaker-bio">Especialista em gestão estratégica e estruturação de negócios escaláveis com visão de longo prazo.</p>
+        </div>
+      </div>
+
+      <div class="speaker-card">
+        <img
+          src="M10Club LP ARQUIVOS/public_html/wp-content/uploads/2026/03/Eduardo-de-Barros.webp"
+          alt="Eduardo de Barros"
+          class="speaker-photo"
+          loading="lazy"
+        />
+        <div class="speaker-info">
+          <div class="speaker-name">Eduardo de Barros</div>
+          <div class="speaker-role">Marketing Estratégico</div>
+          <p class="speaker-bio">Expert em marketing estratégico para geração de demanda previsível e redução do custo de aquisição.</p>
+        </div>
+      </div>
+
+      <div class="speaker-card">
+        <img
+          src="M10Club LP ARQUIVOS/public_html/wp-content/uploads/2026/03/Rogerio-Magalhaes.webp"
+          alt="Rogério Magalhães"
+          class="speaker-photo"
+          loading="lazy"
+        />
+        <div class="speaker-info">
+          <div class="speaker-name">Rogério Magalhães</div>
+          <div class="speaker-role">Desenvolvimento de Times</div>
+          <p class="speaker-bio">Referência em desenvolvimento de equipes e gestão de carreira de alta performance.</p>
+        </div>
+      </div>
+
+      <div class="speaker-card">
+        <img
+          src="M10Club LP ARQUIVOS/public_html/wp-content/uploads/2026/03/Dani-Martins.webp"
+          alt="Dani Martins"
+          class="speaker-photo"
+          loading="lazy"
+        />
+        <div class="speaker-info">
+          <div class="speaker-name">Dani Martins</div>
+          <div class="speaker-role">Vendas Consultivas</div>
+          <p class="speaker-bio">Autoridade em vendas consultivas no Brasil — metodologia que elimina a pressão e aumenta a conversão.</p>
+        </div>
+      </div>
+
+      <div class="speaker-card">
+        <img
+          src="M10Club LP ARQUIVOS/public_html/wp-content/uploads/2026/03/Damilo-Gato.webp"
+          alt="Danilo Gato"
+          class="speaker-photo"
+          loading="lazy"
+        />
+        <div class="speaker-info">
+          <div class="speaker-name">Danilo Gato</div>
+          <div class="speaker-role">IA para Negócios</div>
+          <p class="speaker-bio">Especialista em aplicação de Inteligência Artificial para escalar receita e automatizar operações.</p>
+        </div>
+      </div>
+
+      <div class="speaker-card">
+        <img
+          src="M10Club LP ARQUIVOS/public_html/wp-content/uploads/2026/03/Edgar-Oliveira.webp"
+          alt="Edgar Oliveira"
+          class="speaker-photo"
+          loading="lazy"
+        />
+        <div class="speaker-info">
+          <div class="speaker-name">Edgar Oliveira</div>
+          <div class="speaker-role">Marcas & Patentes</div>
+          <p class="speaker-bio">Estrategista de marca e patentes — como transformar seu brand no maior ativo do seu negócio.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── OFERTA ─────────────────────────────────────── -->
+<section id="offer" class="section">
+  <div class="container">
+    <div class="section-header" style="text-align:center;margin-bottom:56px;">
+      <span class="tag">Investimento</span>
+      <h2>Tudo o que está incluído<br />na sua vaga</h2>
+    </div>
+
+    <div class="offer-layout">
+      <div>
+        <ul class="includes-list">
+          <li>
+            <span class="check">✓</span>
+            <span><strong>2 dias de imersão presencial</strong> com metodologia estruturada e aplicação prática</span>
+          </li>
+          <li>
+            <span class="check">✓</span>
+            <span><strong>7 especialistas</strong> de referência em um único evento</span>
+          </li>
+          <li>
+            <span class="check">✓</span>
+            <span><strong>Acesso a ferramentas exclusivas</strong> da Área de Receita</span>
+          </li>
+          <li>
+            <span class="check">✓</span>
+            <span><strong>Coffee breaks</strong> nos dois dias de evento</span>
+          </li>
+          <li>
+            <span class="check">✓</span>
+            <span><strong>Happy hour de networking</strong> — conexões que valem por anos</span>
+          </li>
+          <li>
+            <span class="check">✓</span>
+            <span><strong>Estrutura completa da Área de Receita</strong> personalizada para o seu negócio</span>
+          </li>
+          <li>
+            <span class="check">✓</span>
+            <span><strong>Alameda Rio Negro, 500 — Torre B, 3º andar</strong> · Alphaville, São Paulo, SP</span>
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="price-card">
+          <span class="lote">1º Lote</span>
+          <p class="price-label">Investimento</p>
+          <div class="price-value"><span>R$</span> 967<span style="font-size:28px;margin-top:14px;display:inline-block">,00</span></div>
+          <p class="price-note">Parcelamento disponível · Preço sobe sem aviso</p>
+          <a href="#" class="btn btn-gold btn-lg" onclick="openModal(event)">QUERO GARANTIR MINHA VAGA</a>
+          <p class="guarantee">
+            <strong>Vagas limitadas.</strong><br />
+            Evento presencial · 8 e 9 de Maio de 2026<br />
+            Espaço Berit · Alphaville, SP
+          </p>
+          <div class="urgency-banner">
+            ⚡ Vagas do 1º lote se esgotam rapidamente.<br />O preço sobe sem aviso prévio.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CTA FINAL ──────────────────────────────────── -->
+<section id="cta-final">
+  <div class="container">
+    <span class="tag">Garanta sua vaga</span>
+    <h2>Chegou a hora de parar de improvisar<br />e <em class="gold">construir um sistema que funciona.</em></h2>
+    <p>Junte-se a empreendedores que estão transformando seus negócios com a Área de Receita. O próximo a dar esse passo pode ser você.</p>
+    <div class="cta-group">
+      <a href="#" class="btn btn-gold btn-lg" onclick="openModal(event)">QUERO GARANTIR MINHA VAGA — R$ 967,00</a>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FOOTER ─────────────────────────────────────── -->
+<footer>
+  <div class="container">
+    <img
+      src="logo_m10_summit.png"
+      alt="M10 Club"
+      class="logo"
+    />
+    <p class="copyright">
+      © 2026 M10 Club. Todos os direitos reservados.<br />
+      Feito por <a href="https://wa.me/5511919813437" target="_blank">Bends Comunicação</a>
+    </p>
+  </div>
+</footer>
+
+<!-- ─── MODAL DE INSCRIÇÃO ─────────────────────────── -->
+<div class="modal-overlay" id="modalOverlay" onclick="closeModalOnOverlay(event)">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <button class="modal-close" onclick="closeModal()" aria-label="Fechar">&times;</button>
+    <h3 id="modalTitle">Garanta sua vaga agora</h3>
+    <p class="modal-sub">Preencha seus dados e nossa equipe entrará em contato para finalizar sua inscrição.</p>
+    <form id="registrationForm" onsubmit="handleSubmit(event)">
+      <div class="form-group">
+        <label for="name">Nome completo</label>
+        <input type="text" id="name" name="name" placeholder="Seu nome" required autocomplete="name" />
+      </div>
+      <div class="form-group">
+        <label for="email">E-mail</label>
+        <input type="email" id="email" name="email" placeholder="seu@email.com" required autocomplete="email" />
+      </div>
+      <div class="form-group">
+        <label for="phone">WhatsApp</label>
+        <input type="tel" id="phone" name="phone" placeholder="(11) 99999-9999" required autocomplete="tel" />
+      </div>
+      <button type="submit" class="btn btn-gold">ENVIAR — QUERO MINHA VAGA</button>
+      <p class="form-note">Seus dados estão protegidos. Sem spam.</p>
+    </form>
+  </div>
+</div>
+
+<script>
+  // ─── Cole aqui a URL do seu Google Apps Script após publicar ───
+  const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbx8J34X8RzHiS8l4nXZxCwCnHK6sjrFj0VXdsQCi8_oCkbJEqZcIBSU5b0rLDFF_eeRMQ/exec';
+
+  function openModal(e) {
+    if (e) e.preventDefault();
+    // GA4: evento de interesse (clicou no CTA)
+    if (typeof gtag !== 'undefined') {
+      gtag('event', 'cta_click', { event_category: 'engagement', event_label: 'Garantir Vaga', ab_variant: 'A' });
+      // GA4: begin_checkout (início do fluxo de compra)
+      gtag('event', 'begin_checkout', {
+        currency: 'BRL',
+        value: 967.00,
+        items: [{
+          item_id: 'm10-summit-2026',
+          item_name: 'M10 Summit 2026',
+          item_category: 'Evento',
+          price: 967.00,
+          quantity: 1,
+        }],
+      });
+    }
+    // Meta Pixel: InitiateCheckout
+    if (typeof fbq !== 'undefined') {
+      fbq('track', 'InitiateCheckout');
+    }
+    document.getElementById('modalOverlay').classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    document.getElementById('modalOverlay').classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  function closeModalOnOverlay(e) {
+    if (e.target === document.getElementById('modalOverlay')) closeModal();
+  }
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeModal();
+  });
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+    const btn   = e.target.querySelector('button[type="submit"]');
+    const name  = document.getElementById('name').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    const email = document.getElementById('email').value.trim();
+
+    // Feedback visual no botão
+    btn.textContent = 'ENVIANDO...';
+    btn.disabled = true;
+
+    // 1. Salvar no Google Sheets (GET evita problemas de CORS/redirect)
+    try {
+      const params = new URLSearchParams({ name, email, phone, source: 'Landing Page M10 Summit' });
+      await fetch(`${APPS_SCRIPT_URL}?${params.toString()}`, { mode: 'no-cors' });
+    } catch (_) {
+      // Silencia erros de rede — a conversão segue mesmo assim
+    }
+
+    // 2. Meta Pixel: evento Lead
+    if (typeof fbq !== 'undefined') {
+      fbq('track', 'Lead', {
+        content_name: 'M10 Summit 2026',
+        content_category: 'Evento',
+        value: 967.00,
+        currency: 'BRL',
+      });
+    }
+
+    // 3. GA4: evento generate_lead
+    if (typeof gtag !== 'undefined') {
+      gtag('event', 'generate_lead', {
+        currency: 'BRL',
+        value: 967.00,
+        ab_variant: 'A',
+        event_category: 'form',
+        event_label: 'M10 Summit 2026',
+        items: [{
+          item_id: 'm10-summit-2026',
+          item_name: 'M10 Summit 2026',
+          item_category: 'Evento',
+          price: 967.00,
+          quantity: 1,
+        }],
+      });
+    }
+
+    // 4. Redirecionar para compra no Sympla
+    window.location.href = 'https://www.sympla.com.br/evento/m10-summit/3327805';
+  }
+
+  // GA4: view_item quando a seção de preço entra na tela
+  const _pricingSection = document.getElementById('cta-final');
+  if (_pricingSection && typeof gtag !== 'undefined') {
+    const _pricingObserver = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting) {
+        gtag('event', 'view_item', {
+          currency: 'BRL',
+          value: 967.00,
+          items: [{
+            item_id: 'm10-summit-2026',
+            item_name: 'M10 Summit 2026',
+            item_category: 'Evento',
+            price: 967.00,
+            quantity: 1,
+          }],
+        });
+        _pricingObserver.disconnect();
+      }
+    }, { threshold: 0.3 });
+    _pricingObserver.observe(_pricingSection);
+  }
+
+  // Phone mask
+  document.getElementById('phone').addEventListener('input', function(e) {
+    let v = e.target.value.replace(/\D/g,'').slice(0,11);
+    if (v.length > 6) v = '(' + v.slice(0,2) + ') ' + v.slice(2,7) + '-' + v.slice(7);
+    else if (v.length > 2) v = '(' + v.slice(0,2) + ') ' + v.slice(2);
+    e.target.value = v;
+  });
+</script>
+</body>
+</html>
