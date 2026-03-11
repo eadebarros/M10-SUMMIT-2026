@@ -795,6 +795,15 @@
       transition: border-color 0.2s;
     }
     .form-group input:focus { border-color: var(--gold); }
+    .form-group input.input-error { border-color: #f87171 !important; }
+    .form-group input.input-ok    { border-color: #4ade80 !important; }
+    .field-error-msg {
+      display: none;
+      color: #f87171;
+      font-size: 11px;
+      margin-top: 5px;
+    }
+    .field-error-msg.visible { display: block; }
     .modal .btn { width: 100%; margin-top: 8px; }
     .modal .form-note {
       font-size: 12px;
@@ -1410,16 +1419,19 @@
     <p class="modal-sub">Preencha seus dados e nossa equipe entrará em contato para finalizar sua inscrição.</p>
     <form id="registrationForm" onsubmit="handleSubmit(event)">
       <div class="form-group">
-        <label for="name">Nome completo</label>
-        <input type="text" id="name" name="name" placeholder="Seu nome" required autocomplete="name" />
+        <label for="name">Nome completo <span style="color:#f87171">*</span></label>
+        <input type="text" id="name" name="name" placeholder="Seu nome completo" required autocomplete="name" />
+        <span class="field-error-msg" id="name-error">Digite seu nome e sobrenome.</span>
       </div>
       <div class="form-group">
-        <label for="email">E-mail</label>
+        <label for="email">E-mail <span style="color:#f87171">*</span></label>
         <input type="email" id="email" name="email" placeholder="seu@email.com" required autocomplete="email" />
+        <span class="field-error-msg" id="email-error">Digite um e-mail válido.</span>
       </div>
       <div class="form-group">
-        <label for="phone">WhatsApp</label>
+        <label for="phone">WhatsApp <span style="color:#f87171">*</span></label>
         <input type="tel" id="phone" name="phone" placeholder="(11) 99999-9999" required autocomplete="tel" />
+        <span class="field-error-msg" id="phone-error">Digite um número de WhatsApp completo com DDD.</span>
       </div>
       <button type="submit" class="btn btn-gold">ENVIAR — QUERO MINHA VAGA</button>
       <p class="form-note">Seus dados estão protegidos. Sem spam.</p>
@@ -1470,12 +1482,51 @@
     if (e.key === 'Escape') closeModal();
   });
 
+  // ── Validação de campos ──────────────────────────────
+  function validateName(val) {
+    return val.trim().split(/\s+/).filter(Boolean).length >= 2;
+  }
+  function validateEmail(val) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(val.trim());
+  }
+  function validatePhone(val) {
+    return val.replace(/\D/g, '').length === 11;
+  }
+
+  function setFieldState(id, valid) {
+    const input = document.getElementById(id);
+    const msg   = document.getElementById(id + '-error');
+    input.classList.toggle('input-error', !valid);
+    input.classList.toggle('input-ok',    valid);
+    if (msg) msg.classList.toggle('visible', !valid);
+    return valid;
+  }
+
+  // Validação ao sair do campo (blur)
+  document.getElementById('name').addEventListener('blur', function() {
+    if (this.value.trim()) setFieldState('name', validateName(this.value));
+  });
+  document.getElementById('email').addEventListener('blur', function() {
+    if (this.value.trim()) setFieldState('email', validateEmail(this.value));
+  });
+  document.getElementById('phone').addEventListener('blur', function() {
+    if (this.value.trim()) setFieldState('phone', validatePhone(this.value));
+  });
+
   async function handleSubmit(e) {
     e.preventDefault();
     const btn   = e.target.querySelector('button[type="submit"]');
     const name  = document.getElementById('name').value.trim();
     const phone = document.getElementById('phone').value.trim();
     const email = document.getElementById('email').value.trim();
+
+    // Validar todos os campos antes de prosseguir
+    const ok = [
+      setFieldState('name',  validateName(name)),
+      setFieldState('email', validateEmail(email)),
+      setFieldState('phone', validatePhone(phone)),
+    ].every(Boolean);
+    if (!ok) return;
 
     // Feedback visual no botão
     btn.textContent = 'ENVIANDO...';
