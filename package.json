@@ -2,9 +2,10 @@
   "name": "m10-summit-2026",
   "version": "1.0.0",
   "scripts": {
-    "start": "serve . -l $PORT"
+    "start": "node server.js"
   },
   "dependencies": {
-    "serve": "^14.2.4"
+    "express": "^4.19.2",
+    "pg": "^8.12.0"
   }
 }

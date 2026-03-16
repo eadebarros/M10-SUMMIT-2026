@@ -1423,9 +1423,6 @@
 </div>
 
 <script>
-  // ─── Cole aqui a URL do seu Google Apps Script após publicar ───
-  const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyGJ-rvrggsDRDJesi726sE5ebalmxz9T7qcw5Vz8E8N3J1KYz0COSCBf2K5QfCo1u8ow/exec';
-
   function openModal(e) {
     if (e) e.preventDefault();
     // GA4: evento de interesse (clicou no CTA)
@@ -1515,10 +1512,13 @@
     btn.textContent = 'ENVIANDO...';
     btn.disabled = true;
 
-    // 1. Salvar no Google Sheets (GET evita problemas de CORS/redirect)
+    // 1. Salvar no banco de dados (Railway) + repassar para Google Sheets
     try {
-      const params = new URLSearchParams({ name, email, phone, source: 'Landing Page M10 Summit' });
-      await fetch(`${APPS_SCRIPT_URL}?${params.toString()}`, { mode: 'no-cors' });
+      await fetch('/api/lead', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email, phone, source: 'Landing Page M10 Summit' }),
+      });
     } catch (_) {
       // Silencia erros de rede — a conversão segue mesmo assim
     }
