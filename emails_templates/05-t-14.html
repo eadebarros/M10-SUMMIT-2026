@@ -13,8 +13,8 @@
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
             line-height: 1.6;
-            color: #1a1a1a;
-            background-color: #f8f8f8;
+            color: #001f3f;
+            background-color: #f6f8ee;
         }
         .container {
             max-width: 600px;
@@ -25,10 +25,8 @@
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
         }
         .header {
-            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
-            padding: 40px 30px;
-            text-align: center;
-            color: #ffffff;
+            background-color: #001f3f;
+            line-height: 0;
         }
         .header h1 {
             font-size: 28px;
@@ -43,17 +41,17 @@
             font-size: 15px;
             line-height: 1.7;
             margin-bottom: 30px;
-            color: #333333;
+            color: #2c3e50;
         }
         .intro strong {
             font-weight: 700;
-            color: #1a1a1a;
+            color: #001f3f;
         }
         .day-section {
             margin-bottom: 35px;
         }
         .day-header {
-            background-color: #1a1a1a;
+            background-color: #001f3f;
             color: #ffffff;
             padding: 12px 16px;
             border-radius: 4px;
@@ -62,38 +60,38 @@
             font-size: 15px;
         }
         .session {
-            background-color: #f8f8f8;
+            background-color: #f6f8ee;
             padding: 16px;
             margin-bottom: 12px;
-            border-left: 3px solid #1a1a1a;
+            border-left: 3px solid #dbe64c;
             border-radius: 3px;
         }
         .session-time {
             font-size: 13px;
             font-weight: 700;
-            color: #1a1a1a;
+            color: #001f3f;
             margin-bottom: 6px;
         }
         .session-title {
             font-size: 15px;
             font-weight: 700;
-            color: #1a1a1a;
+            color: #001f3f;
             margin-bottom: 8px;
         }
         .session-speaker {
             font-size: 13px;
-            color: #666666;
+            color: #5a7a9a;
             font-weight: 600;
         }
         .session-desc {
             font-size: 13px;
             line-height: 1.6;
-            color: #333333;
+            color: #2c3e50;
             margin-top: 8px;
         }
         .highlight-box {
-            background-color: #f0f0f0;
-            border-left: 4px solid #1a1a1a;
+            background-color: #f6f8ee;
+            border-left: 4px solid #dbe64c;
             padding: 20px;
             margin: 30px 0;
             border-radius: 4px;
@@ -101,7 +99,7 @@
         .highlight-box p {
             font-size: 14px;
             line-height: 1.7;
-            color: #333333;
+            color: #2c3e50;
             margin-bottom: 10px;
         }
         .highlight-box p:last-child {
@@ -109,30 +107,38 @@
         }
         .highlight-box strong {
             font-weight: 700;
-            color: #1a1a1a;
+            color: #001f3f;
         }
         .closing {
             font-size: 15px;
             line-height: 1.7;
             margin-top: 30px;
             padding-top: 20px;
-            border-top: 1px solid #e0e0e0;
-            color: #333333;
+            border-top: 1px solid #c8d8e8;
+            color: #2c3e50;
         }
         .closing strong {
             font-weight: 700;
-            color: #1a1a1a;
+            color: #001f3f;
         }
         .footer {
-            background-color: #f8f8f8;
-            padding: 30px;
+            background-color: #001f3f;
+            padding: 24px 30px;
             text-align: center;
             font-size: 12px;
-            color: #666666;
-            border-top: 1px solid #e0e0e0;
+            color: #f6f8ee;
+            border-top: none;
         }
         .footer p {
             margin-bottom: 8px;
+        }
+            .email-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: #001f3f;
+            text-align: center;
+            margin: 0 0 28px 0;
+            line-height: 1.3;
         }
     </style>
 </head>
@@ -140,12 +146,13 @@
     <div class="container">
         <!-- Header -->
         <div class="header">
-            <h1>Programação completa</h1>
-            <p style="font-size: 14px; margin-top: 10px;">8 e 9 de Maio — M10 Summit 2026</p>
+            <img src="{{base_url}}/emails_templates/email_banner_m10.png" alt="M10 Summit" width="600" style="width:100%;max-width:600px;display:block;border:0;" />
         </div>
 
         <!-- Content -->
         <div class="content">
+            <h2 class="email-title">Programação completa</h2>
+
             <div class="intro">
                 Olá, <strong>{{first_name}}</strong>!<br><br>
                 <strong>Aqui está tudo o que você vai aprender nos 2 dias.</strong><br><br>

@@ -13,8 +13,8 @@
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
             line-height: 1.6;
-            color: #1a1a1a;
-            background-color: #f8f8f8;
+            color: #001f3f;
+            background-color: #f6f8ee;
         }
         .container {
             max-width: 600px;
@@ -25,10 +25,8 @@
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
         }
         .header {
-            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
-            padding: 40px 30px;
-            text-align: center;
-            color: #ffffff;
+            background-color: #001f3f;
+            line-height: 0;
         }
         .header h1 {
             font-size: 28px;
@@ -48,11 +46,11 @@
             font-size: 15px;
             line-height: 1.7;
             margin-bottom: 30px;
-            color: #333333;
+            color: #2c3e50;
         }
         .intro strong {
             font-weight: 700;
-            color: #1a1a1a;
+            color: #001f3f;
         }
         .section {
             margin-bottom: 30px;
@@ -61,12 +59,12 @@
             font-size: 18px;
             font-weight: 700;
             margin-bottom: 15px;
-            color: #1a1a1a;
-            border-bottom: 2px solid #1a1a1a;
+            color: #001f3f;
+            border-bottom: 2px solid #dbe64c;
             padding-bottom: 10px;
         }
         .checklist {
-            background-color: #f8f8f8;
+            background-color: #f6f8ee;
             padding: 20px;
             border-radius: 4px;
         }
@@ -84,22 +82,22 @@
             display: inline-block;
             width: 20px;
             height: 20px;
-            border: 2px solid #1a1a1a;
+            border: 2px solid #dbe64c;
             border-radius: 3px;
             margin-right: 12px;
             flex-shrink: 0;
             margin-top: 2px;
         }
         .checklist-text {
-            color: #333333;
+            color: #2c3e50;
         }
         .checklist-text strong {
             font-weight: 700;
-            color: #1a1a1a;
+            color: #001f3f;
         }
         .info-box {
-            background-color: #f0f0f0;
-            border-left: 4px solid #1a1a1a;
+            background-color: #f6f8ee;
+            border-left: 4px solid #dbe64c;
             padding: 20px;
             margin: 20px 0;
             border-radius: 4px;
@@ -107,13 +105,13 @@
         .info-box h3 {
             font-size: 14px;
             font-weight: 700;
-            color: #1a1a1a;
+            color: #001f3f;
             margin-bottom: 10px;
         }
         .info-box p {
             font-size: 14px;
             line-height: 1.6;
-            color: #333333;
+            color: #2c3e50;
             margin-bottom: 8px;
         }
         .info-box p:last-child {
@@ -121,30 +119,38 @@
         }
         .info-box strong {
             font-weight: 700;
-            color: #1a1a1a;
+            color: #001f3f;
         }
         .closing {
             font-size: 15px;
             line-height: 1.7;
             margin-top: 30px;
             padding-top: 20px;
-            border-top: 1px solid #e0e0e0;
-            color: #333333;
+            border-top: 1px solid #c8d8e8;
+            color: #2c3e50;
         }
         .closing strong {
             font-weight: 700;
-            color: #1a1a1a;
+            color: #001f3f;
         }
         .footer {
-            background-color: #f8f8f8;
-            padding: 30px;
+            background-color: #001f3f;
+            padding: 24px 30px;
             text-align: center;
             font-size: 12px;
-            color: #666666;
-            border-top: 1px solid #e0e0e0;
+            color: #f6f8ee;
+            border-top: none;
         }
         .footer p {
             margin-bottom: 8px;
+        }
+            .email-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: #001f3f;
+            text-align: center;
+            margin: 0 0 28px 0;
+            line-height: 1.3;
         }
     </style>
 </head>
@@ -152,12 +158,13 @@
     <div class="container">
         <!-- Header -->
         <div class="header">
-            <h1>Última semana</h1>
-            <div class="countdown">Checklist do participante</div>
+            <img src="{{base_url}}/emails_templates/email_banner_m10.png" alt="M10 Summit" width="600" style="width:100%;max-width:600px;display:block;border:0;" />
         </div>
 
         <!-- Content -->
         <div class="content">
+            <h2 class="email-title">Última semana</h2>
+
             <div class="intro">
                 Olá, <strong>{{first_name}}</strong>!<br><br>
                 <strong>Você está a 7 dias do M10 Summit.</strong><br><br>

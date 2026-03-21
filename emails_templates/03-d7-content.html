@@ -13,8 +13,8 @@
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
             line-height: 1.6;
-            color: #1a1a1a;
-            background-color: #f8f8f8;
+            color: #001f3f;
+            background-color: #f6f8ee;
         }
         .container {
             max-width: 600px;
@@ -25,10 +25,8 @@
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
         }
         .header {
-            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
-            padding: 40px 30px;
-            text-align: center;
-            color: #ffffff;
+            background-color: #001f3f;
+            line-height: 0;
         }
         .header h1 {
             font-size: 28px;
@@ -43,22 +41,22 @@
             font-size: 15px;
             line-height: 1.7;
             margin-bottom: 30px;
-            color: #333333;
+            color: #2c3e50;
         }
         .intro strong {
             font-weight: 700;
-            color: #1a1a1a;
+            color: #001f3f;
         }
         .pillar {
-            background: linear-gradient(135deg, #f8f8f8 0%, #f0f0f0 100%);
-            border-left: 5px solid #1a1a1a;
+            background-color: #f6f8ee;
+            border-left: 5px solid #dbe64c;
             padding: 25px;
             margin-bottom: 25px;
             border-radius: 4px;
         }
         .pillar-number {
             display: inline-block;
-            background-color: #1a1a1a;
+            background-color: #001f3f;
             color: #ffffff;
             width: 36px;
             height: 36px;
@@ -72,13 +70,13 @@
         .pillar h3 {
             font-size: 18px;
             font-weight: 700;
-            color: #1a1a1a;
+            color: #001f3f;
             margin-bottom: 12px;
         }
         .pillar p {
             font-size: 14px;
             line-height: 1.7;
-            color: #333333;
+            color: #2c3e50;
             margin-bottom: 12px;
         }
         .pillar p:last-child {
@@ -87,14 +85,14 @@
         .pillar-subtitle {
             font-size: 13px;
             font-weight: 600;
-            color: #666666;
+            color: #5a7a9a;
             margin-top: 12px;
             padding-top: 12px;
-            border-top: 1px solid #ddd;
+            border-top: 1px solid #c8d8e8;
         }
         .insight-box {
-            background-color: #f0f0f0;
-            border-left: 4px solid #1a1a1a;
+            background-color: #f6f8ee;
+            border-left: 4px solid #dbe64c;
             padding: 20px;
             margin: 30px 0;
             border-radius: 4px;
@@ -102,13 +100,13 @@
         .insight-box h4 {
             font-size: 14px;
             font-weight: 700;
-            color: #1a1a1a;
+            color: #001f3f;
             margin-bottom: 10px;
         }
         .insight-box p {
             font-size: 14px;
             line-height: 1.7;
-            color: #333333;
+            color: #2c3e50;
             margin: 0;
         }
         .closing {
@@ -116,23 +114,31 @@
             line-height: 1.7;
             margin-top: 30px;
             padding-top: 20px;
-            border-top: 1px solid #e0e0e0;
-            color: #333333;
+            border-top: 1px solid #c8d8e8;
+            color: #2c3e50;
         }
         .closing strong {
             font-weight: 700;
-            color: #1a1a1a;
+            color: #001f3f;
         }
         .footer {
-            background-color: #f8f8f8;
-            padding: 30px;
+            background-color: #001f3f;
+            padding: 24px 30px;
             text-align: center;
             font-size: 12px;
-            color: #666666;
-            border-top: 1px solid #e0e0e0;
+            color: #f6f8ee;
+            border-top: none;
         }
         .footer p {
             margin-bottom: 8px;
+        }
+            .email-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: #001f3f;
+            text-align: center;
+            margin: 0 0 28px 0;
+            line-height: 1.3;
         }
     </style>
 </head>
@@ -140,11 +146,13 @@
     <div class="container">
         <!-- Header -->
         <div class="header">
-            <h1>Os 3 pilares que vamos explorar</h1>
+            <img src="{{base_url}}/emails_templates/email_banner_m10.png" alt="M10 Summit" width="600" style="width:100%;max-width:600px;display:block;border:0;" />
         </div>
 
         <!-- Content -->
         <div class="content">
+            <h2 class="email-title">Os 3 pilares que vamos explorar</h2>
+
             <div class="intro">
                 Olá, <strong>{{first_name}}</strong>!<br><br>
                 <strong>Receita previsível não é sorte — é estrutura.</strong><br><br>
@@ -157,7 +165,7 @@
                 <h3>Integração Marketing + Vendas</h3>
                 <p>A maioria das empresas trata marketing e vendas como departamentos isolados. Uma equipe traz tráfego. A outra converte. Ninguém fala com ninguém.</p>
                 <p>Aqui você aprende como fazer essas duas áreas funcionarem como um único sistema — com objetivos alinhados, dados compartilhados e uma estratégia unificada.</p>
-                <p style="margin-top: 12px; font-style: italic; color: #666666;">Resultado: conversão melhor, menos desperdício, crescimento previsível.</p>
+                <p style="margin-top: 12px; font-style: italic; color: #5a7a9a;">Resultado: conversão melhor, menos desperdício, crescimento previsível.</p>
             </div>
 
             <!-- Pilar 2 -->
@@ -166,7 +174,7 @@
                 <h3>Monetização da Base</h3>
                 <p>Você já tem clientes. Você já tem relacionamento. Mas provavelmente não está monetizando isso da forma correta.</p>
                 <p>Neste pilar você aprende estratégias para vender mais para quem já comprou — aumentando o lifetime value, criando recorrência e transformando sua base na principal fonte de crescimento.</p>
-                <p style="margin-top: 12px; font-style: italic; color: #666666;">Resultado: crescimento sem depender de novos clientes, margem melhor, receita mais previsível.</p>
+                <p style="margin-top: 12px; font-style: italic; color: #5a7a9a;">Resultado: crescimento sem depender de novos clientes, margem melhor, receita mais previsível.</p>
             </div>
 
             <!-- Pilar 3 -->
@@ -175,7 +183,7 @@
                 <h3>Estrutura de Previsibilidade</h3>
                 <p>Crescimento baseado em tráfego pago é frágil. Quando o algoritmo muda, quando o CAC sobe, quando o mercado desacelera — tudo desaba.</p>
                 <p>Aqui você aprende como construir uma máquina que funciona mesmo quando as circunstâncias externas mudam — porque ela não depende só de tráfego. Ela depende de estrutura.</p>
-                <p style="margin-top: 12px; font-style: italic; color: #666666;">Resultado: empresa resiliente, receita previsível, controle real sobre o futuro.</p>
+                <p style="margin-top: 12px; font-style: italic; color: #5a7a9a;">Resultado: empresa resiliente, receita previsível, controle real sobre o futuro.</p>
             </div>
 
             <div class="insight-box">

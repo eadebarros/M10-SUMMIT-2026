@@ -113,6 +113,7 @@ function renderTemplate(html, buyer) {
       day: '2-digit', month: 'long', year: 'numeric',
     }),
     event_link:    process.env.EVENT_LINK || 'https://m10club.com.br',
+    base_url:      (process.env.BASE_URL || '').replace(/\/$/, ''),
   };
   return html.replace(/\{\{(\w+)\}\}/g, (_, key) => vars[key] ?? '');
 }
