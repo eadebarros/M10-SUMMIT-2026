@@ -1,12 +1,13 @@
 const express = require('express');
 const { Pool } = require('pg');
 const https = require('https');
+const axios = require('axios');
 const path = require('path');
 
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static(__dirname));
+app.use(express.text({ type: 'text/csv' }));
 
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
@@ -14,19 +15,57 @@ const pool = new Pool({
 });
 
 const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyGJ-rvrggsDRDJesi726sE5ebalmxz9T7qcw5Vz8E8N3J1KYz0COSCBf2K5QfCo1u8ow/exec';
+const EVENT_DATE = new Date(process.env.EVENT_DATE || '2026-05-08');
 
-async function ensureTable() {
+// ─── Database setup ───────────────────────────────────────────────────────────
+
+async function ensureAllTables() {
   await pool.query(`
     CREATE TABLE IF NOT EXISTS leads (
-      id        SERIAL PRIMARY KEY,
-      name      TEXT,
-      email     TEXT,
-      phone     TEXT,
-      source    TEXT,
+      id         SERIAL PRIMARY KEY,
+      name       TEXT,
+      email      TEXT,
+      phone      TEXT,
+      source     TEXT,
       created_at TIMESTAMPTZ DEFAULT NOW()
-    )
+    );
+
+    CREATE TABLE IF NOT EXISTS buyers (
+      id          SERIAL PRIMARY KEY,
+      name        TEXT,
+      email       TEXT UNIQUE,
+      phone       TEXT,
+      ticket_type TEXT,
+      source      TEXT DEFAULT 'sympla',
+      enrolled_at TIMESTAMPTZ DEFAULT NOW()
+    );
+
+    CREATE TABLE IF NOT EXISTS email_sequences (
+      id          SERIAL PRIMARY KEY,
+      slug        TEXT UNIQUE,
+      subject     TEXT,
+      preheader   TEXT,
+      html        TEXT,
+      send_mode   TEXT,
+      send_offset INTEGER,
+      active      BOOLEAN DEFAULT TRUE,
+      created_at  TIMESTAMPTZ DEFAULT NOW()
+    );
+
+    CREATE TABLE IF NOT EXISTS email_send_log (
+      id          SERIAL PRIMARY KEY,
+      buyer_id    INTEGER REFERENCES buyers(id),
+      sequence_id INTEGER REFERENCES email_sequences(id),
+      to_email    TEXT,
+      subject     TEXT,
+      status      TEXT,
+      error       TEXT,
+      sent_at     TIMESTAMPTZ DEFAULT NOW()
+    );
   `);
 }
+
+// ─── Helpers ──────────────────────────────────────────────────────────────────
 
 function forwardToSheets(params) {
   const qs = new URLSearchParams(params).toString();
@@ -34,11 +73,132 @@ function forwardToSheets(params) {
   https.get(url, (res) => res.resume()).on('error', () => {});
 }
 
+function addDays(date, days) {
+  const d = new Date(date);
+  d.setDate(d.getDate() + days);
+  return d;
+}
+
+function getSendDate(buyer, sequence) {
+  if (sequence.send_mode === 'days_after_purchase') {
+    return addDays(buyer.enrolled_at, sequence.send_offset);
+  }
+  // days_before_event: negative offset means before event
+  return addDays(EVENT_DATE, sequence.send_offset);
+}
+
+function parseCSV(text) {
+  const lines = text.trim().split(/\r?\n/);
+  if (lines.length < 2) return [];
+  const headers = lines[0].split(',').map((h) => h.trim().toLowerCase().replace(/[^a-z_]/g, ''));
+  return lines.slice(1).map((line) => {
+    const values = line.split(',').map((v) => v.trim().replace(/^"|"$/g, ''));
+    const obj = {};
+    headers.forEach((h, i) => { obj[h] = values[i] || ''; });
+    return obj;
+  });
+}
+
+// ─── MailerSend ───────────────────────────────────────────────────────────────
+
+async function sendEmail({ to_name, to_email, subject, html }) {
+  const res = await axios.post(
+    'https://api.mailersend.com/v1/email',
+    {
+      from: {
+        email: process.env.MAIL_FROM_EMAIL || 'contato@m10club.com.br',
+        name: process.env.MAIL_FROM_NAME || 'M10 Club',
+      },
+      to: [{ email: to_email, name: to_name || to_email }],
+      subject,
+      html,
+    },
+    {
+      headers: {
+        Authorization: `Bearer ${process.env.MAILERSEND_API_TOKEN}`,
+        'Content-Type': 'application/json',
+      },
+    }
+  );
+  return res.data;
+}
+
+// ─── Email cron ───────────────────────────────────────────────────────────────
+
+async function runEmailCron() {
+  try {
+    const { rows: sequences } = await pool.query(
+      'SELECT * FROM email_sequences WHERE active = TRUE'
+    );
+    if (!sequences.length) return;
+
+    const { rows: buyers } = await pool.query('SELECT * FROM buyers');
+    if (!buyers.length) return;
+
+    const now = new Date();
+
+    for (const sequence of sequences) {
+      for (const buyer of buyers) {
+        const sendDate = getSendDate(buyer, sequence);
+
+        // Only send if scheduled time is in the past (or now)
+        if (sendDate > now) continue;
+
+        // Check if already sent
+        const { rows: logs } = await pool.query(
+          'SELECT id FROM email_send_log WHERE buyer_id = $1 AND sequence_id = $2 AND status = $3',
+          [buyer.id, sequence.id, 'sent']
+        );
+        if (logs.length > 0) continue;
+
+        // Send
+        let status = 'sent';
+        let error = null;
+        try {
+          await sendEmail({
+            to_name: buyer.name,
+            to_email: buyer.email,
+            subject: sequence.subject,
+            html: sequence.html,
+          });
+        } catch (err) {
+          status = 'error';
+          error = err.message;
+          console.error(`[cron] Failed to send "${sequence.slug}" to ${buyer.email}:`, err.message);
+        }
+
+        await pool.query(
+          'INSERT INTO email_send_log (buyer_id, sequence_id, to_email, subject, status, error) VALUES ($1,$2,$3,$4,$5,$6)',
+          [buyer.id, sequence.id, buyer.email, sequence.subject, status, error]
+        );
+
+        if (status === 'sent') {
+          console.log(`[cron] Sent "${sequence.slug}" to ${buyer.email}`);
+        }
+      }
+    }
+  } catch (err) {
+    console.error('[cron] Error:', err.message);
+  }
+}
+
+// ─── Admin middleware ─────────────────────────────────────────────────────────
+
+function adminAuth(req, res, next) {
+  const password = req.headers['x-admin-password'] || req.query.p;
+  if (!process.env.ADMIN_PASSWORD || password === process.env.ADMIN_PASSWORD) {
+    return next();
+  }
+  res.status(401).json({ error: 'Unauthorized' });
+}
+
+// ─── Routes: public ───────────────────────────────────────────────────────────
+
 app.post('/api/lead', async (req, res) => {
   const { name = '', email = '', phone = '', source = 'Landing Page M10 Summit' } = req.body;
 
   try {
-    await ensureTable();
+    await ensureAllTables();
     await pool.query(
       'INSERT INTO leads (name, email, phone, source) VALUES ($1, $2, $3, $4)',
       [name, email, phone, source]
@@ -48,13 +208,206 @@ app.post('/api/lead', async (req, res) => {
   }
 
   forwardToSheets({ name, email, phone, source });
-
   res.json({ status: 'ok' });
 });
+
+// ─── Routes: Sympla webhook ───────────────────────────────────────────────────
+
+app.post('/api/webhook/sympla', async (req, res) => {
+  const body = req.body;
+
+  // Sympla sends status 'A' for approved orders
+  if (body.status !== 'A') {
+    return res.json({ status: 'ignored', reason: 'not approved' });
+  }
+
+  const buyer = body.buyer || {};
+  const name = buyer.first_name
+    ? `${buyer.first_name} ${buyer.last_name || ''}`.trim()
+    : buyer.name || '';
+  const email = buyer.email || '';
+  const phone = buyer.cpf || buyer.phone || '';
+  const ticket_type = (body.ticket && body.ticket.name) || '';
+
+  if (!email) return res.status(400).json({ error: 'No email in payload' });
+
+  try {
+    await pool.query(
+      `INSERT INTO buyers (name, email, phone, ticket_type, source)
+       VALUES ($1, $2, $3, $4, 'sympla_webhook')
+       ON CONFLICT (email) DO UPDATE SET
+         name = EXCLUDED.name,
+         phone = EXCLUDED.phone,
+         ticket_type = EXCLUDED.ticket_type`,
+      [name, email, phone, ticket_type]
+    );
+    console.log(`[webhook] Buyer upserted: ${email}`);
+    res.json({ status: 'ok' });
+  } catch (err) {
+    console.error('[webhook] DB error:', err.message);
+    res.status(500).json({ error: 'DB error' });
+  }
+});
+
+// ─── Routes: admin HTML ───────────────────────────────────────────────────────
+
+app.get('/admin', adminAuth, (_req, res) => {
+  res.sendFile(path.join(__dirname, 'admin.html'));
+});
+
+// ─── Routes: admin API ────────────────────────────────────────────────────────
+
+// Buyers
+app.get('/api/admin/buyers', adminAuth, async (_req, res) => {
+  const { rows } = await pool.query('SELECT * FROM buyers ORDER BY enrolled_at DESC');
+  res.json(rows);
+});
+
+app.post('/api/admin/buyers', adminAuth, async (req, res) => {
+  const { name, email, phone, ticket_type = '', source = 'manual' } = req.body;
+  if (!email) return res.status(400).json({ error: 'email required' });
+  try {
+    const { rows } = await pool.query(
+      `INSERT INTO buyers (name, email, phone, ticket_type, source)
+       VALUES ($1, $2, $3, $4, $5)
+       ON CONFLICT (email) DO UPDATE SET
+         name = EXCLUDED.name, phone = EXCLUDED.phone, ticket_type = EXCLUDED.ticket_type
+       RETURNING *`,
+      [name, email, phone, ticket_type, source]
+    );
+    res.json(rows[0]);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+app.post('/api/admin/buyers/import', adminAuth, async (req, res) => {
+  let csvText = '';
+  if (typeof req.body === 'string') {
+    csvText = req.body;
+  } else if (req.body && req.body.csv) {
+    csvText = req.body.csv;
+  } else {
+    return res.status(400).json({ error: 'Send CSV as text/csv body or JSON field "csv"' });
+  }
+
+  const rows = parseCSV(csvText);
+  if (!rows.length) return res.status(400).json({ error: 'No rows found in CSV' });
+
+  let inserted = 0;
+  let errors = [];
+
+  for (const row of rows) {
+    const email = row.email || row.e_mail || '';
+    if (!email) continue;
+    const name = row.name || row.nome || '';
+    const phone = row.phone || row.telefone || row.whatsapp || '';
+    const ticket_type = row.ticket_type || row.ticket || row.ingresso || '';
+    try {
+      await pool.query(
+        `INSERT INTO buyers (name, email, phone, ticket_type, source)
+         VALUES ($1, $2, $3, $4, 'csv_import')
+         ON CONFLICT (email) DO UPDATE SET
+           name = EXCLUDED.name, phone = EXCLUDED.phone, ticket_type = EXCLUDED.ticket_type`,
+        [name, email, phone, ticket_type]
+      );
+      inserted++;
+    } catch (err) {
+      errors.push({ email, error: err.message });
+    }
+  }
+
+  res.json({ inserted, errors });
+});
+
+// Sequences
+app.get('/api/admin/sequences', adminAuth, async (_req, res) => {
+  const { rows } = await pool.query('SELECT * FROM email_sequences ORDER BY id');
+  res.json(rows);
+});
+
+app.post('/api/admin/sequences', adminAuth, async (req, res) => {
+  const { slug, subject, preheader, html, send_mode, send_offset, active = true } = req.body;
+  try {
+    const { rows } = await pool.query(
+      `INSERT INTO email_sequences (slug, subject, preheader, html, send_mode, send_offset, active)
+       VALUES ($1,$2,$3,$4,$5,$6,$7) RETURNING *`,
+      [slug, subject, preheader, html, send_mode, send_offset, active]
+    );
+    res.json(rows[0]);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+app.put('/api/admin/sequences/:id', adminAuth, async (req, res) => {
+  const { subject, preheader, html, send_mode, send_offset, active } = req.body;
+  try {
+    const { rows } = await pool.query(
+      `UPDATE email_sequences
+       SET subject=$1, preheader=$2, html=$3, send_mode=$4, send_offset=$5, active=$6
+       WHERE id=$7 RETURNING *`,
+      [subject, preheader, html, send_mode, send_offset, active, req.params.id]
+    );
+    if (!rows.length) return res.status(404).json({ error: 'Not found' });
+    res.json(rows[0]);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+// Email log
+app.get('/api/admin/email-log', adminAuth, async (req, res) => {
+  const limit = parseInt(req.query.limit) || 100;
+  const { rows } = await pool.query(
+    `SELECT l.*, b.name as buyer_name, s.slug as sequence_slug
+     FROM email_send_log l
+     LEFT JOIN buyers b ON b.id = l.buyer_id
+     LEFT JOIN email_sequences s ON s.id = l.sequence_id
+     ORDER BY l.sent_at DESC LIMIT $1`,
+    [limit]
+  );
+  res.json(rows);
+});
+
+// Test email
+app.post('/api/admin/email-test', adminAuth, async (req, res) => {
+  const { to_email, to_name, subject, html } = req.body;
+  if (!to_email) return res.status(400).json({ error: 'to_email required' });
+  try {
+    await sendEmail({
+      to_email,
+      to_name: to_name || to_email,
+      subject: subject || '[Teste] M10 Summit',
+      html: html || '<p>Este é um e-mail de teste.</p>',
+    });
+    res.json({ status: 'sent' });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+// ─── Static + catch-all ───────────────────────────────────────────────────────
+
+app.use(express.static(__dirname));
 
 app.get('*', (_req, res) => {
   res.sendFile(path.join(__dirname, 'index.html'));
 });
 
+// ─── Start ────────────────────────────────────────────────────────────────────
+
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+
+ensureAllTables()
+  .then(() => {
+    app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+
+    // Run cron immediately then every hour
+    runEmailCron();
+    setInterval(runEmailCron, 60 * 60 * 1000);
+  })
+  .catch((err) => {
+    console.error('Failed to initialize tables:', err.message);
+    process.exit(1);
+  });
