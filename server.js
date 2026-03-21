@@ -142,7 +142,7 @@ async function sendEmail({ to_name, to_email, subject, html }) {
   return res.data;
 }
 
-const SALE_NOTIFY_EMAILS = ['eduardo@m10club.com.br', 'gustavo@m10club.com.br'];
+const SALE_NOTIFY_EMAILS = ['eduardo@m10club.com', 'gustavo@m10club.com'];
 
 async function notifyNewSale(buyer) {
   const html = `
