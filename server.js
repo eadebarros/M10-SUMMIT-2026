@@ -163,6 +163,10 @@ async function runEmailCron() {
         // Only send if scheduled time is in the past (or now)
         if (sendDate > now) continue;
 
+        // For fixed-date sequences, skip buyers who enrolled AFTER the send date
+        // (they missed this email — only upcoming emails should reach them)
+        if (sequence.send_mode === 'days_before_event' && new Date(buyer.enrolled_at) > sendDate) continue;
+
         // Check if already sent
         const { rows: logs } = await pool.query(
           'SELECT id FROM email_send_log WHERE buyer_id = $1 AND sequence_id = $2 AND status = $3',
