@@ -92,6 +92,7 @@
       <div class="toolbar">
         <h2>Compradores <span class="count-pill" id="buyers-count">0</span></h2>
         <button class="btn btn-secondary btn-sm" onclick="openImportModal()">Importar CSV</button>
+        <button class="btn btn-secondary btn-sm" id="btn-sympla-sync" onclick="symplaSync()">⟳ Sync Sympla</button>
         <button class="btn btn-primary btn-sm" onclick="openAddBuyerModal()">+ Adicionar</button>
         <button class="btn btn-secondary btn-sm" onclick="loadBuyers()">↻</button>
       </div>
@@ -452,6 +453,24 @@
       body: JSON.stringify(body),
     }).then(() => showAlert('test-alert', `E-mail enviado para ${body.to_email}!`))
       .catch((e) => showAlert('test-alert', e.message, 'error'));
+  }
+
+  // ── Sympla Sync ───────────────────────────────────────────────────────────
+
+  function symplaSync() {
+    const btn = document.getElementById('btn-sympla-sync');
+    btn.disabled = true;
+    btn.textContent = 'Sincronizando…';
+    apiFetch('/api/admin/sympla-sync', { method: 'POST' })
+      .then(() => {
+        showAlert('buyers-alert', 'Sync com Sympla concluído.');
+        loadBuyers();
+      })
+      .catch((e) => showAlert('buyers-alert', 'Erro no sync: ' + e.message, 'error'))
+      .finally(() => {
+        btn.disabled = false;
+        btn.textContent = '⟳ Sync Sympla';
+      });
   }
 
   // ── Util ──────────────────────────────────────────────────────────────────

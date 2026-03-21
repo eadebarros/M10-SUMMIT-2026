@@ -142,6 +142,73 @@ async function sendEmail({ to_name, to_email, subject, html }) {
   return res.data;
 }
 
+// ─── Sympla sync ──────────────────────────────────────────────────────────────
+
+async function runSymplaSync() {
+  const token = process.env.SYMPLA_TOKEN;
+  const eventId = process.env.SYMPLA_EVENT_ID;
+
+  if (!token || !eventId) {
+    console.log('[sympla] SYMPLA_TOKEN or SYMPLA_EVENT_ID not set — skipping sync');
+    return;
+  }
+
+  let page = 1;
+  let totalPages = 1;
+  let inserted = 0;
+
+  try {
+    do {
+      const { data } = await axios.get(
+        `https://api.sympla.com.br/public/v3/events/${eventId}/orders`,
+        {
+          headers: { s_token: token },
+          params: { page, page_size: 100 },
+        }
+      );
+
+      totalPages = data.pagination?.total_pages ?? 1;
+      const orders = data.data ?? [];
+
+      for (const order of orders) {
+        if (order.status !== 'A') continue;
+
+        const participants = order.participants ?? [order.buyer ?? {}];
+
+        for (const p of participants) {
+          const email = p.email || '';
+          if (!email) continue;
+
+          const name = p.first_name
+            ? `${p.first_name} ${p.last_name || ''}`.trim()
+            : p.name || '';
+          const phone = p.phone || p.cpf || '';
+          const ticket_type = p.ticket_name || order.ticket_name || '';
+
+          const result = await pool.query(
+            `INSERT INTO buyers (name, email, phone, ticket_type, source)
+             VALUES ($1, $2, $3, $4, 'sympla_sync')
+             ON CONFLICT (email) DO NOTHING
+             RETURNING id`,
+            [name, email, phone, ticket_type]
+          );
+
+          if (result.rows.length > 0) {
+            inserted++;
+            console.log(`[sympla] New buyer: ${email}`);
+          }
+        }
+      }
+
+      page++;
+    } while (page <= totalPages);
+
+    if (inserted > 0) console.log(`[sympla] Sync done — ${inserted} new buyer(s)`);
+  } catch (err) {
+    console.error('[sympla] Sync error:', err.message);
+  }
+}
+
 // ─── Email cron ───────────────────────────────────────────────────────────────
 
 async function runEmailCron() {
@@ -393,6 +460,16 @@ app.get('/api/admin/email-log', adminAuth, async (req, res) => {
   res.json(rows);
 });
 
+// Trigger Sympla sync manually
+app.post('/api/admin/sympla-sync', adminAuth, async (_req, res) => {
+  try {
+    await runSymplaSync();
+    res.json({ status: 'ok' });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
 // Test email
 app.post('/api/admin/email-test', adminAuth, async (req, res) => {
   const { to_email, to_name, subject, html } = req.body;
@@ -426,7 +503,11 @@ ensureAllTables()
   .then(() => {
     app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 
-    // Run cron immediately then every hour
+    // Sympla sync: run immediately then every 15 minutes
+    runSymplaSync();
+    setInterval(runSymplaSync, 15 * 60 * 1000);
+
+    // Email cron: run immediately then every hour
     runEmailCron();
     setInterval(runEmailCron, 60 * 60 * 1000);
   })
