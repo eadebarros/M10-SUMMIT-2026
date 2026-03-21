@@ -167,22 +167,29 @@ async function runSymplaSync() {
         }
       );
 
-      totalPages = data.pagination?.total_pages ?? 1;
+      totalPages = data.pagination?.total_page ?? data.pagination?.total_pages ?? 1;
       const orders = data.data ?? [];
 
       for (const order of orders) {
-        if (order.status !== 'A') continue;
+        // Sympla v3: status 'A' = approved
+        if (String(order.status).toUpperCase() !== 'A') continue;
 
-        const participants = order.participants ?? [order.buyer ?? {}];
+        // Buyer is always in order.buyer; participants may exist for group orders
+        const candidates = [];
+        if (order.buyer?.email) candidates.push({ ...order.buyer, ticket_name: order.ticket_name });
+        if (Array.isArray(order.participants)) {
+          order.participants.forEach((p) => { if (p.email) candidates.push(p); });
+        }
+        if (!candidates.length) continue;
 
-        for (const p of participants) {
+        for (const p of candidates) {
           const email = p.email || '';
           if (!email) continue;
 
           const name = p.first_name
             ? `${p.first_name} ${p.last_name || ''}`.trim()
             : p.name || '';
-          const phone = p.phone || p.cpf || '';
+          const phone = p.phone || p.cell_phone || p.cpf || '';
           const ticket_type = p.ticket_name || order.ticket_name || '';
 
           const result = await pool.query(
@@ -458,6 +465,22 @@ app.get('/api/admin/email-log', adminAuth, async (req, res) => {
     [limit]
   );
   res.json(rows);
+});
+
+// Debug: show raw Sympla response for first page
+app.get('/api/admin/sympla-debug', adminAuth, async (_req, res) => {
+  const token = process.env.SYMPLA_TOKEN;
+  const eventId = process.env.SYMPLA_EVENT_ID;
+  if (!token || !eventId) return res.status(400).json({ error: 'SYMPLA_TOKEN or SYMPLA_EVENT_ID not set' });
+  try {
+    const { data } = await axios.get(
+      `https://api.sympla.com.br/public/v3/events/${eventId}/orders`,
+      { headers: { s_token: token }, params: { page: 1, page_size: 3 } }
+    );
+    res.json(data);
+  } catch (err) {
+    res.status(500).json({ error: err.message, response: err.response?.data });
+  }
 });
 
 // Trigger Sympla sync manually

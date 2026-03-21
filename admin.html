@@ -362,8 +362,12 @@
 
   // ── Sequences ─────────────────────────────────────────────────────────────
 
+  let _seqMap = {};
+
   function loadSequences() {
     apiFetch('/api/admin/sequences').then((data) => {
+      _seqMap = {};
+      data.forEach((s) => { _seqMap[s.id] = s; });
       const tbody = document.getElementById('sequences-table');
       if (!data.length) { tbody.innerHTML = '<tr><td colspan="6" class="empty">Nenhuma sequência</td></tr>'; return; }
       tbody.innerHTML = data.map((s) => `
@@ -373,7 +377,7 @@
           <td style="font-size:11px;color:#888">${s.send_mode === 'days_after_purchase' ? 'após compra' : 'antes evento'}</td>
           <td style="text-align:center">${s.send_offset > 0 ? '+' : ''}${s.send_offset}d</td>
           <td><span class="badge ${s.active ? 'badge-active' : 'badge-inactive'}">${s.active ? 'Ativo' : 'Inativo'}</span></td>
-          <td><button class="btn btn-secondary btn-sm" onclick='editSequence(${JSON.stringify(s)})'>Editar</button></td>
+          <td><button class="btn btn-secondary btn-sm" onclick="editSequence(${s.id})">Editar</button></td>
         </tr>`).join('');
     }).catch(console.error);
   }
@@ -392,7 +396,7 @@
     document.getElementById('modal-seq').style.display = 'flex';
   }
 
-  function editSequence(seq) { openSeqModal(seq); }
+  function editSequence(id) { openSeqModal(_seqMap[id]); }
 
   function saveSequence() {
     const id = document.getElementById('seq-id').value;
