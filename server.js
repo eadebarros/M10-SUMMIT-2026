@@ -341,7 +341,7 @@ app.post('/api/webhook/sympla', async (req, res) => {
 
 // ─── Routes: admin HTML ───────────────────────────────────────────────────────
 
-app.get('/admin', adminAuth, (_req, res) => {
+app.get('/admin', (_req, res) => {
   res.sendFile(path.join(__dirname, 'admin.html'));
 });
 
