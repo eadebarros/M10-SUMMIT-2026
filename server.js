@@ -99,6 +99,24 @@ function parseCSV(text) {
   });
 }
 
+// ─── Template rendering ───────────────────────────────────────────────────────
+
+function renderTemplate(html, buyer) {
+  const nameParts = (buyer.name || '').trim().split(/\s+/);
+  const vars = {
+    first_name:    nameParts[0] || 'Participante',
+    last_name:     nameParts.slice(1).join(' ') || '',
+    name:          buyer.name || 'Participante',
+    email:         buyer.email || '',
+    ticket_type:   buyer.ticket_type || 'Ingresso',
+    purchase_date: new Date(buyer.enrolled_at).toLocaleDateString('pt-BR', {
+      day: '2-digit', month: 'long', year: 'numeric',
+    }),
+    event_link:    process.env.EVENT_LINK || 'https://m10club.com.br',
+  };
+  return html.replace(/\{\{(\w+)\}\}/g, (_, key) => vars[key] ?? '');
+}
+
 // ─── MailerSend ───────────────────────────────────────────────────────────────
 
 async function sendEmail({ to_name, to_email, subject, html }) {
@@ -158,8 +176,8 @@ async function runEmailCron() {
           await sendEmail({
             to_name: buyer.name,
             to_email: buyer.email,
-            subject: sequence.subject,
-            html: sequence.html,
+            subject: renderTemplate(sequence.subject, buyer),
+            html: renderTemplate(sequence.html, buyer),
           });
         } catch (err) {
           status = 'error';

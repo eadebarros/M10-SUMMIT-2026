@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hoje é o dia! Endereço e instruções</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background-color: #f8f8f8;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+        .header {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            padding: 40px 30px;
+            text-align: center;
+            color: #ffffff;
+        }
+        .header h1 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            line-height: 1.3;
+        }
+        .header .subheader {
+            font-size: 16px;
+            font-weight: 600;
+            opacity: 0.9;
+        }
+        .content {
+            padding: 40px 30px;
+        }
+        .intro {
+            font-size: 16px;
+            line-height: 1.7;
+            margin-bottom: 30px;
+            color: #333333;
+            text-align: center;
+        }
+        .intro strong {
+            font-weight: 700;
+            color: #1a1a1a;
+        }
+        .main-info {
+            background: linear-gradient(135deg, #f8f8f8 0%, #f0f0f0 100%);
+            border-left: 5px solid #1a1a1a;
+            padding: 30px;
+            margin: 30px 0;
+            border-radius: 4px;
+            text-align: center;
+        }
+        .main-info h2 {
+            font-size: 20px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 20px;
+        }
+        .info-item {
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #ddd;
+        }
+        .info-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        .info-label {
+            font-size: 12px;
+            font-weight: 600;
+            color: #666666;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 6px;
+        }
+        .info-value {
+            font-size: 16px;
+            font-weight: 700;
+            color: #1a1a1a;
+            line-height: 1.6;
+        }
+        .section {
+            margin-bottom: 30px;
+        }
+        .section h3 {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #1a1a1a;
+            border-bottom: 2px solid #1a1a1a;
+            padding-bottom: 10px;
+        }
+        .section p {
+            font-size: 14px;
+            line-height: 1.7;
+            color: #333333;
+            margin-bottom: 12px;
+        }
+        .section strong {
+            font-weight: 700;
+            color: #1a1a1a;
+        }
+        .checklist {
+            background-color: #f8f8f8;
+            padding: 20px;
+            border-radius: 4px;
+        }
+        .checklist-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 12px;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        .checklist-item:last-child {
+            margin-bottom: 0;
+        }
+        .check {
+            display: inline-block;
+            width: 18px;
+            height: 18px;
+            border: 2px solid #1a1a1a;
+            border-radius: 3px;
+            margin-right: 12px;
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+        .checklist-text {
+            color: #333333;
+        }
+        .checklist-text strong {
+            font-weight: 700;
+            color: #1a1a1a;
+        }
+        .excitement-box {
+            background: linear-gradient(135deg, #f0f0f0 0%, #e8e8e8 100%);
+            border-left: 5px solid #1a1a1a;
+            padding: 25px;
+            margin: 30px 0;
+            border-radius: 4px;
+            text-align: center;
+        }
+        .excitement-box p {
+            font-size: 16px;
+            line-height: 1.7;
+            color: #1a1a1a;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        .excitement-box p:last-child {
+            margin-bottom: 0;
+            font-size: 14px;
+            font-weight: 400;
+            color: #666666;
+        }
+        .closing {
+            font-size: 15px;
+            line-height: 1.7;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #e0e0e0;
+            color: #333333;
+            text-align: center;
+        }
+        .closing strong {
+            font-weight: 700;
+            color: #1a1a1a;
+        }
+        .footer {
+            background-color: #f8f8f8;
+            padding: 30px;
+            text-align: center;
+            font-size: 12px;
+            color: #666666;
+            border-top: 1px solid #e0e0e0;
+        }
+        .footer p {
+            margin-bottom: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>🎯 Hoje é o dia!</h1>
+            <div class="subheader">M10 Summit 2026 — Dia 1</div>
+        </div>
+
+        <!-- Content -->
+        <div class="content">
+            <div class="intro">
+                Olá, <strong>{{first_name}}</strong>!<br><br>
+                <strong>Você está prestes a viver uma experiência que pode transformar seu negócio.</strong><br><br>
+                Aqui estão os detalhes finais e instruções para hoje.
+            </div>
+
+            <div class="main-info">
+                <h2>Informações Importantes</h2>
+                
+                <div class="info-item">
+                    <div class="info-label">📍 Local</div>
+                    <div class="info-value">Espaço Berit — Alphaville, SP<br>Alameda Rio Negro, 500 — Torre B, 3º andar</div>
+                </div>
+
+                <div class="info-item">
+                    <div class="info-label">⏰ Horário</div>
+                    <div class="info-value">9h00 — 17h00<br>(Chegue com 15 minutos de antecedência)</div>
+                </div>
+
+                <div class="info-item">
+                    <div class="info-label">🚗 Estacionamento</div>
+                    <div class="info-value">Gratuito no local</div>
+                </div>
+
+                <div class="info-item">
+                    <div class="info-label">☕ Incluso</div>
+                    <div class="info-value">Coffee breaks, almoço e material do evento</div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>Checklist de Hoje</h3>
+                <div class="checklist">
+                    <div class="checklist-item">
+                        <div class="check"></div>
+                        <div class="checklist-text"><strong>Leve seu documento de identidade</strong> (RG, CPF ou Passaporte)</div>
+                    </div>
+                    <div class="checklist-item">
+                        <div class="check"></div>
+                        <div class="checklist-text"><strong>Leve seus números de negócio</strong> (CAC, receita, clientes, ticket médio)</div>
+                    </div>
+                    <div class="checklist-item">
+                        <div class="check"></div>
+                        <div class="checklist-text"><strong>Leve notebook ou tablet</strong> para anotações</div>
+                    </div>
+                    <div class="checklist-item">
+                        <div class="check"></div>
+                        <div class="checklist-text"><strong>Coloque o celular no silencioso</strong> — você precisa estar 100% presente</div>
+                    </div>
+                    <div class="checklist-item">
+                        <div class="check"></div>
+                        <div class="checklist-text"><strong>Prepare-se mentalmente</strong> para absorver conteúdo intenso e prático</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>Programação de Hoje</h3>
+                <p><strong>09h00 — 10h30:</strong> Abertura — A Jornada do Empresário Refém (Eduardo de Barros)</p>
+                <p><strong>10h30 — 12h00:</strong> Sua Marca é Seu Maior Ativo (Edgar Oliveira)</p>
+                <p><strong>12h00 — 14h00:</strong> Almoço</p>
+                <p><strong>14h00 — 15h30:</strong> O Fim do Funil: Construindo a Máquina de Vendas (Gustavo Siuves)</p>
+                <p><strong>15h30 — 17h00:</strong> Venda Sem Vender: A Mentalidade Consultiva (Gustavo Siuves)</p>
+            </div>
+
+            <div class="section">
+                <h3>Dicas para Aproveitar ao Máximo</h3>
+                <p><strong>1. Anote tudo.</strong> Não confie na memória. Cada insight pode ser a diferença.</p>
+                <p><strong>2. Faça perguntas.</strong> Os especialistas estão aqui para você. Não tenha medo de questionar.</p>
+                <p><strong>3. Networking.</strong> Converse com os outros participantes. Essas conexões valem por anos.</p>
+                <p><strong>4. Esteja presente.</strong> Desligue do trabalho por hoje. Você merece estar 100% aqui.</p>
+            </div>
+
+            <div class="excitement-box">
+                <p>Receita previsível começa na base.</p>
+                <p>E hoje você aprende como estruturá-la.</p>
+            </div>
+
+            <div class="closing">
+                <p><strong>Nos vemos em breve!</strong></p>
+                <p style="margin-top: 15px;">Se tiver qualquer dúvida no caminho, responda este email. Estamos aqui para ajudar.</p>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p><strong>Equipe M10 Summit</strong></p>
+            <p>Estruturando Áreas de Receita desde 2015</p>
+            <p style="margin-top: 15px; font-size: 11px;">© 2026 M10. Todos os direitos reservados.</p>
+        </div>
+    </div>
+</body>
+</html>

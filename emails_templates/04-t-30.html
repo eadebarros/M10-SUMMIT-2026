@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faltam 30 dias — prepare-se</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background-color: #f8f8f8;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+        .header {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            padding: 40px 30px;
+            text-align: center;
+            color: #ffffff;
+        }
+        .header h1 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            line-height: 1.3;
+        }
+        .header .countdown {
+            font-size: 18px;
+            font-weight: 600;
+            opacity: 0.9;
+        }
+        .content {
+            padding: 40px 30px;
+        }
+        .intro {
+            font-size: 15px;
+            line-height: 1.7;
+            margin-bottom: 30px;
+            color: #333333;
+        }
+        .intro strong {
+            font-weight: 700;
+            color: #1a1a1a;
+        }
+        .event-details {
+            background-color: #f0f0f0;
+            border-left: 4px solid #1a1a1a;
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 4px;
+        }
+        .detail-item {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: flex-start;
+        }
+        .detail-item:last-child {
+            margin-bottom: 0;
+        }
+        .detail-icon {
+            font-weight: 700;
+            margin-right: 12px;
+            min-width: 20px;
+            color: #1a1a1a;
+        }
+        .detail-text {
+            font-size: 14px;
+            line-height: 1.6;
+            color: #333333;
+        }
+        .detail-text strong {
+            font-weight: 700;
+            color: #1a1a1a;
+        }
+        .section {
+            margin-bottom: 30px;
+        }
+        .section h2 {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #1a1a1a;
+            border-bottom: 2px solid #1a1a1a;
+            padding-bottom: 10px;
+        }
+        .section p {
+            font-size: 15px;
+            line-height: 1.7;
+            color: #333333;
+            margin-bottom: 12px;
+        }
+        .checklist {
+            background-color: #f8f8f8;
+            padding: 20px;
+            border-radius: 4px;
+            margin-top: 15px;
+        }
+        .checklist-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 12px;
+            font-size: 14px;
+            line-height: 1.6;
+            color: #333333;
+        }
+        .checklist-item:last-child {
+            margin-bottom: 0;
+        }
+        .checklist-check {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #1a1a1a;
+            border-radius: 3px;
+            margin-right: 12px;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+        .closing {
+            font-size: 15px;
+            line-height: 1.7;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #e0e0e0;
+            color: #333333;
+        }
+        .closing strong {
+            font-weight: 700;
+            color: #1a1a1a;
+        }
+        .footer {
+            background-color: #f8f8f8;
+            padding: 30px;
+            text-align: center;
+            font-size: 12px;
+            color: #666666;
+            border-top: 1px solid #e0e0e0;
+        }
+        .footer p {
+            margin-bottom: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>Faltam 30 dias</h1>
+            <div class="countdown">M10 Summit 2026 — 8 e 9 de Maio</div>
+        </div>
+
+        <!-- Content -->
+        <div class="content">
+            <div class="intro">
+                Olá, <strong>{{first_name}}</strong>!<br><br>
+                <strong>Você está a um mês de uma experiência que pode transformar seu negócio.</strong><br><br>
+                Aqui estão os detalhes finais e como se preparar.
+            </div>
+
+            <div class="event-details">
+                <div class="detail-item">
+                    <div class="detail-icon">📅</div>
+                    <div class="detail-text"><strong>Data:</strong> 8 e 9 de Maio de 2026</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-icon">⏰</div>
+                    <div class="detail-text"><strong>Horário:</strong> 9h às 17h (ambos os dias)</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-icon">📍</div>
+                    <div class="detail-text"><strong>Local:</strong> Espaço Berit, Alphaville — SP<br>Alameda Rio Negro, 500 — Torre B, 3º andar</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-icon">🎟️</div>
+                    <div class="detail-text"><strong>Investimento:</strong> R$ 967,00 (1º lote)</div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Quem você vai encontrar</h2>
+                <p>7 especialistas de referência em um único evento:</p>
+                <p style="font-size: 14px; line-height: 1.7; color: #333333; margin-top: 12px;">
+                    <strong>Eduardo de Barros</strong> (Marketing Estratégico) · 
+                    <strong>Gustavo Siuves</strong> (Máquina de Vendas) · 
+                    <strong>Domingos Mantelli</strong> (Gestão Estratégica) · 
+                    <strong>Rogério Magalhães</strong> (Desenvolvimento de Times) · 
+                    <strong>Danilo Gato</strong> (IA para Negócios) · 
+                    <strong>Edgar Oliveira</strong> (Marcas & Patentes)
+                </p>
+            </div>
+
+            <div class="section">
+                <h2>Como se preparar</h2>
+                <p>Você não precisa fazer nada complicado. Mas aqui estão algumas sugestões para aproveitar ao máximo:</p>
+                
+                <div class="checklist">
+                    <div class="checklist-item">
+                        <div class="checklist-check"></div>
+                        <div><strong>Revise sua situação atual:</strong> Quantos clientes você tem? Qual é seu CAC? Qual é sua receita média mensal? Você vai precisar desses números para o diagnóstico.</div>
+                    </div>
+                    <div class="checklist-item">
+                        <div class="checklist-check"></div>
+                        <div><strong>Pense em suas maiores dores:</strong> Qual é o seu maior desafio hoje? Instabilidade de receita? Dependência de tráfego? Falta de integração entre marketing e vendas?</div>
+                    </div>
+                    <div class="checklist-item">
+                        <div class="checklist-check"></div>
+                        <div><strong>Organize sua agenda:</strong> Reserve os dias 8 e 9 de Maio. Não marque reuniões. Não deixe para depois. Esse é um investimento em você.</div>
+                    </div>
+                    <div class="checklist-item">
+                        <div class="checklist-check"></div>
+                        <div><strong>Planeje sua logística:</strong> Você vem de onde? Precisa de hotel? Os hotéis próximos estão listados no site. Reserve com antecedência.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>O que você vai levar</h2>
+                <p>Quando você sair do M10 Summit, você vai ter:</p>
+                <p style="font-size: 14px; line-height: 1.7; color: #333333; margin-top: 12px;">
+                    ✓ Diagnóstico claro da sua Área de Receita<br>
+                    ✓ Plano de ação estruturado para os próximos 90 dias<br>
+                    ✓ Ferramentas exclusivas para implementação<br>
+                    ✓ Conexões com empreendedores que pensam como você<br>
+                    ✓ Visão clara de como transformar sua base em motor de crescimento
+                </p>
+            </div>
+
+            <div class="closing">
+                <p><strong>Faltam 30 dias.</strong> Esse é o momento de começar a se preparar mentalmente para uma mudança real.</p>
+                <p style="margin-top: 15px;">Nos próximos dias você receberá a programação completa e instruções de acesso.</p>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p><strong>Equipe M10 Summit</strong></p>
+            <p>Estruturando Áreas de Receita desde 2015</p>
+            <p style="margin-top: 15px; font-size: 11px;">© 2026 M10. Todos os direitos reservados.</p>
+        </div>
+    </div>
+</body>
+</html>

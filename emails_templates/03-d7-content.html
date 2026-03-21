@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Os 3 pilares que vamos explorar juntos</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background-color: #f8f8f8;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+        .header {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            padding: 40px 30px;
+            text-align: center;
+            color: #ffffff;
+        }
+        .header h1 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            line-height: 1.3;
+        }
+        .content {
+            padding: 40px 30px;
+        }
+        .intro {
+            font-size: 15px;
+            line-height: 1.7;
+            margin-bottom: 30px;
+            color: #333333;
+        }
+        .intro strong {
+            font-weight: 700;
+            color: #1a1a1a;
+        }
+        .pillar {
+            background: linear-gradient(135deg, #f8f8f8 0%, #f0f0f0 100%);
+            border-left: 5px solid #1a1a1a;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-radius: 4px;
+        }
+        .pillar-number {
+            display: inline-block;
+            background-color: #1a1a1a;
+            color: #ffffff;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 36px;
+            font-weight: 700;
+            font-size: 16px;
+            margin-bottom: 12px;
+        }
+        .pillar h3 {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 12px;
+        }
+        .pillar p {
+            font-size: 14px;
+            line-height: 1.7;
+            color: #333333;
+            margin-bottom: 12px;
+        }
+        .pillar p:last-child {
+            margin-bottom: 0;
+        }
+        .pillar-subtitle {
+            font-size: 13px;
+            font-weight: 600;
+            color: #666666;
+            margin-top: 12px;
+            padding-top: 12px;
+            border-top: 1px solid #ddd;
+        }
+        .insight-box {
+            background-color: #f0f0f0;
+            border-left: 4px solid #1a1a1a;
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 4px;
+        }
+        .insight-box h4 {
+            font-size: 14px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 10px;
+        }
+        .insight-box p {
+            font-size: 14px;
+            line-height: 1.7;
+            color: #333333;
+            margin: 0;
+        }
+        .closing {
+            font-size: 15px;
+            line-height: 1.7;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #e0e0e0;
+            color: #333333;
+        }
+        .closing strong {
+            font-weight: 700;
+            color: #1a1a1a;
+        }
+        .footer {
+            background-color: #f8f8f8;
+            padding: 30px;
+            text-align: center;
+            font-size: 12px;
+            color: #666666;
+            border-top: 1px solid #e0e0e0;
+        }
+        .footer p {
+            margin-bottom: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>Os 3 pilares que vamos explorar</h1>
+        </div>
+
+        <!-- Content -->
+        <div class="content">
+            <div class="intro">
+                Olá, <strong>{{first_name}}</strong>!<br><br>
+                <strong>Receita previsível não é sorte — é estrutura.</strong><br><br>
+                E essa estrutura repousa sobre 3 pilares fundamentais. Aqui está o que você vai aprender no M10 Summit.
+            </div>
+
+            <!-- Pilar 1 -->
+            <div class="pillar">
+                <div class="pillar-number">1</div>
+                <h3>Integração Marketing + Vendas</h3>
+                <p>A maioria das empresas trata marketing e vendas como departamentos isolados. Uma equipe traz tráfego. A outra converte. Ninguém fala com ninguém.</p>
+                <p>Aqui você aprende como fazer essas duas áreas funcionarem como um único sistema — com objetivos alinhados, dados compartilhados e uma estratégia unificada.</p>
+                <p style="margin-top: 12px; font-style: italic; color: #666666;">Resultado: conversão melhor, menos desperdício, crescimento previsível.</p>
+            </div>
+
+            <!-- Pilar 2 -->
+            <div class="pillar">
+                <div class="pillar-number">2</div>
+                <h3>Monetização da Base</h3>
+                <p>Você já tem clientes. Você já tem relacionamento. Mas provavelmente não está monetizando isso da forma correta.</p>
+                <p>Neste pilar você aprende estratégias para vender mais para quem já comprou — aumentando o lifetime value, criando recorrência e transformando sua base na principal fonte de crescimento.</p>
+                <p style="margin-top: 12px; font-style: italic; color: #666666;">Resultado: crescimento sem depender de novos clientes, margem melhor, receita mais previsível.</p>
+            </div>
+
+            <!-- Pilar 3 -->
+            <div class="pillar">
+                <div class="pillar-number">3</div>
+                <h3>Estrutura de Previsibilidade</h3>
+                <p>Crescimento baseado em tráfego pago é frágil. Quando o algoritmo muda, quando o CAC sobe, quando o mercado desacelera — tudo desaba.</p>
+                <p>Aqui você aprende como construir uma máquina que funciona mesmo quando as circunstâncias externas mudam — porque ela não depende só de tráfego. Ela depende de estrutura.</p>
+                <p style="margin-top: 12px; font-style: italic; color: #666666;">Resultado: empresa resiliente, receita previsível, controle real sobre o futuro.</p>
+            </div>
+
+            <div class="insight-box">
+                <h4>Por que esses 3 pilares?</h4>
+                <p>Porque juntos eles formam uma Área de Receita — um sistema integrado que transforma marketing e vendas em uma máquina previsível de crescimento. Não é tráfego. Não é vendas. É estrutura.</p>
+            </div>
+
+            <div class="closing">
+                <p><strong>Você vai sair do M10 Summit com:</strong></p>
+                <p>✓ Compreensão clara de como esses 3 pilares funcionam na prática<br>
+                ✓ Diagnóstico da sua situação atual<br>
+                ✓ Um plano de ação para começar a estruturar sua Área de Receita<br>
+                ✓ Acesso a ferramentas e metodologia que você pode implementar imediatamente</p>
+                <p style="margin-top: 20px;"><strong>Faltam poucos dias. Prepare-se.</strong></p>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p><strong>M10 Summit</strong></p>
+            <p>Estruturando Áreas de Receita desde 2015</p>
+            <p style="margin-top: 15px; font-size: 11px;">© 2026 M10. Todos os direitos reservados.</p>
+        </div>
+    </div>
+</body>
+</html>

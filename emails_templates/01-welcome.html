@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sua vaga no M10 Summit está confirmada</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background-color: #f8f8f8;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+        .header {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            padding: 40px 30px;
+            text-align: center;
+            color: #ffffff;
+        }
+        .header h1 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            line-height: 1.3;
+        }
+        .header p {
+            font-size: 14px;
+            opacity: 0.9;
+            font-weight: 500;
+        }
+        .content {
+            padding: 40px 30px;
+        }
+        .greeting {
+            font-size: 16px;
+            margin-bottom: 25px;
+            color: #1a1a1a;
+        }
+        .greeting strong {
+            font-weight: 700;
+        }
+        .highlight-box {
+            background-color: #f0f0f0;
+            border-left: 4px solid #1a1a1a;
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 4px;
+        }
+        .highlight-box p {
+            font-size: 15px;
+            line-height: 1.7;
+            color: #1a1a1a;
+        }
+        .highlight-box strong {
+            font-weight: 700;
+            color: #1a1a1a;
+        }
+        .section {
+            margin-bottom: 30px;
+        }
+        .section h2 {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #1a1a1a;
+        }
+        .section p {
+            font-size: 15px;
+            line-height: 1.7;
+            color: #333333;
+            margin-bottom: 12px;
+        }
+        .cta-button {
+            display: inline-block;
+            background-color: #1a1a1a;
+            color: #ffffff;
+            padding: 14px 32px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 15px;
+            margin: 20px 0;
+            transition: background-color 0.3s ease;
+        }
+        .cta-button:hover {
+            background-color: #333333;
+        }
+        .tagline {
+            font-size: 14px;
+            font-style: italic;
+            color: #666666;
+            margin-top: 25px;
+            padding-top: 20px;
+            border-top: 1px solid #e0e0e0;
+        }
+        .footer {
+            background-color: #f8f8f8;
+            padding: 30px;
+            text-align: center;
+            font-size: 12px;
+            color: #666666;
+            border-top: 1px solid #e0e0e0;
+        }
+        .footer p {
+            margin-bottom: 8px;
+        }
+        .footer a {
+            color: #1a1a1a;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .badge {
+            display: inline-block;
+            background-color: #1a1a1a;
+            color: #ffffff;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>Sua vaga está confirmada</h1>
+            <p>Bem-vindo ao M10 Summit</p>
+        </div>
+
+        <!-- Content -->
+        <div class="content">
+            <div class="greeting">
+                Olá, <strong>{{first_name}}</strong>!<br>
+                <strong>Sua compra foi processada com sucesso.</strong>
+            </div>
+
+            <div class="highlight-box">
+                <p><strong>Você agora é oficialmente um participante do M10 Summit.</strong></p>
+                <p style="margin-top: 12px; margin-bottom: 0;">Isso significa que você está prestes a aprender como transformar marketing e vendas em uma máquina previsível de receita — usando a base que você já tem, antes de depender de novos clientes.</p>
+                <p style="margin-top: 12px; font-size: 13px; color: #666666; margin-bottom: 0;">
+                  Ingresso: <strong>{{ticket_type}}</strong> &nbsp;·&nbsp; Confirmado em: {{purchase_date}}
+                </p>
+            </div>
+
+            <div class="section">
+                <h2>O que você vai encontrar aqui</h2>
+                <p>Nos próximos dias, você receberá uma série de emails com:</p>
+                <p>✓ <strong>Informações práticas</strong> sobre o evento e o que esperar<br>
+                ✓ <strong>Os 3 pilares</strong> que vamos explorar juntos<br>
+                ✓ <strong>Contagem regressiva</strong> com detalhes finais<br>
+                ✓ <strong>Instruções de acesso</strong> e logística</p>
+            </div>
+
+            <div class="section">
+                <h2>Próximo passo</h2>
+                <p>Fique atento ao seu email. Em breve, você receberá detalhes sobre o que esperar do M10 Summit e como aproveitar ao máximo essa experiência.</p>
+                <p>Se tiver dúvidas, responda este email. Estamos aqui para ajudar.</p>
+            </div>
+
+            <div class="tagline">
+                <strong>Receita previsível começa na base.</strong><br>
+                E você está no caminho certo para estruturá-la.
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p><strong>M10 Summit</strong></p>
+            <p>Estruturando Áreas de Receita desde 2015</p>
+            <p style="margin-top: 15px; font-size: 11px;">© 2026 M10. Todos os direitos reservados.</p>
+        </div>
+    </div>
+</body>
+</html>
