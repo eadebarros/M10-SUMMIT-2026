@@ -426,6 +426,18 @@ app.get('/api/admin/sequences', adminAuth, async (_req, res) => {
   res.json(rows);
 });
 
+app.get('/api/admin/sequences/:id/sent', adminAuth, async (req, res) => {
+  const { rows } = await pool.query(
+    `SELECT b.name, b.email, l.sent_at, l.status
+     FROM email_send_log l
+     JOIN buyers b ON b.id = l.buyer_id
+     WHERE l.sequence_id = $1 AND l.status = 'sent'
+     ORDER BY l.sent_at DESC`,
+    [req.params.id]
+  );
+  res.json(rows);
+});
+
 app.post('/api/admin/sequences', adminAuth, async (req, res) => {
   const { slug, subject, preheader, html, send_mode, send_offset, active = true } = req.body;
   try {

@@ -177,6 +177,17 @@
   </div>
 </div>
 
+<!-- Modal: Enviados da sequência -->
+<div id="modal-seq-sent" class="modal-overlay" style="display:none">
+  <div class="modal" style="max-width:640px">
+    <h3 id="seq-sent-title">Enviados</h3>
+    <div id="seq-sent-body"></div>
+    <div class="modal-footer">
+      <button class="btn btn-secondary" onclick="closeModal('modal-seq-sent')">Fechar</button>
+    </div>
+  </div>
+</div>
+
 <!-- Modal: Importar CSV -->
 <div id="modal-import" class="modal-overlay" style="display:none">
   <div class="modal">
@@ -346,7 +357,7 @@
           : s.send_offset === 0 ? 'No dia do evento'
           : `${Math.abs(s.send_offset)}d antes do evento`;
         return `
-          <div class="seq-card ${s.active ? '' : 'inactive'}">
+          <div class="seq-card ${s.active ? '' : 'inactive'}" style="cursor:pointer" onclick="openSeqSent(${s.id}, '${esc(s.slug)}')" title="Ver quem recebeu">
             <div class="seq-info">
               <div class="seq-slug">${esc(s.slug)}</div>
               <div class="seq-subject">${esc(s.subject)}</div>
@@ -397,6 +408,34 @@
       body: JSON.stringify(body),
     }).then(() => showAlert('test-alert', `E-mail enviado para ${body.to_email}!`))
       .catch((e) => showAlert('test-alert', e.message, 'error'));
+  }
+
+  // ── Seq sent modal ────────────────────────────────────────────────────────
+
+  function openSeqSent(id, slug) {
+    document.getElementById('seq-sent-title').textContent = `Enviados — ${slug}`;
+    document.getElementById('seq-sent-body').innerHTML = '<p style="color:#666;font-size:13px">Carregando…</p>';
+    document.getElementById('modal-seq-sent').style.display = 'flex';
+    apiFetch(`/api/admin/sequences/${id}/sent`).then((data) => {
+      if (!data.length) {
+        document.getElementById('seq-sent-body').innerHTML = '<div class="empty" style="padding:24px">Nenhum envio registrado ainda</div>';
+        return;
+      }
+      document.getElementById('seq-sent-body').innerHTML = `
+        <p style="font-size:12px;color:#666;margin-bottom:12px">${data.length} envio(s)</p>
+        <table style="width:100%">
+          <thead><tr><th>Nome</th><th>Email</th><th>Data</th></tr></thead>
+          <tbody>${data.map((r) => `
+            <tr>
+              <td>${esc(r.name || '—')}</td>
+              <td>${esc(r.email)}</td>
+              <td style="white-space:nowrap;font-size:12px;color:#888">${fmtDate(r.sent_at)}</td>
+            </tr>`).join('')}
+          </tbody>
+        </table>`;
+    }).catch((e) => {
+      document.getElementById('seq-sent-body').innerHTML = `<p style="color:#f44336">${e.message}</p>`;
+    });
   }
 
   // ── Sympla Sync ───────────────────────────────────────────────────────────
