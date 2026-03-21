@@ -142,6 +142,27 @@ async function sendEmail({ to_name, to_email, subject, html }) {
   return res.data;
 }
 
+const SALE_NOTIFY_EMAILS = ['eduardo@m10club.com.br', 'gustavo@m10club.com.br'];
+
+async function notifyNewSale(buyer) {
+  const html = `
+    <p>Nova venda detectada no M10 Summit! 🎉</p>
+    <table style="border-collapse:collapse;font-family:sans-serif;font-size:14px">
+      <tr><td style="padding:4px 12px 4px 0;color:#888">Nome</td><td><strong>${buyer.name || '—'}</strong></td></tr>
+      <tr><td style="padding:4px 12px 4px 0;color:#888">Email</td><td>${buyer.email}</td></tr>
+      <tr><td style="padding:4px 12px 4px 0;color:#888">Ingresso</td><td>${buyer.ticket_type || '—'}</td></tr>
+      <tr><td style="padding:4px 12px 4px 0;color:#888">Data</td><td>${new Date().toLocaleString('pt-BR')}</td></tr>
+    </table>
+  `;
+  for (const to_email of SALE_NOTIFY_EMAILS) {
+    try {
+      await sendEmail({ to_email, subject: `Nova venda — ${buyer.name || buyer.email}`, html });
+    } catch (err) {
+      console.error(`[notify] Failed to send sale notification to ${to_email}:`, err.message);
+    }
+  }
+}
+
 // ─── Sympla sync ──────────────────────────────────────────────────────────────
 
 async function runSymplaSync() {
@@ -191,6 +212,7 @@ async function runSymplaSync() {
         if (result.rows.length > 0) {
           inserted++;
           console.log(`[sympla] New buyer: ${email}`);
+          notifyNewSale({ name, email, ticket_type });
         }
       }
 
