@@ -406,7 +406,23 @@ app.post('/api/admin/buyers/import', adminAuth, async (req, res) => {
 
 // Sequences
 app.get('/api/admin/sequences', adminAuth, async (_req, res) => {
-  const { rows } = await pool.query('SELECT * FROM email_sequences ORDER BY id');
+  const { rows } = await pool.query(`
+    SELECT
+      s.id, s.slug, s.subject, s.send_mode, s.send_offset, s.active,
+      COALESCE(sent.cnt, 0)::int  AS sent_count,
+      COALESCE(err.cnt,  0)::int  AS error_count,
+      GREATEST(0, (SELECT COUNT(*) FROM buyers)::int
+        - COALESCE(sent.cnt, 0)::int
+        - COALESCE(err.cnt,  0)::int) AS pending_count
+    FROM email_sequences s
+    LEFT JOIN (
+      SELECT sequence_id, COUNT(*) AS cnt FROM email_send_log WHERE status = 'sent'  GROUP BY sequence_id
+    ) sent ON sent.sequence_id = s.id
+    LEFT JOIN (
+      SELECT sequence_id, COUNT(*) AS cnt FROM email_send_log WHERE status = 'error' GROUP BY sequence_id
+    ) err ON err.sequence_id = s.id
+    ORDER BY s.id
+  `);
   res.json(rows);
 });
 

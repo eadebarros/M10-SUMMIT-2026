@@ -54,6 +54,20 @@
     .alert-error { background: #3a1a1a; color: #f44336; border: 1px solid #4a2a2a; }
     .empty { text-align: center; padding: 48px; color: #555; font-size: 14px; }
     .count-pill { background: #2a2a2a; color: #888; font-size: 11px; padding: 2px 8px; border-radius: 10px; }
+    .seq-cards { display: grid; gap: 12px; }
+    .seq-card { background: #1a1a1a; border: 1px solid #2a2a2a; border-radius: 10px; padding: 18px 20px; display: flex; align-items: center; gap: 20px; }
+    .seq-card.inactive { opacity: .5; }
+    .seq-info { flex: 1; min-width: 0; }
+    .seq-slug { font-size: 11px; color: #e8b84b; font-family: monospace; margin-bottom: 4px; }
+    .seq-subject { font-size: 14px; font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .seq-when { font-size: 12px; color: #666; margin-top: 4px; }
+    .seq-stats { display: flex; gap: 10px; flex-shrink: 0; }
+    .stat-pill { display: flex; flex-direction: column; align-items: center; background: #222; border-radius: 8px; padding: 8px 14px; min-width: 56px; }
+    .stat-pill .num { font-size: 20px; font-weight: 700; line-height: 1; }
+    .stat-pill .lbl { font-size: 10px; color: #666; margin-top: 3px; text-transform: uppercase; letter-spacing: .04em; }
+    .stat-sent  .num { color: #4caf50; }
+    .stat-queue .num { color: #e8b84b; }
+    .stat-error .num { color: #f44336; }
   </style>
 </head>
 <body>
@@ -109,16 +123,10 @@
     <div id="tab-sequences" class="tab">
       <div class="toolbar">
         <h2>Sequências de E-mail</h2>
-        <button class="btn btn-primary btn-sm" onclick="openSeqModal()">+ Nova Sequência</button>
         <button class="btn btn-secondary btn-sm" onclick="loadSequences()">↻</button>
       </div>
       <div id="seq-alert"></div>
-      <div style="overflow-x:auto">
-        <table>
-          <thead><tr><th>Slug</th><th>Assunto</th><th>Modo</th><th>Offset</th><th>Status</th><th>Ações</th></tr></thead>
-          <tbody id="sequences-table"></tbody>
-        </table>
-      </div>
+      <div id="sequences-cards"></div>
     </div>
 
     <!-- Log -->
@@ -185,40 +193,6 @@
   </div>
 </div>
 
-<!-- Modal: Sequência -->
-<div id="modal-seq" class="modal-overlay" style="display:none">
-  <div class="modal">
-    <h3 id="seq-modal-title">Nova Sequência</h3>
-    <input type="hidden" id="seq-id" />
-    <div class="form-2col">
-      <div class="form-row"><label>Slug *</label><input id="seq-slug" type="text" placeholder="welcome" /></div>
-      <div class="form-row">
-        <label>Status</label>
-        <select id="seq-active">
-          <option value="true">Ativo</option>
-          <option value="false">Inativo</option>
-        </select>
-      </div>
-    </div>
-    <div class="form-row"><label>Assunto *</label><input id="seq-subject" type="text" /></div>
-    <div class="form-row"><label>Pré-cabeçalho</label><input id="seq-preheader" type="text" /></div>
-    <div class="form-2col">
-      <div class="form-row">
-        <label>Modo de envio</label>
-        <select id="seq-mode">
-          <option value="days_after_purchase">Dias após compra</option>
-          <option value="days_before_event">Dias antes do evento</option>
-        </select>
-      </div>
-      <div class="form-row"><label>Offset (dias)</label><input id="seq-offset" type="number" value="0" /></div>
-    </div>
-    <div class="form-row"><label>HTML do e-mail</label><textarea id="seq-html" rows="10" placeholder="<p>Olá {{name}},...</p>"></textarea></div>
-    <div class="modal-footer">
-      <button class="btn btn-secondary" onclick="closeModal('modal-seq')">Cancelar</button>
-      <button class="btn btn-primary" onclick="saveSequence()">Salvar</button>
-    </div>
-  </div>
-</div>
 
 <script>
   let adminPassword = '';
@@ -362,64 +336,30 @@
 
   // ── Sequences ─────────────────────────────────────────────────────────────
 
-  let _seqMap = {};
-
   function loadSequences() {
     apiFetch('/api/admin/sequences').then((data) => {
-      _seqMap = {};
-      data.forEach((s) => { _seqMap[s.id] = s; });
-      const tbody = document.getElementById('sequences-table');
-      if (!data.length) { tbody.innerHTML = '<tr><td colspan="6" class="empty">Nenhuma sequência</td></tr>'; return; }
-      tbody.innerHTML = data.map((s) => `
-        <tr>
-          <td><code>${esc(s.slug)}</code></td>
-          <td>${esc(s.subject)}</td>
-          <td style="font-size:11px;color:#888">${s.send_mode === 'days_after_purchase' ? 'após compra' : 'antes evento'}</td>
-          <td style="text-align:center">${s.send_offset > 0 ? '+' : ''}${s.send_offset}d</td>
-          <td><span class="badge ${s.active ? 'badge-active' : 'badge-inactive'}">${s.active ? 'Ativo' : 'Inativo'}</span></td>
-          <td><button class="btn btn-secondary btn-sm" onclick="editSequence(${s.id})">Editar</button></td>
-        </tr>`).join('');
+      const container = document.getElementById('sequences-cards');
+      if (!data.length) { container.innerHTML = '<div class="empty">Nenhuma sequência configurada</div>'; return; }
+      container.innerHTML = `<div class="seq-cards">${data.map((s) => {
+        const when = s.send_mode === 'days_after_purchase'
+          ? `${s.send_offset}d após a compra`
+          : s.send_offset === 0 ? 'No dia do evento'
+          : `${Math.abs(s.send_offset)}d antes do evento`;
+        return `
+          <div class="seq-card ${s.active ? '' : 'inactive'}">
+            <div class="seq-info">
+              <div class="seq-slug">${esc(s.slug)}</div>
+              <div class="seq-subject">${esc(s.subject)}</div>
+              <div class="seq-when">${when} · <span class="badge ${s.active ? 'badge-active' : 'badge-inactive'}">${s.active ? 'Ativo' : 'Inativo'}</span></div>
+            </div>
+            <div class="seq-stats">
+              <div class="stat-pill stat-sent"><span class="num">${s.sent_count}</span><span class="lbl">Enviados</span></div>
+              <div class="stat-pill stat-queue"><span class="num">${s.pending_count}</span><span class="lbl">Na fila</span></div>
+              <div class="stat-pill stat-error"><span class="num">${s.error_count}</span><span class="lbl">Erros</span></div>
+            </div>
+          </div>`;
+      }).join('')}</div>`;
     }).catch(console.error);
-  }
-
-  function openSeqModal(seq) {
-    document.getElementById('seq-modal-title').textContent = seq ? 'Editar Sequência' : 'Nova Sequência';
-    document.getElementById('seq-id').value = seq ? seq.id : '';
-    document.getElementById('seq-slug').value = seq ? seq.slug : '';
-    document.getElementById('seq-slug').disabled = !!seq;
-    document.getElementById('seq-subject').value = seq ? seq.subject : '';
-    document.getElementById('seq-preheader').value = seq ? (seq.preheader || '') : '';
-    document.getElementById('seq-html').value = seq ? (seq.html || '') : '';
-    document.getElementById('seq-mode').value = seq ? seq.send_mode : 'days_after_purchase';
-    document.getElementById('seq-offset').value = seq ? seq.send_offset : 0;
-    document.getElementById('seq-active').value = seq ? String(seq.active) : 'true';
-    document.getElementById('modal-seq').style.display = 'flex';
-  }
-
-  function editSequence(id) { openSeqModal(_seqMap[id]); }
-
-  function saveSequence() {
-    const id = document.getElementById('seq-id').value;
-    const body = {
-      slug: document.getElementById('seq-slug').value,
-      subject: document.getElementById('seq-subject').value,
-      preheader: document.getElementById('seq-preheader').value,
-      html: document.getElementById('seq-html').value,
-      send_mode: document.getElementById('seq-mode').value,
-      send_offset: parseInt(document.getElementById('seq-offset').value),
-      active: document.getElementById('seq-active').value === 'true',
-    };
-    const url = id ? `/api/admin/sequences/${id}` : '/api/admin/sequences';
-    const method = id ? 'PUT' : 'POST';
-    apiFetch(url, {
-      method,
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(body),
-    }).then(() => {
-      closeModal('modal-seq');
-      loadSequences();
-      showAlert('seq-alert', 'Sequência salva com sucesso.');
-    }).catch((e) => showAlert('seq-alert', e.message, 'error'));
   }
 
   // ── Log ───────────────────────────────────────────────────────────────────
