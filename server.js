@@ -167,43 +167,30 @@ async function runSymplaSync() {
         }
       );
 
-      totalPages = data.pagination?.total_page ?? data.pagination?.total_pages ?? 1;
+      totalPages = data.pagination?.total_page ?? 1;
       const orders = data.data ?? [];
 
       for (const order of orders) {
-        // Sympla v3: status 'A' = approved
-        if (String(order.status).toUpperCase() !== 'A') continue;
+        if (String(order.order_status).toUpperCase() !== 'A') continue;
 
-        // Buyer is always in order.buyer; participants may exist for group orders
-        const candidates = [];
-        if (order.buyer?.email) candidates.push({ ...order.buyer, ticket_name: order.ticket_name });
-        if (Array.isArray(order.participants)) {
-          order.participants.forEach((p) => { if (p.email) candidates.push(p); });
-        }
-        if (!candidates.length) continue;
+        const email = order.buyer_email || '';
+        if (!email) continue;
 
-        for (const p of candidates) {
-          const email = p.email || '';
-          if (!email) continue;
+        const name = `${order.buyer_first_name || ''} ${order.buyer_last_name || ''}`.trim();
+        const phone = order.invoice_info?.doc_number || '';
+        const ticket_type = order.ticket_name || '';
 
-          const name = p.first_name
-            ? `${p.first_name} ${p.last_name || ''}`.trim()
-            : p.name || '';
-          const phone = p.phone || p.cell_phone || p.cpf || '';
-          const ticket_type = p.ticket_name || order.ticket_name || '';
+        const result = await pool.query(
+          `INSERT INTO buyers (name, email, phone, ticket_type, source)
+           VALUES ($1, $2, $3, $4, 'sympla_sync')
+           ON CONFLICT (email) DO NOTHING
+           RETURNING id`,
+          [name, email, phone, ticket_type]
+        );
 
-          const result = await pool.query(
-            `INSERT INTO buyers (name, email, phone, ticket_type, source)
-             VALUES ($1, $2, $3, $4, 'sympla_sync')
-             ON CONFLICT (email) DO NOTHING
-             RETURNING id`,
-            [name, email, phone, ticket_type]
-          );
-
-          if (result.rows.length > 0) {
-            inserted++;
-            console.log(`[sympla] New buyer: ${email}`);
-          }
+        if (result.rows.length > 0) {
+          inserted++;
+          console.log(`[sympla] New buyer: ${email}`);
         }
       }
 
