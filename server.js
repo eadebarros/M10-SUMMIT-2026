@@ -535,11 +535,12 @@ app.post('/api/admin/email-test', adminAuth, async (req, res) => {
   const { to_email, to_name, subject, html } = req.body;
   if (!to_email) return res.status(400).json({ error: 'to_email required' });
   try {
+    const fakeBuyer = { name: to_name || 'Participante', email: to_email, ticket_type: 'Ingresso', enrolled_at: new Date() };
     await sendEmail({
       to_email,
       to_name: to_name || to_email,
       subject: subject || '[Teste] M10 Summit',
-      html: html || '<p>Este é um e-mail de teste.</p>',
+      html: renderTemplate(html || '<p>Este é um e-mail de teste.</p>', fakeBuyer),
     });
     res.json({ status: 'sent' });
   } catch (err) {
