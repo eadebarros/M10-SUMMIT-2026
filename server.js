@@ -548,6 +548,29 @@ app.post('/api/admin/email-test', adminAuth, async (req, res) => {
   }
 });
 
+// ─── A/B split ────────────────────────────────────────────────────────────────
+
+function parseCookies(req) {
+  const cookies = {};
+  (req.headers.cookie || '').split(';').forEach((part) => {
+    const [k, ...v] = part.trim().split('=');
+    if (k) cookies[k.trim()] = v.join('=');
+  });
+  return cookies;
+}
+
+app.get('/', (req, res) => {
+  const cookies = parseCookies(req);
+  let variant = cookies['ab_variant'];
+  if (!variant) {
+    variant = Math.random() < 0.5 ? 'A' : 'B';
+    const maxAge = 30 * 24 * 60 * 60; // 30 days in seconds
+    res.setHeader('Set-Cookie', `ab_variant=${variant}; Path=/; Max-Age=${maxAge}; SameSite=Lax`);
+  }
+  const file = variant === 'B' ? 'index-b.html' : 'index.html';
+  res.sendFile(path.join(__dirname, file));
+});
+
 // ─── Static + catch-all ───────────────────────────────────────────────────────
 
 app.use(express.static(__dirname));

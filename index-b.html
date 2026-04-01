@@ -1,0 +1,1865 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>M10 Summit 2026 — Transforme seu negócio em uma máquina de faturamento previsível</title>
+  <meta name="description" content="Evento presencial de 2 dias em Alphaville, SP. 8 e 9 de Maio de 2026. 7 especialistas, uma metodologia: a Área de Receita." />
+
+  <!-- ─── Google Tag Manager ───────────────────────────── -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-PFCQ54XB');</script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:        #0A1628;
+      --navy-mid:    #1A2E4A;
+      --navy-light:  #2A4166;
+      --gold:        #C9A84C;
+      --gold-light:  #E2C06E;
+      --gold-dark:   #A8863A;
+      --gold-bg:     rgba(201,168,76,0.08);
+      --gold-border: rgba(201,168,76,0.25);
+      --white:       #FFFFFF;
+      --off-white:   #F8F7F4;
+      --surface:     #F2F0EC;
+      --surface-mid: #E8E5DF;
+      --text-primary:   #0A1628;
+      --text-secondary: #4A5568;
+      --text-muted:     #718096;
+      --text-inverse:   #FFFFFF;
+      --green:    #2D6A4F;
+      --green-bg: rgba(45,106,79,0.08);
+      --red:      #C53030;
+      --red-bg:   rgba(197,48,48,0.08);
+      --max:    1100px;
+      --radius: 6px;
+      --radius-lg: 12px;
+      --radius-xl: 20px;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--white);
+      color: var(--text-primary);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ─── UTILS ─────────────────────────────────────── */
+    .container { max-width: var(--max); margin: 0 auto; padding: 0 32px; }
+    .section { padding: 96px 0; }
+
+    /* ─── TIPOGRAFIA ────────────────────────────────── */
+    .display-xl { font-family: 'Playfair Display', serif; font-weight: 900; font-size: clamp(48px, 7vw, 88px); line-height: 1.0; letter-spacing: -1px; }
+    .display-lg { font-family: 'Playfair Display', serif; font-weight: 700; font-size: clamp(34px, 5vw, 58px); line-height: 1.1; }
+    .display-md { font-family: 'Playfair Display', serif; font-weight: 700; font-size: clamp(26px, 3.5vw, 40px); line-height: 1.15; }
+    .stat-num   { font-family: 'Playfair Display', serif; font-weight: 900; font-size: clamp(36px, 5vw, 60px); line-height: 1.0; }
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--gold-dark);
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      margin-bottom: 20px;
+    }
+    .eyebrow::before {
+      content: '';
+      width: 28px;
+      height: 1px;
+      background: var(--gold-dark);
+      flex-shrink: 0;
+    }
+
+    /* ─── COMPONENTES ────────────────────────────────── */
+    .btn {
+      display: inline-block;
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      font-size: 14px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 18px 44px;
+      border-radius: 4px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .btn-primary {
+      background: var(--navy);
+      color: var(--white);
+      box-shadow: 0 2px 8px rgba(10,22,40,0.2);
+    }
+    .btn-primary:hover { background: var(--navy-mid); box-shadow: 0 6px 24px rgba(10,22,40,0.3); transform: translateY(-2px); }
+    .btn-primary:active { transform: translateY(0); }
+    .btn-gold {
+      background: var(--gold);
+      color: var(--navy);
+      font-weight: 700;
+      box-shadow: 0 2px 8px rgba(201,168,76,0.3);
+    }
+    .btn-gold:hover { background: var(--gold-light); box-shadow: 0 6px 24px rgba(201,168,76,0.45); transform: translateY(-2px); }
+    .btn-outline {
+      background: transparent;
+      color: var(--navy);
+      border: 1.5px solid var(--navy);
+      letter-spacing: 1px;
+      padding: 16px 40px;
+    }
+    .btn-outline:hover { background: var(--navy); color: var(--white); }
+    .btn-lg { padding: 22px 56px; font-size: 15px; }
+    .btn-full { width: 100%; display: block; text-align: center; }
+
+    /* ─── SCROLL REVEAL ─────────────────────────────── */
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.5s ease, transform 0.5s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-stagger > * { opacity: 0; transform: translateY(16px); transition: opacity 0.4s ease, transform 0.4s ease; }
+    .reveal-stagger.visible > *:nth-child(1) { opacity:1; transform:translateY(0); transition-delay:0.05s; }
+    .reveal-stagger.visible > *:nth-child(2) { opacity:1; transform:translateY(0); transition-delay:0.12s; }
+    .reveal-stagger.visible > *:nth-child(3) { opacity:1; transform:translateY(0); transition-delay:0.19s; }
+    .reveal-stagger.visible > *:nth-child(4) { opacity:1; transform:translateY(0); transition-delay:0.26s; }
+
+    /* ─── HEADER ─────────────────────────────────────── */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      background: rgba(255,255,255,0.97);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--surface-mid);
+      height: 72px;
+    }
+    .header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 32px;
+      height: 100%;
+    }
+    header img.logo {
+      height: 48px;
+      width: auto;
+      filter: brightness(0) saturate(100%);
+    }
+    .header-countdown {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .hcd-label {
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--text-secondary);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+    .hcd-blocks { display: flex; align-items: center; gap: 4px; }
+    .hcd-block {
+      background: var(--surface);
+      border: 1px solid var(--surface-mid);
+      border-radius: 4px;
+      padding: 6px 10px;
+      text-align: center;
+      min-width: 42px;
+    }
+    .hcd-num {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 20px;
+      color: var(--navy);
+      line-height: 1;
+      display: block;
+    }
+    .hcd-unit {
+      font-size: 9px;
+      font-weight: 500;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      display: block;
+    }
+    .hcd-sep {
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      font-size: 18px;
+      color: var(--gold);
+      padding-bottom: 4px;
+    }
+    .header-cta .btn { padding: 10px 24px; font-size: 13px; }
+
+    /* ─── HERO ───────────────────────────────────────── */
+    #hero {
+      background: var(--white);
+      min-height: 92vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+    }
+    .hero-content {
+      padding: 80px 64px 80px 0;
+      max-width: 560px;
+      margin-left: auto;
+    }
+    .hero-headline { margin-top: 20px; margin-bottom: 28px; color: var(--navy); }
+    .hero-headline .line-gold { color: var(--gold); }
+
+    .hero-lead { font-size: 19px; line-height: 1.75; color: var(--text-secondary); max-width: 480px; margin-bottom: 36px; }
+
+    .stats-inline {
+      display: flex;
+      gap: 0;
+      flex-wrap: wrap;
+      margin-bottom: 48px;
+    }
+    .stat-inline-item { padding: 0 32px 0 0; }
+    .stat-inline-item:not(:first-child) { padding-left: 32px; border-left: 1px solid var(--surface-mid); }
+    .stat-inline-num { font-family: 'Playfair Display', serif; font-weight: 900; font-size: clamp(28px, 4vw, 42px); color: var(--navy); line-height: 1; }
+    .stat-inline-num .suffix { color: var(--gold); }
+    .stat-inline-label { font-size: 13px; color: var(--text-secondary); margin-top: 4px; }
+
+    .hero-cta-group { display: flex; flex-direction: column; gap: 16px; max-width: 400px; }
+    .hero-cta-group .btn { font-size: 15px; padding: 20px 44px; }
+    .hero-meta-line {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+    .hero-urgency-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--gold-bg);
+      border: 1px solid var(--gold-border);
+      border-radius: 100px;
+      padding: 8px 16px;
+      margin-top: 20px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--gold-dark);
+    }
+
+    .hero-visual {
+      position: relative;
+      height: 100%;
+      min-height: 600px;
+      overflow: hidden;
+    }
+    .hero-visual img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+    .hero-visual-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to left, transparent 60%, rgba(255,255,255,0.15) 100%);
+    }
+    .hero-visual-line {
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      background: linear-gradient(to bottom, transparent, var(--gold), transparent);
+    }
+    .floating-card {
+      position: absolute;
+      bottom: 40px;
+      left: -32px;
+      background: var(--white);
+      border: 1px solid var(--surface-mid);
+      border-radius: var(--radius-lg);
+      box-shadow: 0 16px 48px rgba(10,22,40,0.15);
+      padding: 20px 24px;
+      max-width: 260px;
+      animation: fadeUp 0.6s ease 0.8s both;
+    }
+    @keyframes fadeUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
+    .floating-card .stars { color: var(--gold); font-size: 14px; margin-bottom: 8px; letter-spacing: 1px; }
+    .floating-card .quote { font-style: italic; font-size: 14px; color: var(--text-secondary); line-height: 1.5; margin-bottom: 12px; }
+    .floating-author { display: flex; gap: 10px; align-items: center; }
+    .floating-avatar {
+      width: 32px; height: 32px;
+      border-radius: 50%;
+      background: var(--surface);
+      flex-shrink: 0;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+    .floating-author-name { font-weight: 600; font-size: 13px; color: var(--navy); display: block; }
+    .floating-author-role { font-size: 12px; color: var(--text-muted); }
+
+    /* ─── STRIP ──────────────────────────────────────── */
+    .strip-navy {
+      background: var(--navy);
+      padding: 20px 0;
+      overflow: hidden;
+    }
+    .marquee-track {
+      display: flex;
+      width: max-content;
+      animation: scroll-marquee 30s linear infinite;
+    }
+    .marquee-track:hover { animation-play-state: paused; }
+    .marquee-list { display: flex; align-items: center; list-style: none; }
+    .marquee-item {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-inverse);
+      white-space: nowrap;
+      padding: 0 28px;
+    }
+    .marquee-sep {
+      color: var(--navy-light);
+      padding: 0;
+      font-weight: 300;
+      font-size: 18px;
+    }
+
+    /* ─── PROBLEMA ───────────────────────────────────── */
+    #problem { background: var(--off-white); }
+
+    .pain-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 56px;
+      margin-bottom: 56px;
+    }
+    .pain-card {
+      background: var(--white);
+      border: 1px solid var(--surface-mid);
+      border-radius: var(--radius-lg);
+      padding: 36px 32px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(10,22,40,0.06);
+      transition: all 0.25s ease;
+    }
+    .pain-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--gold);
+      opacity: 0;
+      transition: opacity 0.25s ease;
+    }
+    .pain-card:hover { box-shadow: 0 12px 40px rgba(10,22,40,0.12); transform: translateY(-4px); border-color: var(--gold-border); }
+    .pain-card:hover::before { opacity: 1; }
+    .pain-card-num {
+      position: absolute;
+      top: -12px; right: 20px;
+      font-family: 'Playfair Display', serif;
+      font-weight: 900;
+      font-size: 96px;
+      color: rgba(10,22,40,0.04);
+      line-height: 1;
+      pointer-events: none;
+    }
+    .pain-card-icon { font-size: 28px; margin-bottom: 20px; display: block; }
+    .pain-card p { font-size: 15px; color: var(--text-secondary); line-height: 1.7; }
+
+    .problem-conclusion {
+      background: var(--navy);
+      border-radius: var(--radius-xl);
+      padding: 48px 56px;
+      max-width: 780px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .problem-conclusion-line { width: 48px; height: 2px; background: var(--gold); margin: 0 auto 24px; }
+    .problem-conclusion p {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-style: italic;
+      font-size: clamp(18px, 2.5vw, 22px);
+      color: var(--text-inverse);
+      line-height: 1.7;
+    }
+    .problem-conclusion em { color: var(--gold); font-style: normal; }
+
+    /* ─── STATS IMPACT ───────────────────────────────── */
+    #stats-impact {
+      background: var(--white);
+      border-top: 1px solid var(--surface-mid);
+      border-bottom: 1px solid var(--surface-mid);
+      padding: 0;
+    }
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+    }
+    .stat-item {
+      padding: 48px 40px;
+      text-align: center;
+      position: relative;
+    }
+    .stat-item + .stat-item::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 20%; bottom: 20%;
+      width: 1px;
+      background: var(--surface-mid);
+    }
+    .stat-item .stat-num { color: var(--navy); }
+    .stat-item .stat-suffix { color: var(--gold); }
+    .stat-item .stat-label { font-size: 15px; color: var(--text-secondary); margin-top: 8px; line-height: 1.4; }
+
+    /* ─── SOLUTION ───────────────────────────────────── */
+    #solution { background: var(--off-white); }
+
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      margin-top: 56px;
+    }
+    .pillar-card {
+      background: var(--white);
+      border: 1px solid var(--surface-mid);
+      border-radius: var(--radius-lg);
+      padding: 36px 28px;
+      text-align: left;
+      box-shadow: 0 2px 8px rgba(10,22,40,0.05);
+      transition: all 0.3s ease;
+    }
+    .pillar-card:hover {
+      box-shadow: 0 16px 48px rgba(10,22,40,0.12);
+      transform: translateY(-6px);
+      border-color: var(--gold-border);
+    }
+    .pillar-card:hover .pillar-num { color: var(--gold); }
+    .pillar-num {
+      font-family: 'Playfair Display', serif;
+      font-weight: 900;
+      font-size: 48px;
+      color: var(--gold-light);
+      line-height: 1;
+      margin-bottom: 16px;
+      transition: color 0.3s;
+    }
+    .pillar-name {
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      font-size: 15px;
+      color: var(--navy);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 12px;
+    }
+    .pillar-desc { font-size: 14px; color: var(--text-secondary); line-height: 1.65; }
+
+    .solution-closing {
+      background: var(--navy);
+      border-radius: var(--radius-xl);
+      padding: 40px 48px;
+      max-width: 680px;
+      margin: 56px auto 0;
+      text-align: center;
+      font-size: 17px;
+      color: var(--text-inverse);
+      line-height: 1.8;
+    }
+    .solution-closing strong { color: var(--gold); }
+
+    /* ─── SPEAKERS ───────────────────────────────────── */
+    #speakers { background: var(--white); }
+
+    .speakers-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 24px;
+      margin-top: 56px;
+    }
+    .speaker-card {
+      background: var(--white);
+      border: 1px solid var(--surface-mid);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: 0 2px 12px rgba(10,22,40,0.07);
+      transition: all 0.3s ease;
+    }
+    .speaker-card:hover { box-shadow: 0 16px 48px rgba(10,22,40,0.15); transform: translateY(-6px); border-color: var(--gold-border); }
+    .speaker-photo {
+      width: 100%;
+      aspect-ratio: 4/5;
+      object-fit: cover;
+      object-position: top;
+      display: block;
+      filter: grayscale(100%) contrast(1.05);
+      transition: filter 0.4s ease;
+    }
+    .speaker-card:hover .speaker-photo { filter: grayscale(0%); }
+    .speaker-info { padding: 20px 20px 24px; }
+    .speaker-name { font-size: 17px; font-weight: 700; color: var(--navy); margin-bottom: 4px; }
+    .speaker-role { font-size: 13px; color: var(--gold-dark); font-weight: 600; margin-bottom: 10px; }
+    .speaker-bio { font-size: 13px; color: var(--text-muted); line-height: 1.5; }
+
+    /* ─── AGENDA ─────────────────────────────────────── */
+    #schedule { background: var(--off-white); }
+
+    .schedule-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      margin-top: 56px;
+    }
+    .day-card {
+      background: var(--white);
+      border: 1px solid var(--surface-mid);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(10,22,40,0.05);
+    }
+    .day-header {
+      background: var(--navy);
+      padding: 24px 32px;
+      position: relative;
+    }
+    .day-header::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--gold);
+    }
+    .day-header h3 {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text-inverse);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+    .day-header p { font-size: 13px; color: rgba(255,255,255,0.6); margin-top: 4px; }
+
+    .session-item {
+      display: flex;
+      gap: 24px;
+      padding: 20px 32px;
+      border-bottom: 1px solid var(--surface-mid);
+      transition: background 0.2s;
+    }
+    .session-item:last-child { border-bottom: none; }
+    .session-item:hover { background: var(--surface); }
+    .session-time { font-size: 12px; font-weight: 600; color: var(--gold-dark); text-transform: uppercase; letter-spacing: 1px; min-width: 90px; flex-shrink: 0; padding-top: 2px; }
+    .session-title { font-size: 15px; font-weight: 600; color: var(--navy); margin-bottom: 4px; line-height: 1.35; }
+    .session-desc { font-size: 13px; color: var(--text-secondary); line-height: 1.5; }
+    .session-speaker { font-size: 12px; color: var(--text-muted); font-weight: 500; margin-top: 6px; }
+
+    /* ─── SOCIAL PROOF ───────────────────────────────── */
+    /* seção comentada — reativar quando vídeo estiver disponível */
+
+    /* ─── PARA QUEM É ────────────────────────────────── */
+    #for-who { background: var(--off-white); }
+
+    .for-who-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 56px;
+      margin-bottom: 48px;
+    }
+    .for-who-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 40px 36px;
+      box-shadow: 0 2px 8px rgba(10,22,40,0.05);
+    }
+    .for-who-card.yes { border: 1px solid rgba(45,106,79,0.2); border-top: 3px solid var(--green); }
+    .for-who-card.no  { border: 1px solid rgba(197,48,48,0.2); border-top: 3px solid var(--red); }
+    .for-who-card h3 {
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 24px;
+    }
+    .for-who-card.yes h3 { color: var(--green); }
+    .for-who-card.no  h3 { color: var(--red); }
+    .for-who-item { display: flex; gap: 14px; margin-bottom: 16px; align-items: flex-start; }
+    .for-who-item:last-child { margin-bottom: 0; }
+    .for-who-icon { flex-shrink: 0; margin-top: 2px; }
+    .for-who-text { font-size: 15px; color: var(--text-secondary); line-height: 1.55; }
+    .for-who-closing {
+      max-width: 560px;
+      margin: 0 auto;
+      text-align: center;
+      font-size: 17px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+    .for-who-closing strong { color: var(--navy); font-weight: 700; }
+
+    /* ─── OFFER ──────────────────────────────────────── */
+    #offer { background: var(--white); }
+
+    .offer-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: start;
+      margin-top: 56px;
+    }
+    .includes-list { list-style: none; }
+    .includes-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--surface-mid);
+    }
+    .includes-list li:last-child { border-bottom: none; }
+    .includes-list li svg { color: var(--gold-dark); flex-shrink: 0; margin-top: 2px; }
+    .includes-list .item-title { font-weight: 600; font-size: 15px; color: var(--navy); margin-bottom: 2px; }
+    .includes-list .item-desc { font-size: 14px; color: var(--text-secondary); line-height: 1.5; }
+
+    .price-card-b {
+      background: var(--navy);
+      border-radius: var(--radius-xl);
+      padding: 48px 40px;
+      text-align: center;
+      position: sticky;
+      top: 88px;
+      box-shadow: 0 24px 64px rgba(10,22,40,0.25);
+    }
+    .price-card-b .lote-badge {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--navy);
+      font-weight: 800;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      padding: 6px 20px;
+      border-radius: 100px;
+      margin-bottom: 28px;
+    }
+    .price-card-b .price-label { font-size: 12px; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 8px; }
+    .price-value-b { display: flex; align-items: flex-start; justify-content: center; gap: 4px; margin-bottom: 4px; }
+    .price-value-b .r { font-size: 24px; color: rgba(255,255,255,0.6); padding-top: 12px; }
+    .price-value-b .v { font-family: 'Playfair Display', serif; font-weight: 900; font-size: 80px; color: var(--white); line-height: 1; }
+    .price-value-b .c { font-size: 20px; color: rgba(255,255,255,0.5); align-self: flex-end; padding-bottom: 8px; }
+    .price-card-b .installment { font-size: 14px; color: rgba(255,255,255,0.5); margin-top: 8px; margin-bottom: 4px; }
+    .price-card-b .price-note { font-size: 12px; color: rgba(255,255,255,0.4); margin-bottom: 32px; }
+    .price-urgency-b {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      background: rgba(249,115,22,0.15);
+      border: 1px solid rgba(249,115,22,0.3);
+      border-radius: var(--radius);
+      padding: 12px 16px;
+      text-align: left;
+      margin-top: 16px;
+    }
+    .price-urgency-b span { font-size: 13px; font-weight: 500; color: #fb923c; line-height: 1.5; }
+    .price-guarantee-b {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      text-align: left;
+      margin-top: 20px;
+    }
+    .price-guarantee-b svg { color: var(--gold); flex-shrink: 0; margin-top: 2px; }
+    .price-guarantee-b p { font-size: 12px; color: rgba(255,255,255,0.5); line-height: 1.6; }
+    .price-guarantee-b strong { color: var(--gold); }
+
+    /* ─── GUARANTEE ──────────────────────────────────── */
+    #guarantee {
+      background: var(--off-white);
+      border-top: 1px solid var(--surface-mid);
+      border-bottom: 1px solid var(--surface-mid);
+    }
+    .guarantee-content { max-width: 680px; margin: 0 auto; text-align: center; }
+    .guarantee-badge-b {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--navy);
+      color: var(--gold);
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      padding: 14px 36px;
+      border-radius: 100px;
+      margin-bottom: 36px;
+      box-shadow: 0 4px 16px rgba(10,22,40,0.2);
+    }
+    .guarantee-content h2 { color: var(--navy); margin-bottom: 8px; }
+    .guarantee-sub { font-size: 18px; font-weight: 600; color: var(--gold-dark); margin-top: 8px; margin-bottom: 28px; }
+    .guarantee-content p { font-size: 16px; color: var(--text-secondary); line-height: 1.8; margin-bottom: 16px; }
+    .guarantee-support { font-style: italic; font-size: 15px; color: var(--text-muted); }
+
+    /* ─── VENUE ──────────────────────────────────────── */
+    #venue { background: var(--white); }
+
+    .venue-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 16px;
+      margin-top: 48px;
+      margin-bottom: 56px;
+    }
+    .venue-gallery img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-radius: var(--radius-lg);
+      box-shadow: 0 4px 16px rgba(10,22,40,0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .venue-gallery img:hover { transform: scale(1.02); box-shadow: 0 12px 40px rgba(10,22,40,0.15); }
+
+    .venue-bottom { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
+    .venue-map iframe { width: 100%; height: 360px; border: none; border-radius: var(--radius-lg); box-shadow: 0 4px 16px rgba(10,22,40,0.1); }
+    .venue-hotels h3 { font-size: 13px; font-weight: 700; color: var(--navy); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px; }
+    .hotel-card { background: var(--surface); border: 1px solid var(--surface-mid); border-radius: var(--radius); padding: 16px 20px; margin-bottom: 10px; display: flex; flex-direction: column; gap: 4px; }
+    .hotel-card strong { font-size: 15px; color: var(--navy); }
+    .hotel-card span { font-size: 13px; color: var(--text-muted); }
+    .hotel-card .hotel-dist { font-size: 12px; font-weight: 600; color: var(--gold-dark); margin-top: 6px; }
+
+    /* ─── CTA FINAL ──────────────────────────────────── */
+    #cta-final {
+      background: var(--navy);
+      padding: 120px 0;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    #cta-final::before {
+      content: '';
+      position: absolute;
+      top: -200px; left: 50%;
+      transform: translateX(-50%);
+      width: 800px; height: 800px;
+      background: radial-gradient(circle, rgba(201,168,76,0.1) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .cta-final-inner { position: relative; z-index: 1; }
+    .cta-eyebrow-inv { color: var(--gold); }
+    .cta-eyebrow-inv::before { background: var(--gold); }
+
+    #cta-final h2 { color: var(--text-inverse); margin-bottom: 40px; }
+
+    .choices-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      max-width: 860px;
+      margin: 0 auto 48px;
+    }
+    .choice-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: var(--radius-lg);
+      padding: 36px 32px;
+      text-align: left;
+    }
+    .choice-card.highlight {
+      background: rgba(201,168,76,0.1);
+      border: 1.5px solid rgba(201,168,76,0.4);
+      box-shadow: 0 0 48px rgba(201,168,76,0.08);
+    }
+    .choice-label { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 12px; display: block; }
+    .choice-card .choice-label { color: rgba(255,255,255,0.4); }
+    .choice-card.highlight .choice-label { color: var(--gold); }
+    .choice-card p { font-size: 16px; color: rgba(255,255,255,0.75); line-height: 1.7; }
+
+    .cta-quote-b {
+      max-width: 640px;
+      margin: 0 auto 48px;
+      text-align: center;
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-style: italic;
+      font-size: clamp(18px, 2.5vw, 26px);
+      color: rgba(255,255,255,0.7);
+      line-height: 1.6;
+      position: relative;
+    }
+
+    .cta-group-b { display: flex; flex-direction: column; align-items: center; gap: 24px; }
+    .cta-price-b { text-align: center; margin-bottom: 8px; }
+    .cta-lote-label { font-size: 11px; font-weight: 600; color: var(--gold); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 6px; }
+    .cta-price-display { display: flex; align-items: flex-start; justify-content: center; gap: 4px; }
+    .cta-price-display .r { font-size: 24px; color: rgba(255,255,255,0.5); padding-top: 12px; }
+    .cta-price-display .v { font-family: 'Playfair Display', serif; font-weight: 900; font-size: 80px; color: var(--white); line-height: 1; }
+    .cta-price-display .c { font-size: 20px; color: rgba(255,255,255,0.4); align-self: flex-end; padding-bottom: 8px; }
+    .cta-urgency-b { font-size: 14px; color: rgba(255,255,255,0.5); max-width: 400px; margin: 6px auto 0; }
+    .cta-main-btn { max-width: 560px; width: 100%; font-size: 16px; padding: 22px 48px; }
+    .cta-below-b { font-size: 14px; color: rgba(255,255,255,0.4); margin-top: 8px; }
+    .trust-row-b { display: flex; gap: 24px; flex-wrap: wrap; justify-content: center; margin-top: 20px; }
+    .trust-row-b span {
+      display: flex; align-items: center; gap: 6px;
+      font-size: 13px; color: rgba(255,255,255,0.55);
+    }
+    .trust-row-b svg { color: var(--gold); }
+
+    /* ─── FOOTER ─────────────────────────────────────── */
+    footer {
+      background: var(--navy);
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding: 48px 32px;
+    }
+    .footer-inner { display: flex; flex-direction: column; align-items: center; gap: 16px; text-align: center; }
+    footer img.logo { height: 48px; filter: brightness(0) invert(1); }
+    .footer-divider { width: 60px; height: 1px; background: rgba(255,255,255,0.15); }
+    footer .copyright { font-size: 13px; color: rgba(255,255,255,0.4); line-height: 1.6; }
+    footer .copyright a { color: rgba(255,255,255,0.6); text-decoration: none; transition: color 0.2s; }
+    footer .copyright a:hover { color: var(--gold); }
+
+    /* ─── MODAL ──────────────────────────────────────── */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      background: rgba(10,22,40,0.85);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s ease;
+    }
+    .modal-overlay.active { opacity: 1; pointer-events: auto; }
+    .modal-overlay.active .modal { transform: translateY(0) scale(1); }
+
+    .modal {
+      background: var(--white);
+      border-radius: var(--radius-xl);
+      padding: 48px 44px;
+      max-width: 480px;
+      width: 100%;
+      position: relative;
+      box-shadow: 0 32px 80px rgba(10,22,40,0.4);
+      transform: translateY(16px) scale(0.98);
+      transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1);
+    }
+    .modal-close {
+      position: absolute;
+      top: 20px; right: 20px;
+      background: var(--surface);
+      border: 1px solid var(--surface-mid);
+      border-radius: 50%;
+      width: 36px; height: 36px;
+      color: var(--text-secondary);
+      font-size: 18px;
+      cursor: pointer;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .modal-close:hover { background: var(--surface-mid); color: var(--navy); }
+
+    .modal-icon {
+      width: 56px; height: 56px;
+      border-radius: 50%;
+      background: var(--gold-bg);
+      border: 1px solid var(--gold-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+    }
+    .modal-icon svg { color: var(--gold-dark); }
+
+    .modal h3 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 30px;
+      color: var(--navy);
+      text-align: center;
+      margin-bottom: 8px;
+    }
+    .modal-sub { font-size: 15px; color: var(--text-secondary); text-align: center; margin-bottom: 28px; line-height: 1.6; }
+
+    .form-group { margin-bottom: 16px; }
+    .form-group label { display: block; font-weight: 600; font-size: 13px; color: var(--navy); margin-bottom: 6px; }
+    .form-group input {
+      width: 100%;
+      background: var(--surface);
+      border: 1.5px solid var(--surface-mid);
+      border-radius: var(--radius);
+      padding: 14px 16px;
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      color: var(--navy);
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+    }
+    .form-group input::placeholder { color: var(--text-muted); }
+    .form-group input:focus { border-color: var(--navy-light); box-shadow: 0 0 0 3px rgba(10,22,40,0.08); background: var(--white); }
+    .form-group input.input-ok { border-color: rgba(45,106,79,0.5); }
+    .form-group input.input-error { border-color: rgba(197,48,48,0.6); box-shadow: 0 0 0 3px rgba(197,48,48,0.08); }
+
+    .field-error-msg { display: none; font-size: 12px; color: var(--red); margin-top: 4px; }
+    .field-error-msg.visible { display: block; }
+
+    .btn-submit { width: 100%; margin-top: 8px; }
+    .btn-submit:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+    .btn-submit.loading::after {
+      content: '';
+      display: inline-block;
+      width: 14px; height: 14px;
+      border: 2px solid rgba(255,255,255,0.3);
+      border-top-color: var(--gold-light);
+      border-radius: 50%;
+      animation: spin 0.6s linear infinite;
+      margin-left: 10px;
+      vertical-align: middle;
+    }
+    .form-note { font-size: 12px; color: var(--text-muted); text-align: center; margin-top: 12px; }
+    .modal-trust-row { display: flex; justify-content: center; gap: 16px; margin-top: 14px; flex-wrap: wrap; }
+    .modal-trust-row span { font-size: 11px; color: var(--text-muted); }
+
+    /* ─── ANIMATIONS ─────────────────────────────────── */
+    @keyframes scroll-marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    :focus-visible { outline: 2px solid var(--navy); outline-offset: 3px; }
+
+    /* ─── RESPONSIVE ─────────────────────────────────── */
+    @media (max-width: 768px) {
+      #hero { grid-template-columns: 1fr; }
+      .hero-content { padding: 80px 0 40px; max-width: 100%; }
+      .hero-visual { height: 280px; min-height: 280px; border-radius: 0; }
+      .floating-card { display: none; }
+      .header-countdown { display: none; }
+      .pain-grid { grid-template-columns: 1fr 1fr; }
+      .pillars-grid { grid-template-columns: 1fr 1fr; }
+      .stats-row { grid-template-columns: 1fr 1fr; }
+      .stat-item + .stat-item::before { display: none; }
+      .for-who-grid, .choices-grid, .schedule-grid { grid-template-columns: 1fr; }
+      .offer-layout { grid-template-columns: 1fr; }
+      .price-card-b { position: static; }
+      .venue-bottom { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 480px) {
+      .section { padding: 64px 0; }
+      .container { padding: 0 20px; }
+      .modal { padding: 36px 24px; }
+      .btn-lg { padding: 18px 28px; font-size: 14px; }
+      .pain-grid { grid-template-columns: 1fr; }
+      .pillars-grid { grid-template-columns: 1fr; }
+      .speakers-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
+      .speaker-bio { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <!-- ─── Google Tag Manager (noscript) ───────────────── -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PFCQ54XB"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+  <!-- ─── HEADER ───────────────────────────────────────── -->
+  <header>
+    <div class="header-inner">
+      <img src="logo_m10_summit.png" alt="M10 Summit 2026" class="logo" />
+
+      <div class="header-countdown" aria-live="polite" aria-label="Contagem regressiva para o evento">
+        <span class="hcd-label">Encerra em</span>
+        <div class="hcd-blocks">
+          <div class="hcd-block">
+            <span class="hcd-num" data-countdown="days">--</span>
+            <span class="hcd-unit">dias</span>
+          </div>
+          <span class="hcd-sep">:</span>
+          <div class="hcd-block">
+            <span class="hcd-num" data-countdown="hours">--</span>
+            <span class="hcd-unit">hrs</span>
+          </div>
+          <span class="hcd-sep">:</span>
+          <div class="hcd-block">
+            <span class="hcd-num" data-countdown="minutes">--</span>
+            <span class="hcd-unit">min</span>
+          </div>
+          <span class="hcd-sep">:</span>
+          <div class="hcd-block">
+            <span class="hcd-num" data-countdown="seconds">--</span>
+            <span class="hcd-unit">seg</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="header-cta">
+        <a href="#" class="btn btn-primary" onclick="openModal(event)" aria-label="Garantir vaga no M10 Summit 2026">GARANTIR VAGA</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ─── HERO ─────────────────────────────────────────── -->
+  <section id="hero">
+    <div class="hero-content container" style="padding-right:64px">
+      <div class="eyebrow">Evento Presencial &bull; 8 e 9 de Maio de 2026 &bull; Alphaville, SP</div>
+
+      <h1 class="display-xl hero-headline">
+        Transforme seu negócio<br>
+        em uma máquina de<br>
+        <span class="line-gold">faturamento</span><br>
+        <span class="line-gold">previsível.</span>
+      </h1>
+
+      <p class="hero-lead">
+        7 especialistas. 2 dias. Uma metodologia que já gerou R$ 200M+ em receita previsível para negócios brasileiros.
+      </p>
+
+      <div class="stats-inline reveal-stagger">
+        <div class="stat-inline-item">
+          <div class="stat-inline-num">7</div>
+          <div class="stat-inline-label">Especialistas</div>
+        </div>
+        <div class="stat-inline-item">
+          <div class="stat-inline-num">2</div>
+          <div class="stat-inline-label">Dias presenciais</div>
+        </div>
+        <div class="stat-inline-item">
+          <div class="stat-inline-num">60</div>
+          <div class="stat-inline-label">Vagas disponíveis</div>
+        </div>
+      </div>
+
+      <div class="hero-cta-group">
+        <a href="#" class="btn btn-gold btn-full" onclick="openModal(event)" aria-label="Garantir minha vaga — R$ 967">GARANTIR MINHA VAGA — R$ 967</a>
+        <div class="hero-meta-line">
+          <span>🛡 Garantia Vitalícia</span>
+          <span>📜 Certificado incluso</span>
+          <span>📦 Material digital</span>
+        </div>
+      </div>
+
+      <div class="hero-urgency-pill">
+        🔥 1º lote — menor preço disponível. Apenas 60 vagas.
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <img src="M10Club LP ARQUIVOS/public_html/wp-content/uploads/2026/03/capa-lp-m10club-2025.webp" alt="M10 Summit 2026 — evento presencial" loading="eager" />
+      <div class="hero-visual-overlay" aria-hidden="true"></div>
+      <div class="hero-visual-line" aria-hidden="true"></div>
+      <div class="floating-card" aria-hidden="true">
+        <div class="stars">★★★★★</div>
+        <p class="quote">"O evento que mudou a forma como estruturamos nossa área de vendas."</p>
+        <div class="floating-author">
+          <div class="floating-avatar">👤</div>
+          <div>
+            <span class="floating-author-name">Participante</span>
+            <span class="floating-author-role">Empresário, SP</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── STRIP NAVY ───────────────────────────────────── -->
+  <div class="strip-navy" aria-hidden="true">
+    <div class="marquee-track">
+      <ul class="marquee-list">
+        <li class="marquee-item">🏆 7 Especialistas Nacionais</li><li class="marquee-sep">|</li>
+        <li class="marquee-item">📈 R$ 200M+ em Receita Gerada</li><li class="marquee-sep">|</li>
+        <li class="marquee-item">🏢 Alphaville, São Paulo</li><li class="marquee-sep">|</li>
+        <li class="marquee-item">⚡ Metodologia Área de Receita</li><li class="marquee-sep">|</li>
+        <li class="marquee-item">🎓 Certificado de Participação</li><li class="marquee-sep">|</li>
+        <li class="marquee-item">🛡️ Garantia Vitalícia do Resultado</li><li class="marquee-sep">|</li>
+      </ul>
+      <ul class="marquee-list" aria-hidden="true">
+        <li class="marquee-item">🏆 7 Especialistas Nacionais</li><li class="marquee-sep">|</li>
+        <li class="marquee-item">📈 R$ 200M+ em Receita Gerada</li><li class="marquee-sep">|</li>
+        <li class="marquee-item">🏢 Alphaville, São Paulo</li><li class="marquee-sep">|</li>
+        <li class="marquee-item">⚡ Metodologia Área de Receita</li><li class="marquee-sep">|</li>
+        <li class="marquee-item">🎓 Certificado de Participação</li><li class="marquee-sep">|</li>
+        <li class="marquee-item">🛡️ Garantia Vitalícia do Resultado</li><li class="marquee-sep">|</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ─── PROBLEMA ─────────────────────────────────────── -->
+  <section id="problem" class="section">
+    <div class="container">
+      <div class="reveal" style="max-width:640px">
+        <div class="eyebrow">O Diagnóstico</div>
+        <h2 class="display-lg">Por que a maioria dos negócios não consegue crescer de forma previsível?</h2>
+        <p style="font-size:18px;color:var(--text-secondary);margin-top:20px;line-height:1.7">Você construiu um negócio lucrativo. Tem cliente, tem produto, tem resultado. Mas toda virada de mês é a mesma sensação.</p>
+      </div>
+
+      <div class="pain-grid reveal-stagger">
+        <div class="pain-card">
+          <span class="pain-card-num" aria-hidden="true">01</span>
+          <span class="pain-card-icon">😰</span>
+          <p>Você investe em tráfego, traz cliente novo, ele compra uma vez e some. E no mês seguinte você recomeça tudo do zero.</p>
+        </div>
+        <div class="pain-card">
+          <span class="pain-card-num" aria-hidden="true">02</span>
+          <span class="pain-card-icon">📉</span>
+          <p>Há uma mina de ouro parada dentro do seu negócio — sua base de clientes — que você nunca vai buscar porque não tem estrutura.</p>
+        </div>
+        <div class="pain-card">
+          <span class="pain-card-num" aria-hidden="true">03</span>
+          <span class="pain-card-icon">🎲</span>
+          <p>Trazer um cliente novo custa três vezes mais do que vender pra quem já comprou de você. Três vezes. E a maioria ignora isso.</p>
+        </div>
+        <div class="pain-card">
+          <span class="pain-card-num" aria-hidden="true">04</span>
+          <span class="pain-card-icon">📊</span>
+          <p>Faturamento que não cresce na velocidade que deveria. Margem que some sem explicação. Meses bons e ruins sem entender o porquê.</p>
+        </div>
+        <div class="pain-card">
+          <span class="pain-card-num" aria-hidden="true">05</span>
+          <span class="pain-card-icon">🔁</span>
+          <p>Você é bom no que faz. Mas bom não paga conta no mês que o algoritmo decide te ignorar.</p>
+        </div>
+        <div class="pain-card">
+          <span class="pain-card-num" aria-hidden="true">06</span>
+          <span class="pain-card-icon">⚙️</span>
+          <p>O problema nunca foi esforço. Foi que você estava construindo com uma asa só. Sem sistema, sem previsibilidade.</p>
+        </div>
+      </div>
+
+      <div class="problem-conclusion reveal">
+        <div class="problem-conclusion-line" aria-hidden="true"></div>
+        <p>Você não precisa trabalhar mais. Você precisa de um sistema com as duas asas funcionando ao mesmo tempo. <em>Previsível. Escalável. Sob o seu controle.</em></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── STATS IMPACT ─────────────────────────────────── -->
+  <section id="stats-impact">
+    <div class="stats-row reveal-stagger">
+      <div class="stat-item">
+        <div class="stat-num"><span data-counter="200">0</span><span class="stat-suffix">M+</span></div>
+        <div class="stat-label">em receita gerada pela metodologia</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num"><span data-counter="7">0</span></div>
+        <div class="stat-label">especialistas no palco</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num"><span data-counter="2">0</span></div>
+        <div class="stat-label">dias de imersão presencial</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num"><span data-counter="60">0</span></div>
+        <div class="stat-label">vagas disponíveis no 1º lote</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── SOLUÇÃO ───────────────────────────────────────── -->
+  <section id="solution" class="section">
+    <div class="container">
+      <div class="reveal" style="max-width:640px">
+        <div class="eyebrow">A Solução</div>
+        <h2 class="display-lg">O Funil Borboleta — a metodologia que transforma caos em receita previsível</h2>
+        <p style="font-size:18px;color:var(--text-secondary);margin-top:20px;max-width:540px;line-height:1.7">35% do faturamento da Amazon não vem de cliente novo. Vem de quem já comprou. Esse princípio tem nome, tem estrutura e você vai sair do M10 Summit sabendo implementar.</p>
+      </div>
+
+      <div class="pillars-grid reveal-stagger">
+        <div class="pillar-card">
+          <div class="pillar-num">01</div>
+          <div class="pillar-name">Asa de Aquisição</div>
+          <p class="pillar-desc">Estrutura para trazer cliente novo com CAC controlado e previsível. Chega de depender de mês bom de algoritmo pra crescer.</p>
+        </div>
+        <div class="pillar-card">
+          <div class="pillar-num">02</div>
+          <div class="pillar-name">Asa de Monetização</div>
+          <p class="pillar-desc">Como ativar o dinheiro que já está dentro do seu negócio. Recompra, upsell, recorrência e reativação de base — sem gastar um real a mais em mídia.</p>
+        </div>
+        <div class="pillar-card">
+          <div class="pillar-num">03</div>
+          <div class="pillar-name">Inteligência</div>
+          <p class="pillar-desc">Os dados certos para tomar decisão antes de perder dinheiro. Não intuição. Não achismo. Leitura de negócio de verdade.</p>
+        </div>
+        <div class="pillar-card">
+          <div class="pillar-num">04</div>
+          <div class="pillar-name">Escala</div>
+          <p class="pillar-desc">Com as duas asas voando juntas, o crescimento para de ser acidental e começa a ser consequência.</p>
+        </div>
+      </div>
+
+      <div class="solution-closing reveal">
+        Quando o sistema está rodando, você para de torcer pro mês fechar e começa a <strong>saber quanto vai faturar antes mesmo do mês começar.</strong>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── SPEAKERS ─────────────────────────────────────── -->
+  <section id="speakers" class="section">
+    <div class="container">
+      <div class="reveal">
+        <div class="eyebrow">Os Especialistas</div>
+        <h2 class="display-lg">7 especialistas. Uma metodologia.</h2>
+        <p style="font-size:17px;color:var(--text-secondary);max-width:500px;margin-top:16px;">Cada especialista traz conhecimento prático e cases reais do mercado brasileiro.</p>
+      </div>
+
+      <div class="speakers-grid reveal-stagger">
+        <div class="speaker-card">
+          <img src="M10Club LP ARQUIVOS/public_html/wp-content/uploads/2026/03/Gustavo-Siuves.webp" alt="Gustavo Siuves" class="speaker-photo" loading="lazy" />
+          <div class="speaker-info">
+            <div class="speaker-name">Gustavo Siuves</div>
+            <div class="speaker-role">Máquina de Vendas</div>
+            <p class="speaker-bio">Criador do framework Butterfly Funnel — especialista em construir sistemas de vendas escaláveis e previsíveis.</p>
+          </div>
+        </div>
+        <div class="speaker-card">
+          <img src="M10Club LP ARQUIVOS/public_html/wp-content/uploads/2026/03/Domingos-Mantelli.webp" alt="Domingos Mantelli" class="speaker-photo" loading="lazy" />
+          <div class="speaker-info">
+            <div class="speaker-name">Domingos Mantelli</div>
+            <div class="speaker-role">Gestão Estratégica</div>
+            <p class="speaker-bio">Especialista em gestão estratégica e estruturação de negócios escaláveis com visão de longo prazo.</p>
+          </div>
+        </div>
+        <div class="speaker-card">
+          <img src="M10Club LP ARQUIVOS/public_html/wp-content/uploads/2026/03/Eduardo-de-Barros.webp" alt="Eduardo de Barros" class="speaker-photo" loading="lazy" />
+          <div class="speaker-info">
+            <div class="speaker-name">Eduardo de Barros</div>
+            <div class="speaker-role">Marketing Estratégico</div>
+            <p class="speaker-bio">Expert em marketing estratégico para geração de demanda previsível e redução do custo de aquisição.</p>
+          </div>
+        </div>
+        <div class="speaker-card">
+          <img src="M10Club LP ARQUIVOS/public_html/wp-content/uploads/2026/03/Rogerio-Magalhaes.webp" alt="Rogério Magalhães" class="speaker-photo" loading="lazy" />
+          <div class="speaker-info">
+            <div class="speaker-name">Rogério Magalhães</div>
+            <div class="speaker-role">Desenvolvimento de Times</div>
+            <p class="speaker-bio">Referência em desenvolvimento de equipes e gestão de carreira de alta performance.</p>
+          </div>
+        </div>
+        <div class="speaker-card">
+          <img src="M10Club LP ARQUIVOS/public_html/wp-content/uploads/2026/03/Damilo-Gato.webp" alt="Danilo Gato" class="speaker-photo" loading="lazy" />
+          <div class="speaker-info">
+            <div class="speaker-name">Danilo Gato</div>
+            <div class="speaker-role">IA para Negócios</div>
+            <p class="speaker-bio">Especialista em aplicação de Inteligência Artificial para escalar receita e automatizar operações.</p>
+          </div>
+        </div>
+        <div class="speaker-card">
+          <img src="M10Club LP ARQUIVOS/public_html/wp-content/uploads/2026/03/Edgar-Oliveira.webp" alt="Edgar Oliveira" class="speaker-photo" loading="lazy" />
+          <div class="speaker-info">
+            <div class="speaker-name">Edgar Oliveira</div>
+            <div class="speaker-role">Marcas &amp; Patentes</div>
+            <p class="speaker-bio">Estrategista de marca e patentes — como transformar seu brand no maior ativo do seu negócio.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── PROGRAMAÇÃO ──────────────────────────────────── -->
+  <section id="schedule" class="section">
+    <div class="container">
+      <div class="reveal">
+        <div class="eyebrow">Programação</div>
+        <h2 class="display-lg">2 dias. Cada hora com propósito.</h2>
+      </div>
+
+      <div class="schedule-grid reveal-stagger">
+        <div class="day-card">
+          <div class="day-header">
+            <h3>Dia 1 — 8 de Maio</h3>
+            <p>Construindo a Estrutura</p>
+          </div>
+          <div class="session-item">
+            <div class="session-time">09h – 10h30</div>
+            <div>
+              <div class="session-title">Abertura — A Jornada do Empresário Refém</div>
+              <div class="session-desc">Conexão com a dor do empresário e apresentação da Jornada de Impacto como caminho para a previsibilidade.</div>
+              <div class="session-speaker">Eduardo de Barros</div>
+            </div>
+          </div>
+          <div class="session-item">
+            <div class="session-time">10h30 – 12h</div>
+            <div>
+              <div class="session-title">Sua Marca é Seu Maior Ativo</div>
+              <div class="session-desc">Como transformar a marca em um ativo valioso e defensável — o ponto de partida para um posicionamento forte.</div>
+              <div class="session-speaker">Edgar Oliveira</div>
+            </div>
+          </div>
+          <div class="session-item">
+            <div class="session-time">14h – 15h30</div>
+            <div>
+              <div class="session-title">O Fim do Funil: Construindo a Máquina de Vendas</div>
+              <div class="session-desc">Implementação do Funil Borboleta e criação de uma Área de Receita integrada.</div>
+              <div class="session-speaker">Gustavo Siuves</div>
+            </div>
+          </div>
+          <div class="session-item">
+            <div class="session-time">15h30 – 17h</div>
+            <div>
+              <div class="session-title">Venda Sem Vender: A Mentalidade Consultiva</div>
+              <div class="session-desc">Como abordar, entender e converter clientes através da venda consultiva.</div>
+              <div class="session-speaker">Gustavo Siuves</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="day-card">
+          <div class="day-header">
+            <h3>Dia 2 — 9 de Maio</h3>
+            <p>Execução e Escala</p>
+          </div>
+          <div class="session-item">
+            <div class="session-time">09h – 10h30</div>
+            <div>
+              <div class="session-title">Estudo de Caso: Do Caos à Previsibilidade</div>
+              <div class="session-desc">Um caso real da máquina de vendas implementada em uma das maiores clínicas médicas do Brasil.</div>
+              <div class="session-speaker">Gustavo Siuves &amp; Domingos Mantelli</div>
+            </div>
+          </div>
+          <div class="session-item">
+            <div class="session-time">10h30 – 12h</div>
+            <div>
+              <div class="session-title">IA para Negócios: Alavancando sua Máquina de Receita</div>
+              <div class="session-desc">Como usar Inteligência Artificial para otimizar e escalar a máquina de vendas.</div>
+              <div class="session-speaker">Danilo Gato</div>
+            </div>
+          </div>
+          <div class="session-item">
+            <div class="session-time">14h – 15h30</div>
+            <div>
+              <div class="session-title">A Jornada de Impacto na Prática</div>
+              <div class="session-desc">Você conecta todos os pontos — Marca, Máquina, Habilidade, Prova e Escala com IA.</div>
+              <div class="session-speaker">Eduardo de Barros</div>
+            </div>
+          </div>
+          <div class="session-item">
+            <div class="session-time">15h30 – 17h</div>
+            <div>
+              <div class="session-title">O Próximo Passo</div>
+              <div class="session-desc">A Chamada para Ação: consolidando a jornada completa do M10 Club.</div>
+              <div class="session-speaker">Rogério Magalhães</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── PROVA SOCIAL ─────────────────────────────────── -->
+  <!-- TODO: reativar quando vídeo estiver disponível
+  <section id="social-proof" class="section">
+    ...
+  </section>
+  -->
+
+  <!-- ─── PARA QUEM É ──────────────────────────────────── -->
+  <section id="for-who" class="section">
+    <div class="container">
+      <div class="reveal">
+        <div class="eyebrow">Para Quem É</div>
+        <h2 class="display-lg">Este evento é para você?</h2>
+      </div>
+
+      <div class="for-who-grid">
+        <div class="for-who-card yes reveal">
+          <h3>Este evento é para você se:</h3>
+          <div class="for-who-item">
+            <span class="for-who-icon">
+              <svg width="18" height="18" fill="none" stroke="#2D6A4F" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            </span>
+            <span class="for-who-text">Você tem um negócio que fatura — mas não consegue explicar por que alguns meses são bons e outros são um desastre</span>
+          </div>
+          <div class="for-who-item">
+            <span class="for-who-icon">
+              <svg width="18" height="18" fill="none" stroke="#2D6A4F" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            </span>
+            <span class="for-who-text">Você é médico, advogado, consultor ou dono de empresa e percebeu que saber fazer o seu trabalho não é suficiente para crescer</span>
+          </div>
+          <div class="for-who-item">
+            <span class="for-who-icon">
+              <svg width="18" height="18" fill="none" stroke="#2D6A4F" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            </span>
+            <span class="for-who-text">Você já investiu em tráfego, em ferramenta, em curso — e ainda sente que falta uma peça</span>
+          </div>
+          <div class="for-who-item">
+            <span class="for-who-icon">
+              <svg width="18" height="18" fill="none" stroke="#2D6A4F" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            </span>
+            <span class="for-who-text">Você tem clientes bons na base e não está aproveitando nem metade do potencial deles</span>
+          </div>
+          <div class="for-who-item">
+            <span class="for-who-icon">
+              <svg width="18" height="18" fill="none" stroke="#2D6A4F" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            </span>
+            <span class="for-who-text">Você quer que o seu negócio cresça com método — não com sorte, não com sprint, não com mais esforço</span>
+          </div>
+        </div>
+
+        <div class="for-who-card no reveal">
+          <h3>Este evento não é para você se:</h3>
+          <div class="for-who-item">
+            <span class="for-who-icon">
+              <svg width="18" height="18" fill="none" stroke="#C53030" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </span>
+            <span class="for-who-text">Você ainda está tentando validar se tem um negócio de verdade</span>
+          </div>
+          <div class="for-who-item">
+            <span class="for-who-icon">
+              <svg width="18" height="18" fill="none" stroke="#C53030" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </span>
+            <span class="for-who-text">Você quer inspiração. Aqui você vai sair com trabalho para fazer</span>
+          </div>
+          <div class="for-who-item">
+            <span class="for-who-icon">
+              <svg width="18" height="18" fill="none" stroke="#C53030" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </span>
+            <span class="for-who-text">Você acha que o problema é só mais tráfego ou mais vendedor</span>
+          </div>
+          <div class="for-who-item">
+            <span class="for-who-icon">
+              <svg width="18" height="18" fill="none" stroke="#C53030" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </span>
+            <span class="for-who-text">Você não está disposto a mudar a forma como opera hoje</span>
+          </div>
+        </div>
+      </div>
+
+      <p class="for-who-closing reveal">
+        O M10 Summit é para quem já construiu algo —<br>
+        <strong>e agora quer construir certo.</strong>
+      </p>
+    </div>
+  </section>
+
+  <!-- ─── OFERTA ────────────────────────────────────────── -->
+  <section id="offer" class="section">
+    <div class="container">
+      <div class="reveal">
+        <div class="eyebrow">Invista em Você</div>
+        <h2 class="display-lg">O que está incluso no M10 Summit</h2>
+      </div>
+
+      <div class="offer-layout">
+        <div class="reveal">
+          <ul class="includes-list">
+            <li>
+              <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              <div><div class="item-title">2 dias de imersão presencial</div><div class="item-desc">Metodologia estruturada e aplicação prática</div></div>
+            </li>
+            <li>
+              <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              <div><div class="item-title">7 especialistas de referência</div><div class="item-desc">Em um único evento presencial</div></div>
+            </li>
+            <li>
+              <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              <div><div class="item-title">Ferramentas exclusivas da Área de Receita</div><div class="item-desc">Acesso ao material completo do método</div></div>
+            </li>
+            <li>
+              <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              <div><div class="item-title">Coffee breaks e Happy hour de networking</div><div class="item-desc">Conexões que valem por anos</div></div>
+            </li>
+            <li>
+              <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              <div><div class="item-title">Estrutura completa da Área de Receita</div><div class="item-desc">Personalizada para o seu negócio</div></div>
+            </li>
+            <li>
+              <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              <div><div class="item-title">Certificado de participação</div><div class="item-desc">Material digital exclusivo do evento</div></div>
+            </li>
+            <li>
+              <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              <div><div class="item-title">Espaço Berit — Alphaville, SP</div><div class="item-desc">Alameda Rio Negro, 500 · Torre B, 3º andar</div></div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="reveal">
+          <div class="price-card-b">
+            <span class="lote-badge">1º Lote</span>
+            <p class="price-label">Investimento</p>
+            <div class="price-value-b">
+              <span class="r">R$</span><span class="v">967</span><span class="c">,00</span>
+            </div>
+            <p class="installment">ou 12x de R$ 96,70 no cartão</p>
+            <p class="price-note">Parcelamento disponível · Preço sobe sem aviso</p>
+            <a href="#" class="btn btn-gold btn-full" onclick="openModal(event)" aria-label="Garantir minha vaga agora">GARANTIR MINHA VAGA AGORA</a>
+            <div class="price-urgency-b">
+              <span>🔥</span>
+              <span>Apenas 60 vagas no 1º lote. Quando esgotar, o preço sobe.</span>
+            </div>
+            <div class="price-guarantee-b">
+              <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              <p><strong>Garantia Vitalícia do Resultado.</strong> Se você aplicar e não funcionar, a gente resolve junto.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── GARANTIA ──────────────────────────────────────── -->
+  <section id="guarantee" class="section">
+    <div class="container">
+      <div class="guarantee-content reveal">
+        <div class="guarantee-badge-b">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          Garantia Vitalícia do Resultado
+        </div>
+        <h2 class="display-md">Você vem, participa, e se não valeu cada centavo do ingresso, a gente devolve tudo.</h2>
+        <p class="guarantee-sub">Sem prazo. Sem burocracia. Sem letra miúda.</p>
+        <p>Essa não é a garantia padrão de 7 dias que todo mundo copia e cola.</p>
+        <p>É diferente porque a nossa aposta não termina quando você compra o ingresso.</p>
+        <p>Você vem pros 2 dias. Você participa. Você recebe o método, os especialistas, o plano e a estrutura completa do Funil Borboleta.</p>
+        <p>E se mesmo assim, depois de tudo, você sentir que não valeu o investimento? É só falar com a gente. Devolvemos 100% do valor. Sem perguntas. Sem prazo de validade pra pedir.</p>
+        <p>Porque a gente só ganha quando você sai transformado.</p>
+        <p class="guarantee-support">Você não tem nada a perder. A não ser mais um ano voando com uma asa só.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── LOCAL DO EVENTO ──────────────────────────────── -->
+  <section id="venue" class="section">
+    <div class="container">
+      <div class="reveal">
+        <div class="eyebrow">Local do Evento</div>
+        <h2 class="display-lg">Alphaville, São Paulo</h2>
+        <p style="font-size:16px;color:var(--text-secondary);margin-top:12px;">
+          <strong style="color:var(--navy)">Espaço Berit — Alameda Rio Negro, 500, Torre B, 3º andar</strong><br>
+          Alphaville Industrial, Barueri – SP, CEP 06454-000
+        </p>
+      </div>
+
+      <div class="venue-gallery reveal">
+        <img src="beritt_sala_evento.jpeg" alt="Espaço Berit — salão do evento" loading="lazy" />
+        <img src="beritt_area_coffee.jpeg" alt="Espaço Berit — área de coffee" loading="lazy" />
+      </div>
+
+      <div class="venue-bottom reveal">
+        <div class="venue-map">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3659.6!2d-46.849!3d-23.494!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cf01a6b3c3c3c3%3A0x1!2sAlameda+Rio+Negro%2C+500%2C+Alphaville+Industrial%2C+Barueri+-+SP!5e0!3m2!1spt-BR!2sbr!4v1"
+            allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+            title="Localização do Espaço Berit"
+          ></iframe>
+        </div>
+        <div class="venue-hotels">
+          <h3>Hotéis próximos</h3>
+          <div class="hotel-card">
+            <strong>Blue Tree Premium Alphaville</strong>
+            <span>Alameda Rio Negro, 585 — Alphaville Industrial</span>
+            <span class="hotel-dist">~85 metros do evento</span>
+          </div>
+          <div class="hotel-card">
+            <strong>Comfort Suites Alphaville</strong>
+            <span>Alameda Rio Negro, 1030 Torre 1</span>
+            <span class="hotel-dist">~530 metros do evento</span>
+          </div>
+          <div class="hotel-card">
+            <strong>Radisson Hotel Alphaville</strong>
+            <span>Alameda Rio Negro — Edifício Stadium</span>
+            <span class="hotel-dist">~530 metros do evento</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── CTA FINAL ─────────────────────────────────────── -->
+  <section id="cta-final">
+    <div class="container cta-final-inner">
+      <div class="eyebrow cta-eyebrow-inv reveal">Garanta Sua Vaga</div>
+      <h2 class="display-lg reveal">Você tem duas escolhas.</h2>
+
+      <div class="choices-grid reveal">
+        <div class="choice-card">
+          <span class="choice-label">Escolha 1</span>
+          <p>Continuar tentando montar sozinho uma estrutura que os especialistas levaram anos errando e refinando. Talvez um dia funcione. Talvez não.</p>
+        </div>
+        <div class="choice-card highlight">
+          <span class="choice-label">Escolha 2</span>
+          <p>Passar 2 dias em São Paulo com quem já construiu isso em negócios reais, sair com o Funil Borboleta implementado e entrar em Junho sabendo exatamente quanto vai faturar.</p>
+        </div>
+      </div>
+
+      <p class="cta-quote-b reveal">"O custo de não vir não é R$ 967. É mais um ano inteiro sem previsibilidade."</p>
+
+      <div class="cta-group-b reveal">
+        <div class="cta-price-b">
+          <p class="cta-lote-label">Valor do 1º Lote</p>
+          <div class="cta-price-display">
+            <span class="r">R$</span><span class="v">967</span><span class="c">,00</span>
+          </div>
+          <p class="cta-urgency-b">Esse é o menor preço que esse ingresso vai ter. Quando o lote esgotar, sobe. E não volta.</p>
+        </div>
+        <a href="#" class="btn btn-gold cta-main-btn" onclick="openModal(event)" aria-label="Quero minha vaga — falar com o time agora">QUERO MINHA VAGA — FALAR COM O TIME AGORA</a>
+        <p class="cta-below-b">Vagas limitadas. Garantia Vitalícia do Resultado inclusa.</p>
+        <div class="trust-row-b">
+          <span>
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            Certificado incluso
+          </span>
+          <span>
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            Material digital
+          </span>
+          <span>
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            Suporte pós-evento
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FOOTER ───────────────────────────────────────── -->
+  <footer>
+    <div class="footer-inner">
+      <img src="logo_m10_summit.png" alt="M10 Summit 2026" class="logo" />
+      <div class="footer-divider" aria-hidden="true"></div>
+      <p class="copyright">
+        © 2026 M10 Club. Todos os direitos reservados.<br />
+        Feito por <a href="https://wa.me/5511919813437" target="_blank" rel="noopener">Bends Comunicação</a>
+      </p>
+    </div>
+  </footer>
+
+  <!-- ─── MODAL ─────────────────────────────────────────── -->
+  <div class="modal-overlay" id="modalOverlay" onclick="closeModalOnOverlay(event)" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal">
+      <button class="modal-close" onclick="closeModal()" aria-label="Fechar">&times;</button>
+
+      <div class="modal-icon" aria-hidden="true">
+        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M20 12V22H4V12"/><path d="M22 7H2v5h20V7z"/><path d="M12 22V7"/><path d="M12 7H7.5a2.5 2.5 0 010-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 000-5C13 2 12 7 12 7z"/></svg>
+      </div>
+
+      <h3 id="modalTitle">Garanta sua vaga</h3>
+      <p class="modal-sub">Preencha seus dados e nossa equipe entrará em contato para finalizar sua inscrição.</p>
+
+      <form id="registrationForm" onsubmit="handleSubmit(event)">
+        <div class="form-group">
+          <label for="name">Nome completo <span style="color:var(--red)" aria-hidden="true">*</span></label>
+          <input type="text" id="name" name="name" placeholder="Seu nome completo" required autocomplete="name" />
+          <span class="field-error-msg" id="name-error" role="alert">Digite seu nome e sobrenome.</span>
+        </div>
+        <div class="form-group">
+          <label for="email">E-mail <span style="color:var(--red)" aria-hidden="true">*</span></label>
+          <input type="email" id="email" name="email" placeholder="seu@email.com" required autocomplete="email" />
+          <span class="field-error-msg" id="email-error" role="alert">Digite um e-mail válido.</span>
+        </div>
+        <div class="form-group">
+          <label for="phone">WhatsApp <span style="color:var(--red)" aria-hidden="true">*</span></label>
+          <input type="tel" id="phone" name="phone" placeholder="(11) 99999-9999" required autocomplete="tel" />
+          <span class="field-error-msg" id="phone-error" role="alert">Digite um número de WhatsApp completo com DDD.</span>
+        </div>
+        <button type="submit" class="btn btn-primary btn-submit" aria-label="Enviar — quero minha vaga">ENVIAR — QUERO MINHA VAGA</button>
+        <p class="form-note">🔒 Seus dados estão protegidos. Sem spam.</p>
+        <div class="modal-trust-row" aria-hidden="true">
+          <span>✓ Garantia inclusa</span>
+          <span>✓ Vagas limitadas</span>
+          <span>✓ Suporte 24h</span>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    // ── Modal ────────────────────────────────────────────
+    function openModal(e) {
+      if (e) e.preventDefault();
+      if (typeof gtag !== 'undefined') {
+        gtag('event', 'cta_click', { event_category: 'engagement', event_label: 'Garantir Vaga', ab_variant: 'B' });
+        gtag('event', 'begin_checkout', {
+          currency: 'BRL', value: 967.00,
+          items: [{ item_id: 'm10-summit-2026', item_name: 'M10 Summit 2026', item_category: 'Evento', price: 967.00, quantity: 1 }],
+          ab_variant: 'B',
+        });
+      }
+      if (typeof fbq !== 'undefined') fbq('track', 'InitiateCheckout');
+      document.getElementById('modalOverlay').classList.add('active');
+      document.body.style.overflow = 'hidden';
+      setTimeout(() => { document.getElementById('name').focus(); }, 100);
+    }
+
+    function closeModal() {
+      document.getElementById('modalOverlay').classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    function closeModalOnOverlay(e) {
+      if (e.target === document.getElementById('modalOverlay')) closeModal();
+    }
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeModal();
+      if (e.key === 'Tab' && document.getElementById('modalOverlay').classList.contains('active')) {
+        const focusable = document.querySelector('.modal').querySelectorAll('button, input, [tabindex]:not([tabindex="-1"])');
+        const first = focusable[0], last = focusable[focusable.length - 1];
+        if (e.shiftKey) { if (document.activeElement === first) { e.preventDefault(); last.focus(); } }
+        else { if (document.activeElement === last) { e.preventDefault(); first.focus(); } }
+      }
+    });
+
+    // ── Validação ────────────────────────────────────────
+    function validateName(val) { return val.trim().split(/\s+/).filter(Boolean).length >= 2; }
+    function validateEmail(val) { return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(val.trim()); }
+    function validatePhone(val) { return val.replace(/\D/g,'').length === 11; }
+
+    function setFieldState(id, valid) {
+      const input = document.getElementById(id);
+      const msg   = document.getElementById(id + '-error');
+      input.classList.toggle('input-error', !valid);
+      input.classList.toggle('input-ok',    valid);
+      if (msg) msg.classList.toggle('visible', !valid);
+      return valid;
+    }
+
+    document.getElementById('name').addEventListener('blur',  function() { if (this.value.trim()) setFieldState('name', validateName(this.value)); });
+    document.getElementById('email').addEventListener('blur', function() { if (this.value.trim()) setFieldState('email', validateEmail(this.value)); });
+    document.getElementById('phone').addEventListener('blur', function() { if (this.value.trim()) setFieldState('phone', validatePhone(this.value)); });
+
+    async function handleSubmit(e) {
+      e.preventDefault();
+      const btn   = e.target.querySelector('button[type="submit"]');
+      const name  = document.getElementById('name').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const email = document.getElementById('email').value.trim();
+
+      const ok = [
+        setFieldState('name',  validateName(name)),
+        setFieldState('email', validateEmail(email)),
+        setFieldState('phone', validatePhone(phone)),
+      ].every(Boolean);
+      if (!ok) return;
+
+      btn.textContent = 'ENVIANDO...';
+      btn.classList.add('loading');
+      btn.disabled = true;
+
+      try {
+        await fetch('/api/lead', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name, email, phone, source: 'Landing Page M10 Summit - Variante B' }),
+        });
+      } catch (_) {}
+
+      if (typeof fbq !== 'undefined') {
+        fbq('track', 'Lead', { content_name: 'M10 Summit 2026', content_category: 'Evento', value: 967.00, currency: 'BRL' });
+      }
+      if (typeof gtag !== 'undefined') {
+        gtag('event', 'generate_lead', {
+          currency: 'BRL', value: 967.00, ab_variant: 'B',
+          event_category: 'form', event_label: 'M10 Summit 2026',
+          items: [{ item_id: 'm10-summit-2026', item_name: 'M10 Summit 2026', item_category: 'Evento', price: 967.00, quantity: 1 }],
+        });
+      }
+
+      window.location.href = 'https://www.sympla.com.br/evento/m10-summit/3327805';
+    }
+
+    // ── GA4: view_item no cta-final ──────────────────────
+    const _pricingSection = document.getElementById('cta-final');
+    if (_pricingSection && typeof gtag !== 'undefined') {
+      const _obs = new IntersectionObserver((entries) => {
+        if (entries[0].isIntersecting) {
+          gtag('event', 'view_item', {
+            currency: 'BRL', value: 967.00, ab_variant: 'B',
+            items: [{ item_id: 'm10-summit-2026', item_name: 'M10 Summit 2026', item_category: 'Evento', price: 967.00, quantity: 1 }],
+          });
+          _obs.disconnect();
+        }
+      }, { threshold: 0.3 });
+      _obs.observe(_pricingSection);
+    }
+
+    // ── Phone mask ───────────────────────────────────────
+    document.getElementById('phone').addEventListener('input', function(e) {
+      let v = e.target.value.replace(/\D/g,'').slice(0,11);
+      if (v.length > 6) v = '(' + v.slice(0,2) + ') ' + v.slice(2,7) + '-' + v.slice(7);
+      else if (v.length > 2) v = '(' + v.slice(0,2) + ') ' + v.slice(2);
+      e.target.value = v;
+    });
+
+    // ── Countdown ────────────────────────────────────────
+    function initCountdown() {
+      const target = new Date('2026-05-08T08:00:00-03:00').getTime();
+      function update() {
+        const diff = target - Date.now();
+        if (diff <= 0) {
+          document.querySelectorAll('.header-countdown').forEach(el => el.style.display = 'none');
+          return;
+        }
+        const d = Math.floor(diff / 86400000);
+        const h = Math.floor((diff % 86400000) / 3600000);
+        const m = Math.floor((diff % 3600000) / 60000);
+        const s = Math.floor((diff % 60000) / 1000);
+        document.querySelectorAll('[data-countdown="days"]').forEach(el => el.textContent = String(d).padStart(2,'0'));
+        document.querySelectorAll('[data-countdown="hours"]').forEach(el => el.textContent = String(h).padStart(2,'0'));
+        document.querySelectorAll('[data-countdown="minutes"]').forEach(el => el.textContent = String(m).padStart(2,'0'));
+        document.querySelectorAll('[data-countdown="seconds"]').forEach(el => el.textContent = String(s).padStart(2,'0'));
+      }
+      update();
+      setInterval(update, 1000);
+    }
+    initCountdown();
+
+    // ── Counter animation ────────────────────────────────
+    function initCounters() {
+      const counters = document.querySelectorAll('[data-counter]');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return;
+          const el = entry.target;
+          const target = parseFloat(el.dataset.counter);
+          const duration = 1200;
+          const start = performance.now();
+          function tick(now) {
+            const elapsed = now - start;
+            const progress = Math.min(elapsed / duration, 1);
+            const ease = 1 - Math.pow(1 - progress, 3);
+            el.textContent = Math.round(ease * target);
+            if (progress < 1) requestAnimationFrame(tick);
+          }
+          requestAnimationFrame(tick);
+          observer.unobserve(el);
+        });
+      }, { threshold: 0.3 });
+      counters.forEach(c => observer.observe(c));
+    }
+    initCounters();
+
+    // ── Scroll Reveal ────────────────────────────────────
+    function initReveal() {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+      document.querySelectorAll('.reveal, .reveal-stagger').forEach(el => observer.observe(el));
+    }
+    initReveal();
+  </script>
+</body>
+</html>
