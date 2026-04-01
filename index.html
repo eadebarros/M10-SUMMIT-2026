@@ -627,14 +627,14 @@
 
     .testimonials-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: repeat(3, 1fr);
       margin: 0 auto 48px;
-      gap: 32px;
+      gap: 24px;
     }
     .testimonial-video {
       position: relative;
       width: 100%;
-      aspect-ratio: 16/9;
+      aspect-ratio: 9/16;
       border-radius: 16px;
       overflow: hidden;
       background: #000;
@@ -647,7 +647,6 @@
       width: 100%;
       height: 100%;
       border: none;
-      object-fit: cover;
     }
     @media (max-width: 768px) {
       .testimonials-grid { grid-template-columns: 1fr; }
@@ -1619,16 +1618,26 @@
       <div class="testimonials-grid">
         <div class="testimonial-wrapper reveal">
           <div class="testimonial-video">
-            <video controls preload="none">
-              <source src="depoimentos/Depoimento_01-M10.mp4" type="video/mp4">
-            </video>
+            <iframe src="https://www.youtube.com/embed/kxjtkHdd6k0?rel=0"
+              title="Depoimento 1 — M10 Summit"
+              allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen loading="lazy"></iframe>
           </div>
         </div>
         <div class="testimonial-wrapper reveal">
           <div class="testimonial-video">
-            <video controls preload="none">
-              <source src="depoimentos/Depoimento_02-M10.mp4" type="video/mp4">
-            </video>
+            <iframe src="https://www.youtube.com/embed/W5uueL8j5Os?rel=0"
+              title="Depoimento 2 — M10 Summit"
+              allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen loading="lazy"></iframe>
+          </div>
+        </div>
+        <div class="testimonial-wrapper reveal">
+          <div class="testimonial-video">
+            <iframe src="https://www.youtube.com/embed/bot02p95V58?rel=0"
+              title="Depoimento 3 — M10 Summit"
+              allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen loading="lazy"></iframe>
           </div>
         </div>
       </div>
