@@ -205,116 +205,168 @@
 
     /* ─── HERO ───────────────────────────────────────── */
     #hero {
-      background: var(--white);
-      min-height: 92vh;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
+      position: relative;
+      width: 100%;
+      min-height: 100vh;
+      overflow: hidden;
+      display: flex;
       align-items: center;
     }
-    .hero-content {
-      padding: 80px 64px 80px 0;
-      max-width: 560px;
-      margin-left: auto;
+    .hero-bg-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center right;
+      z-index: 0;
     }
-    .hero-headline { margin-top: 20px; margin-bottom: 28px; color: var(--navy); }
+    .hero-gradient-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background: linear-gradient(
+        to right,
+        rgba(10,22,40,1.0)   0%,
+        rgba(10,22,40,0.97) 25%,
+        rgba(10,22,40,0.75) 42%,
+        rgba(10,22,40,0.25) 62%,
+        rgba(10,22,40,0.05) 80%,
+        rgba(10,22,40,0.0) 100%
+      );
+    }
+    .hero-edge-top {
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 120px;
+      background: linear-gradient(to bottom, rgba(10,22,40,0.6), transparent);
+      z-index: 1;
+    }
+    .hero-edge-bottom {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 80px;
+      background: linear-gradient(to top, rgba(10,22,40,0.5), transparent);
+      z-index: 1;
+    }
+    .hero-divider-line {
+      position: absolute;
+      left: calc(50% - 20px);
+      top: 15%;
+      bottom: 15%;
+      width: 1px;
+      background: linear-gradient(to bottom, transparent, rgba(201,168,76,0.4) 30%, rgba(201,168,76,0.4) 70%, transparent);
+      z-index: 2;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 120px 32px 96px;
+    }
+    .hero-copy { max-width: 560px; }
+    .hero-content .eyebrow { color: var(--gold); }
+    .hero-content .eyebrow::before { background: var(--gold); }
+    .hero-headline { margin-top: 20px; margin-bottom: 0; color: var(--white); }
     .hero-headline .line-gold { color: var(--gold); }
 
-    .hero-lead { font-size: 19px; line-height: 1.75; color: var(--text-secondary); max-width: 480px; margin-bottom: 36px; }
+    .hero-lead {
+      font-size: 18px;
+      line-height: 1.7;
+      color: rgba(255,255,255,0.75);
+      max-width: 440px;
+      margin-top: 24px;
+      margin-bottom: 0;
+    }
 
     .stats-inline {
       display: flex;
       gap: 0;
       flex-wrap: wrap;
-      margin-bottom: 48px;
+      margin-top: 32px;
     }
-    .stat-inline-item { padding: 0 32px 0 0; }
-    .stat-inline-item:not(:first-child) { padding-left: 32px; border-left: 1px solid var(--surface-mid); }
-    .stat-inline-num { font-family: 'Playfair Display', serif; font-weight: 900; font-size: clamp(28px, 4vw, 42px); color: var(--navy); line-height: 1; }
+    .stat-inline-item {
+      padding: 0 24px 0 0;
+      margin-right: 24px;
+      border-right: 1px solid rgba(255,255,255,0.15);
+    }
+    .stat-inline-item:last-child { border-right: none; margin-right: 0; padding-right: 0; }
+    .stat-inline-num { font-family: 'Playfair Display', serif; font-weight: 900; font-size: clamp(28px, 3.5vw, 44px); color: var(--white); line-height: 1; }
     .stat-inline-num .suffix { color: var(--gold); }
-    .stat-inline-label { font-size: 13px; color: var(--text-secondary); margin-top: 4px; }
+    .stat-inline-label { font-size: 13px; color: rgba(255,255,255,0.55); margin-top: 6px; display: block; }
 
-    .hero-cta-group { display: flex; flex-direction: column; gap: 16px; max-width: 400px; }
-    .hero-cta-group .btn { font-size: 15px; padding: 20px 44px; }
+    .hero-cta-group { display: flex; flex-direction: column; gap: 16px; max-width: 380px; margin-top: 40px; }
+    .hero-cta-group .btn { font-size: 15px; padding: 20px 40px; }
     .hero-meta-line {
       display: flex;
       gap: 20px;
       flex-wrap: wrap;
       font-size: 13px;
-      color: var(--text-muted);
+      color: rgba(255,255,255,0.5);
     }
     .hero-urgency-pill {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      background: var(--gold-bg);
-      border: 1px solid var(--gold-border);
+      gap: 10px;
+      background: rgba(201,168,76,0.1);
+      border: 1px solid rgba(201,168,76,0.3);
       border-radius: 100px;
-      padding: 8px 16px;
+      padding: 8px 18px;
       margin-top: 20px;
       font-size: 13px;
       font-weight: 500;
-      color: var(--gold-dark);
+      color: var(--gold-light);
     }
 
-    .hero-visual {
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-      padding: 40px 24px;
+    /* ─── HERO MOBILE ─────────────────────────────────── */
+    @media (max-width: 768px) {
+      #hero {
+        flex-direction: column;
+        min-height: auto;
+        align-items: stretch;
+      }
+      .hero-bg-img,
+      .hero-gradient-overlay,
+      .hero-edge-top,
+      .hero-edge-bottom,
+      .hero-divider-line { display: none; }
+      .hero-content {
+        background: var(--navy);
+        padding: 100px 20px 40px;
+        max-width: 100%;
+      }
+      .hero-copy { max-width: 100%; }
+      .hero-headline { font-size: clamp(36px, 10vw, 52px); letter-spacing: -0.5px; }
+      .hero-lead { font-size: 16px; }
+      .stats-inline { flex-wrap: wrap; gap: 16px; }
+      .stat-inline-item { width: 45%; border-right: none; margin-right: 0; padding-right: 0; }
+      .hero-mobile-img {
+        height: 260px;
+        overflow: hidden;
+        position: relative;
+        display: block;
+      }
+      .hero-mobile-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center top;
+        display: block;
+      }
+      .hero-mobile-img::before {
+        content: '';
+        position: absolute;
+        top: 0; left: 0; right: 0;
+        height: 60px;
+        background: linear-gradient(to bottom, var(--navy), transparent);
+        z-index: 1;
+      }
     }
-    .hero-visual img {
-      width: 100%;
-      height: auto;
-      max-height: 88vh;
-      display: block;
-      object-fit: contain;
-      border-radius: var(--radius);
+    @media (min-width: 769px) {
+      .hero-mobile-img { display: none; }
     }
-    .hero-visual-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to left, transparent 60%, rgba(255,255,255,0.15) 100%);
-    }
-    .hero-visual-line {
-      position: absolute;
-      left: 0;
-      top: 0;
-      bottom: 0;
-      width: 4px;
-      background: linear-gradient(to bottom, transparent, var(--gold), transparent);
-    }
-    .floating-card {
-      position: absolute;
-      bottom: 40px;
-      left: -32px;
-      background: var(--white);
-      border: 1px solid var(--surface-mid);
-      border-radius: var(--radius-lg);
-      box-shadow: 0 16px 48px rgba(10,22,40,0.15);
-      padding: 20px 24px;
-      max-width: 260px;
-      animation: fadeUp 0.6s ease 0.8s both;
-    }
-    @keyframes fadeUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
-    .floating-card .stars { color: var(--gold); font-size: 14px; margin-bottom: 8px; letter-spacing: 1px; }
-    .floating-card .quote { font-style: italic; font-size: 14px; color: var(--text-secondary); line-height: 1.5; margin-bottom: 12px; }
-    .floating-author { display: flex; gap: 10px; align-items: center; }
-    .floating-avatar {
-      width: 32px; height: 32px;
-      border-radius: 50%;
-      background: var(--surface);
-      flex-shrink: 0;
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 14px;
-      color: var(--text-muted);
-    }
-    .floating-author-name { font-weight: 600; font-size: 13px; color: var(--navy); display: block; }
-    .floating-author-role { font-size: 12px; color: var(--text-muted); }
 
     /* ─── STRIP ──────────────────────────────────────── */
     .strip-navy {
@@ -1022,62 +1074,74 @@
 
   <!-- ─── HERO ─────────────────────────────────────────── -->
   <section id="hero">
-    <div class="hero-content container" style="padding-right:64px">
-      <div class="eyebrow">Evento Presencial &bull; 8 e 9 de Maio de 2026 &bull; Alphaville, SP</div>
+    <!-- Camada 1: imagem de fundo -->
+    <img class="hero-bg-img"
+      src="M10Club LP ARQUIVOS/public_html/wp-content/uploads/2026/03/capa-lp-m10club-2025.webp"
+      alt="Palestrantes do M10 Summit 2026"
+      fetchpriority="high"
+      loading="eager" />
 
-      <h1 class="display-xl hero-headline">
-        Transforme seu negócio<br>
-        em uma máquina de<br>
-        <span class="line-gold">faturamento</span><br>
-        <span class="line-gold">previsível.</span>
-      </h1>
+    <!-- Camada 2: gradiente lateral navy→transparente -->
+    <div class="hero-gradient-overlay" aria-hidden="true"></div>
 
-      <p class="hero-lead">
-        6 especialistas. 2 dias. Uma metodologia que já gerou R$ 200M+ em receita previsível para negócios brasileiros.
-      </p>
+    <!-- Camada 3: bordas topo e rodapé -->
+    <div class="hero-edge-top" aria-hidden="true"></div>
+    <div class="hero-edge-bottom" aria-hidden="true"></div>
 
-      <div class="stats-inline reveal-stagger">
-        <div class="stat-inline-item">
-          <div class="stat-inline-num">6</div>
-          <div class="stat-inline-label">Especialistas</div>
+    <!-- Detalhe decorativo: linha gold vertical na zona de transição -->
+    <div class="hero-divider-line" aria-hidden="true"></div>
+
+    <!-- Camada 4: conteúdo -->
+    <div class="hero-content">
+      <div class="hero-copy">
+        <div class="eyebrow">EVENTO PRESENCIAL &bull; 8 E 9 DE MAIO DE 2026 &bull; ALPHAVILLE, SP</div>
+
+        <h1 class="display-xl hero-headline">
+          Transforme seu<br>
+          negócio em uma<br>
+          máquina de<br>
+          <span class="line-gold">faturamento</span><br>
+          <span class="line-gold">previsível.</span>
+        </h1>
+
+        <p class="hero-lead">
+          6 especialistas. 2 dias. Uma metodologia que já gerou R$ 200M+ em receita previsível para negócios brasileiros.
+        </p>
+
+        <div class="stats-inline">
+          <div class="stat-inline-item">
+            <div class="stat-inline-num">6</div>
+            <span class="stat-inline-label">Especialistas</span>
+          </div>
+          <div class="stat-inline-item">
+            <div class="stat-inline-num">2</div>
+            <span class="stat-inline-label">Dias presenciais</span>
+          </div>
+          <div class="stat-inline-item">
+            <div class="stat-inline-num">60</div>
+            <span class="stat-inline-label">Vagas no 1º lote</span>
+          </div>
         </div>
-        <div class="stat-inline-item">
-          <div class="stat-inline-num">2</div>
-          <div class="stat-inline-label">Dias presenciais</div>
-        </div>
-        <div class="stat-inline-item">
-          <div class="stat-inline-num">60</div>
-          <div class="stat-inline-label">Vagas disponíveis</div>
-        </div>
-      </div>
 
-      <div class="hero-cta-group">
-        <a href="#" class="btn btn-gold btn-full" onclick="openModal(event)" aria-label="Garantir minha vaga — R$ 967">GARANTIR MINHA VAGA — R$ 967</a>
-        <div class="hero-meta-line">
-          <span>🛡 Garantia Vitalícia</span>
-          <span>📜 Certificado incluso</span>
-          <span>📦 Material digital</span>
+        <div class="hero-cta-group">
+          <a href="#" class="btn btn-gold btn-full" onclick="openModal(event)" aria-label="Garantir minha vaga — R$ 967">GARANTIR MINHA VAGA — R$ 967</a>
+          <div class="hero-meta-line">
+            <span>✓ Garantia Vitalícia</span>
+            <span>✓ Certificado incluso</span>
+            <span>✓ Material digital</span>
+          </div>
         </div>
-      </div>
 
-      <div class="hero-urgency-pill">
-        🔥 1º lote — menor preço disponível. Apenas 60 vagas.
+        <div class="hero-urgency-pill">
+          🔥 1º lote — menor preço disponível. Apenas 60 vagas.
+        </div>
       </div>
     </div>
 
-    <div class="hero-visual">
-      <img src="M10Club LP ARQUIVOS/public_html/wp-content/uploads/2026/03/capa-lp-m10club-2025.webp" alt="M10 Summit 2026 — evento presencial" loading="eager" />
-      <div class="floating-card" aria-hidden="true">
-        <div class="stars">★★★★★</div>
-        <p class="quote">"O evento que mudou a forma como estruturamos nossa área de vendas."</p>
-        <div class="floating-author">
-          <div class="floating-avatar">👤</div>
-          <div>
-            <span class="floating-author-name">Participante</span>
-            <span class="floating-author-role">Empresário, SP</span>
-          </div>
-        </div>
-      </div>
+    <!-- Mobile only: bloco de imagem empilhado abaixo do copy -->
+    <div class="hero-mobile-img" aria-hidden="true">
+      <img src="M10Club LP ARQUIVOS/public_html/wp-content/uploads/2026/03/capa-lp-m10club-2025.webp"
+        alt="" loading="lazy" />
     </div>
   </section>
 
