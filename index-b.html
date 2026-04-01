@@ -631,7 +631,37 @@
     .session-speaker { font-size: 12px; color: var(--text-muted); font-weight: 500; margin-top: 6px; }
 
     /* ─── SOCIAL PROOF ───────────────────────────────── */
-    /* seção comentada — reativar quando vídeo estiver disponível */
+    #social-proof { background: var(--navy); }
+    #social-proof .eyebrow { color: var(--gold); }
+    #social-proof .eyebrow::before { background: var(--gold); }
+    #social-proof .display-lg { color: var(--white); }
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      margin-top: 56px;
+      margin-bottom: 48px;
+    }
+    .testimonial-video {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16/9;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      background: #000;
+      box-shadow: 0 24px 64px rgba(0,0,0,0.5);
+    }
+    .testimonial-video video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    #social-proof .cta-center { text-align: center; }
+    @media (max-width: 768px) {
+      .testimonials-grid { grid-template-columns: 1fr; }
+    }
 
     /* ─── PARA QUEM É ────────────────────────────────── */
     #for-who { background: var(--off-white); }
@@ -1433,11 +1463,36 @@
   </section>
 
   <!-- ─── PROVA SOCIAL ─────────────────────────────────── -->
-  <!-- TODO: reativar quando vídeo estiver disponível
+  <!-- ─── PROVA SOCIAL ────────────────────────────────── -->
   <section id="social-proof" class="section">
-    ...
+    <div class="container">
+      <div class="reveal">
+        <div class="eyebrow">Resultados Reais</div>
+        <h2 class="display-lg">Quem aplicou a metodologia transformou o negócio</h2>
+      </div>
+
+      <div class="testimonials-grid">
+        <div class="testimonial-wrapper reveal">
+          <div class="testimonial-video">
+            <video controls preload="none">
+              <source src="depoimentos/Depoimento_01-M10.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+        <div class="testimonial-wrapper reveal">
+          <div class="testimonial-video">
+            <video controls preload="none">
+              <source src="depoimentos/Depoimento_02-M10.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+      </div>
+
+      <div class="cta-center reveal">
+        <a href="#" class="btn btn-gold" onclick="openModal(event)" aria-label="Quero esses resultados — garantir vaga">QUERO ESSES RESULTADOS — GARANTIR VAGA</a>
+      </div>
+    </div>
   </section>
-  -->
 
   <!-- ─── PARA QUEM É ──────────────────────────────────── -->
   <section id="for-who" class="section">

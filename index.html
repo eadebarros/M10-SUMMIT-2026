@@ -627,10 +627,9 @@
 
     .testimonials-grid {
       display: grid;
-      grid-template-columns: 1fr;
-      max-width: 720px;
+      grid-template-columns: 1fr 1fr;
       margin: 0 auto 48px;
-      gap: 24px;
+      gap: 32px;
     }
     .testimonial-video {
       position: relative;
@@ -641,12 +640,17 @@
       background: #000;
       box-shadow: 0 24px 64px rgba(0,0,0,0.6);
     }
-    .testimonial-video iframe {
+    .testimonial-video iframe,
+    .testimonial-video video {
       position: absolute;
       inset: 0;
       width: 100%;
       height: 100%;
       border: none;
+      object-fit: cover;
+    }
+    @media (max-width: 768px) {
+      .testimonials-grid { grid-template-columns: 1fr; }
     }
     .testimonial-placeholder-new {
       background: var(--dark2);
@@ -1604,7 +1608,7 @@
   </section>
 
   <!-- ─── PROVA SOCIAL ─────────────────────────────────── -->
-  <!-- TODO: reativar quando vídeo estiver disponível
+  <!-- ─── PROVA SOCIAL ────────────────────────────────── -->
   <section id="social-proof" class="section">
     <div class="container">
       <div class="section-header text-center reveal">
@@ -1615,18 +1619,16 @@
       <div class="testimonials-grid">
         <div class="testimonial-wrapper reveal">
           <div class="testimonial-video">
-            <iframe
-              src="https://www.youtube.com/embed/_6sIU7qa9ko?rel=0"
-              title="Depoimento — M10 Summit"
-              allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen
-              loading="lazy"
-            ></iframe>
+            <video controls preload="none">
+              <source src="depoimentos/Depoimento_01-M10.mp4" type="video/mp4">
+            </video>
           </div>
-          <div class="testimonial-meta">
-            <strong>Nome do Participante</strong>
-            <span class="role">Nicho / Cargo</span>
-            <em>Resultado concreto em uma linha</em>
+        </div>
+        <div class="testimonial-wrapper reveal">
+          <div class="testimonial-video">
+            <video controls preload="none">
+              <source src="depoimentos/Depoimento_02-M10.mp4" type="video/mp4">
+            </video>
           </div>
         </div>
       </div>
@@ -1636,7 +1638,6 @@
       </div>
     </div>
   </section>
-  -->
 
   <!-- ─── PARA QUEM É ──────────────────────────────────── -->
   <section id="for-who" class="section">
