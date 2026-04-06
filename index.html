@@ -277,7 +277,7 @@
     }
     .hero-content .tag { margin-bottom: 28px; }
 
-    .hero-headline { margin-bottom: 24px; }
+    .hero-headline { margin-bottom: 24px; transition: opacity 0.5s ease; }
     .hero-headline .line-white { color: var(--white); display: block; }
     .hero-headline .line-gold {
       color: var(--gold);
@@ -1288,11 +1288,7 @@
       <div class="hero-content">
         <span class="tag">Evento Presencial &bull; 8 e 9 de Maio de 2026</span>
 
-        <h1 class="display-xl hero-headline">
-          <span class="line-white">Transforme seu negócio</span>
-          <span class="line-white">em uma máquina de</span>
-          <span class="line-gold">faturamento previsível</span>
-        </h1>
+        <h1 id="hero-headline" class="display-xl hero-headline"></h1>
 
         <p class="hero-sub">
           6 especialistas. 2 dias. Uma metodologia que já gerou R$ 200M+ em receita previsível para negócios brasileiros.
@@ -1953,6 +1949,61 @@
   </div>
 
   <script>
+    // ── Hero Headline Rotation ────────────────────────────
+    const HERO_HEADLINES = [
+      {
+        white: ['Transforme seu negócio', 'em uma máquina de'],
+        gold:  'faturamento previsível'
+      },
+      {
+        white: ['Chega de depender', 'de indicação.'],
+        gold:  'Construa previsibilidade.'
+      },
+      {
+        white: ['De vendas no improviso', 'para receita'],
+        gold:  'recorrente e previsível'
+      },
+      {
+        white: ['2 dias para montar', 'sua máquina de'],
+        gold:  'vendas previsíveis'
+      },
+      {
+        white: ['O método que gerou', 'R$ 200M+ em'],
+        gold:  'receita para negócios'
+      }
+    ];
+
+    let _hlIndex = 0;
+    const _hlEl = document.getElementById('hero-headline');
+
+    function renderHeadline(msg) {
+      _hlEl.innerHTML =
+        msg.white.map(t => `<span class="line-white">${t}</span>`).join('') +
+        `<span class="line-gold">${msg.gold}</span>`;
+    }
+
+    function rotateHeadline() {
+      _hlEl.style.opacity = '0';
+      setTimeout(() => {
+        _hlIndex = (_hlIndex + 1) % HERO_HEADLINES.length;
+        renderHeadline(HERO_HEADLINES[_hlIndex]);
+        _hlEl.style.opacity = '1';
+        if (typeof gtag !== 'undefined') {
+          gtag('event', 'headline_impression', {
+            event_category: 'hero_test',
+            event_label: HERO_HEADLINES[_hlIndex].gold,
+            headline_index: _hlIndex,
+            ab_variant: 'A'
+          });
+        }
+      }, 500);
+    }
+
+    // Inicia com headline aleatória e depois rotaciona a cada 5s
+    _hlIndex = Math.floor(Math.random() * HERO_HEADLINES.length);
+    renderHeadline(HERO_HEADLINES[_hlIndex]);
+    setInterval(rotateHeadline, 5000);
+
     // ── WhatsApp CTA tracking ─────────────────────────────
     function trackCTA() {
       if (typeof gtag !== 'undefined') {
