@@ -228,6 +228,10 @@ async function runSymplaSync() {
 // ─── Email cron ───────────────────────────────────────────────────────────────
 
 async function runEmailCron() {
+  if (process.env.EMAILS_PAUSED === 'true') {
+    console.log('[cron] EMAILS_PAUSED=true — skipping email cron');
+    return;
+  }
   try {
     const { rows: sequences } = await pool.query(
       'SELECT * FROM email_sequences WHERE active = TRUE'
