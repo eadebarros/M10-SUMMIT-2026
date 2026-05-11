@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { --color-void: #0a0a0a; --color-amber-core: #FFB347; --color-amber-glow: #FF8C00; }
+* { -webkit-tap-highlight-color: transparent; }
+html, body { height: 100%; overscroll-behavior: none; background: var(--color-void); color: #e4e4e7; }
+body { position: fixed; width: 100%; overflow: hidden; }
+.overflow-y-auto { -webkit-overflow-scrolling: touch; }
